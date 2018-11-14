@@ -7,63 +7,64 @@ import java.sql.*;
 import javax.swing.*;
 
 public class CAntecedentesPersonales extends JInternalFrame {
+
     Object objppalap;
     Object obotactualizarGO;
     String cad1;
     String cad2;
     public Statement TSentenciaconsultaGO;
     public ResultSet RconsultaGO;
-    public ConexionSql Cconsql= new ConexionSql();
-    ValidarComponentes validGO=new ValidarComponentes();
+    public ConexionSql Cconsql = new ConexionSql();
+    ValidarComponentes validGO = new ValidarComponentes();
     String numingredicGO;
     int swedicingrGO;
-    Object  objetoginecoobs= new Object();
-    Object framedetantperso=new Object();
+    Object objetoginecoobs = new Object();
+    Object framedetantperso = new Object();
     int swval;
-    String nombrap= new String();
-    String numhcap= new String();
-    Object JDPIngresoobjAP=new Object();
-    Object frameAPOBJ= new Object();
-    Object frameafOBJ= new Object();
-    Object framehoOBJ= new Object();
-    Object frameEnfProfOBJ=new Object();
-    Object frameAcciTrabajoOBJ=new Object();
-    Object frameAntecFamOBJ=new Object();
-    Object frameAntecPersonalOBJ=new Object();
+    String nombrap = new String();
+    String numhcap = new String();
+    Object JDPIngresoobjAP = new Object();
+    Object frameAPOBJ = new Object();
+    Object frameafOBJ = new Object();
+    Object framehoOBJ = new Object();
+    Object frameEnfProfOBJ = new Object();
+    Object frameAcciTrabajoOBJ = new Object();
+    Object frameAntecFamOBJ = new Object();
+    Object frameAntecPersonalOBJ = new Object();
     //DECLARACION DE VARIABLES
-    int swgte=0;
-    public static int swdiabet=1;
-    public static int swhipart=1;
-    public static int swcoronaria=1;
-    public static int swdislipedia=1;
-    public static int swasmabronq=1;
-    public static int swpsicopatia=1;
-    public static int swalergia=1;
-    public static int swtuberculosis=1;
-    public static int swatipia=1;
-    public static int swgota=1;
-    public static int swatccbroncpulm=1;
-    public static int swendocrinopatias=1;
-    public static int swnefrologias=1;
-    public static int swpatias=1;
-    public static int swhemopatias=1;
-    public static int swets=1;
-    public static int swgastroduod=1;
-    public static int swcolecistopatia=1;
-    public static int swhepatitis=1;
-    public static int swenfneurologicas=1;
-    public static int swfiebresprolongadas=1;
-    public static int swcolageno=1;
-    public static int swtraumat=1;
-    public static int swotros=1;
-   /// public  CDetallesAP framedetantperso;
+    int swgte = 0;
+    public static int swdiabet = 1;
+    public static int swhipart = 1;
+    public static int swcoronaria = 1;
+    public static int swdislipedia = 1;
+    public static int swasmabronq = 1;
+    public static int swpsicopatia = 1;
+    public static int swalergia = 1;
+    public static int swtuberculosis = 1;
+    public static int swatipia = 1;
+    public static int swgota = 1;
+    public static int swatccbroncpulm = 1;
+    public static int swendocrinopatias = 1;
+    public static int swnefrologias = 1;
+    public static int swpatias = 1;
+    public static int swhemopatias = 1;
+    public static int swets = 1;
+    public static int swgastroduod = 1;
+    public static int swcolecistopatia = 1;
+    public static int swhepatitis = 1;
+    public static int swenfneurologicas = 1;
+    public static int swfiebresprolongadas = 1;
+    public static int swcolageno = 1;
+    public static int swtraumat = 1;
+    public static int swotros = 1;
+    /// public  CDetallesAP framedetantperso;
     public JDesktopPane JDPAntPersObj = new JDesktopPane();
     CAntecedentesPersonales objCAP;
-    public String nombredetalle="";
-   // CMotivoEnfermedad objvarME;
-    Object  framevarOAnt;
+    public String nombredetalle = "";
+    // CMotivoEnfermedad objvarME;
+    Object framevarOAnt;
     Object OGingrAP;
-   //DECLARACION DE COMPONENTES VISUALES
+    //DECLARACION DE COMPONENTES VISUALES
     JPanel JPAntecedentesPersonales = new JPanel();
     JLabel JLBNhcAP = new JLabel();
     JButton JBAtrasAC = new JButton();
@@ -149,32 +150,31 @@ public class CAntecedentesPersonales extends JInternalFrame {
     JCheckBox JCHOtros = new JCheckBox();
     JButton JBOtros = new JButton();
     JTextField JTFOtros = new JTextField();
-    public CAntecedentesPersonales(Object obotactualizarAF,String numingredicAP,int swedicingrAP,String Nombrepacap,CAntecedentesFamiliar frameaf,String varnHC,JDesktopPane JDPIngreso,CIngreso frameingreso,CHistoriaOcup framehistocup,CEnfermedadProf frameenfermedadprof,CHistoriaAcciTrab frameaccitrabajo,Object objppalaf) {
 
-       try {
+    public CAntecedentesPersonales(Object obotactualizarAF, String numingredicAP, int swedicingrAP, String Nombrepacap, CAntecedentesFamiliar frameaf, String varnHC, JDesktopPane JDPIngreso, CIngreso frameingreso, CHistoriaOcup framehistocup, CEnfermedadProf frameenfermedadprof, CHistoriaAcciTrab frameaccitrabajo, Object objppalaf) {
+
+        try {
             jbInit();
-            frameAPOBJ=frameingreso;
-            frameafOBJ=frameaf;
-            framehoOBJ=framehistocup;
-            frameEnfProfOBJ=frameenfermedadprof;
-            frameAcciTrabajoOBJ=frameaccitrabajo;
+            frameAPOBJ = frameingreso;
+            frameafOBJ = frameaf;
+            framehoOBJ = framehistocup;
+            frameEnfProfOBJ = frameenfermedadprof;
+            frameAcciTrabajoOBJ = frameaccitrabajo;
             //frameAntecFamOBJ=frameantecendnetesfam;
             JLBNombpacAP.setText(Nombrepacap);
             JLBnhcAP.setText(varnHC);
-            JDPIngresoobjAP=JDPIngreso;
-            nombrap=Nombrepacap;
-            numhcap=varnHC;
-            swgte=0;
-            swedicingrGO=swedicingrAP;
-            numingredicGO=numingredicAP;
-            obotactualizarGO=obotactualizarAF;
-            objppalap=objppalaf;
-       }
-       catch (Exception ex) {
-           ex.printStackTrace();
-       }
+            JDPIngresoobjAP = JDPIngreso;
+            nombrap = Nombrepacap;
+            numhcap = varnHC;
+            swgte = 0;
+            swedicingrGO = swedicingrAP;
+            numingredicGO = numingredicAP;
+            obotactualizarGO = obotactualizarAF;
+            objppalap = objppalaf;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
-
 
     private void jbInit() throws Exception {
         //DESACTIVAMOS LOS CUADROS DE TEXTO
@@ -186,7 +186,7 @@ public class CAntecedentesPersonales extends JInternalFrame {
         JTFPsicopatia.setEditable(false);
         JTFAlergiaAP.setEditable(false);
         JTFTuberculosisAP.setEditable(false);
-        JTFAtipiaAP .setEditable(false);
+        JTFAtipiaAP.setEditable(false);
         JTFGotaAP.setEditable(false);
         JTFEndocrinopatiasAP.setEditable(false);
         JTNefrologiasAP.setEditable(false);
@@ -194,7 +194,7 @@ public class CAntecedentesPersonales extends JInternalFrame {
         JTFHemopatias.setEditable(false);
         JTFETSap.setEditable(false);
         JTFUlcGastrDuodAP.setEditable(false);
-        JTFColecistopatia .setEditable(false);
+        JTFColecistopatia.setEditable(false);
         JTFHepatitis.setEditable(false);
         JTFEnfNeurologAP.setEditable(false);
         JFTFiebresProlongAP.setEditable(false);
@@ -235,7 +235,7 @@ public class CAntecedentesPersonales extends JInternalFrame {
 
         this.getContentPane().setLayout(null);
         JPAntecedentesPersonales.setBackground(new Color(122, 150, 223));
-        JPAntecedentesPersonales.setFont(new java.awt.Font("Arial", Font.BOLD,14));
+        JPAntecedentesPersonales.setFont(new java.awt.Font("Arial", Font.BOLD, 14));
         JPAntecedentesPersonales.setBorder(BorderFactory.createRaisedBevelBorder());
         JPAntecedentesPersonales.setBounds(new Rectangle(6, 3, 991, 557));
         JPAntecedentesPersonales.setLayout(null);
@@ -639,8 +639,7 @@ public class CAntecedentesPersonales extends JInternalFrame {
         JCHAffBroncoAP.setActionCommand("Hipert. Arterial");
         JCHAffBroncoAP.setText("AF.BRONCOPULM");
         JCHAffBroncoAP.setBounds(new Rectangle(104, 370, 122, 23));
-        JCHAffBroncoAP.addActionListener(new
-                CAntecedentesPersonales_JCHAffBroncoAP_actionAdapter(this));
+        JCHAffBroncoAP.addActionListener(new CAntecedentesPersonales_JCHAffBroncoAP_actionAdapter(this));
         JTFAfccbroncpulm.setFont(new java.awt.Font("Arial", Font.BOLD, 11));
         JTFAfccbroncpulm.setBorder(BorderFactory.createRaisedBevelBorder());
         JTFAfccbroncpulm.setToolTipText("");
@@ -683,30 +682,26 @@ public class CAntecedentesPersonales extends JInternalFrame {
         JCHTraumatismo.setActionCommand("Hipert. Arterial");
         JCHTraumatismo.setText("TRAUMATISMO");
         JCHTraumatismo.setBounds(new Rectangle(104, 64, 122, 23));
-        JCHTraumatismo.addActionListener(new
-                CAntecedentesPersonales_JCHTraumatismo_actionAdapter(this));
+        JCHTraumatismo.addActionListener(new CAntecedentesPersonales_JCHTraumatismo_actionAdapter(this));
         JBtraumatism.setBounds(new Rectangle(345, 67, 57, 22));
         JBtraumatism.setEnabled(false);
         JBtraumatism.setToolTipText("");
         JBtraumatism.setActionCommand("");
         JBtraumatism.setIcon(new ImageIcon(new java.net.URL("file:///C:/SALUD_OCUPACIONAL/Imagenes/AG_CLICK.GIF")));
-        JBtraumatism.addActionListener(new
-                CAntecedentesPersonales_JBtraumatism_actionAdapter(this));
+        JBtraumatism.addActionListener(new CAntecedentesPersonales_JBtraumatism_actionAdapter(this));
         JCHOtros.setBackground(SystemColor.textHighlight);
         JCHOtros.setFont(new java.awt.Font("Arial", Font.BOLD, 11));
         JCHOtros.setBorder(BorderFactory.createRaisedBevelBorder());
         JCHOtros.setToolTipText("");
         JCHOtros.setText("OTROS");
         JCHOtros.setBounds(new Rectangle(552, 363, 128, 23));
-        JCHOtros.addActionListener(new
-                CAntecedentesPersonales_JCHOtros_actionAdapter(this));
+        JCHOtros.addActionListener(new CAntecedentesPersonales_JCHOtros_actionAdapter(this));
         JBOtros.setBounds(new Rectangle(814, 366, 57, 29));
         JBOtros.setEnabled(false);
         JBOtros.setToolTipText("");
         JBOtros.setActionCommand("JBDiabet");
         JBOtros.setIcon(new ImageIcon(new java.net.URL("file:///C:/SALUD_OCUPACIONAL/Imagenes/AG_CLICK.GIF")));
-        JBOtros.addActionListener(new
-                                  CAntecedentesPersonales_JBOtros_actionAdapter(this));
+        JBOtros.addActionListener(new CAntecedentesPersonales_JBOtros_actionAdapter(this));
         JTFOtros.setFont(new java.awt.Font("Arial", Font.BOLD, 11));
         JTFOtros.setBorder(BorderFactory.createRaisedBevelBorder());
         JTFOtros.setToolTipText("");
@@ -803,295 +798,311 @@ public class CAntecedentesPersonales extends JInternalFrame {
         JLBNombpacAP.setBounds(new Rectangle(4, 7, 297, 24));
     }
 
-
-
-
-
-
     /**
      * inicioventanaAP
      */
     public void inicioventanaAP(CAntecedentesPersonales frameAP) {
-        objCAP=frameAP;
+        objCAP = frameAP;
     }
 
     public void abrirformulariodetalles(JTextField JFTabrirform) {
-         JDesktopPane JDPIngresoAP=new JDesktopPane();
-         JDPIngresoAP=(JDesktopPane)JDPIngresoobjAP;
-         objCAP.setVisible(false);
-         CDetallesAP framedetallap= new  CDetallesAP(objCAP);
-         framedetantperso=framedetallap;procesoeditor(JFTabrirform);
-         framedetallap.setBounds(0, 2, 550, 600);
-         framedetallap.setTitle("DETALLES ANTECEDENTES PERSONALES");
-         JDPIngresoAP.add(framedetallap, new Integer(1));
-         framedetallap.setLocation(234, 55);
-         framedetallap.show();
-         framedetallap.setVisible(true);
-         framedetallap.JEDPdetAP.requestFocus();
+        JDesktopPane JDPIngresoAP = new JDesktopPane();
+        JDPIngresoAP = (JDesktopPane) JDPIngresoobjAP;
+        objCAP.setVisible(false);
+        CDetallesAP framedetallap = new CDetallesAP(objCAP);
+        framedetantperso = framedetallap;
+        procesoeditor(JFTabrirform);
+        framedetallap.setBounds(0, 2, 550, 600);
+        framedetallap.setTitle("DETALLES ANTECEDENTES PERSONALES");
+        JDPIngresoAP.add(framedetallap, new Integer(1));
+        framedetallap.setLocation(234, 55);
+        framedetallap.show();
+        framedetallap.setVisible(true);
+        framedetallap.JEDPdetAP.requestFocus();
     }
 
     public void JCHAsmaBronq_actionPerformed(ActionEvent e) {
-        controlbotones(JCHAsmaBronq,JTFAsmaBronquial,JBAsmaBronquial);
+        controlbotones(JCHAsmaBronq, JTFAsmaBronquial, JBAsmaBronquial);
         //JBAsmaBronquial.setEnabled(true);
     }
 
     public void JBDiabet_actionPerformed(ActionEvent e) {
-         // if(JTFDiabet.getText().compareTo("")==0){
-             nombredetalle="DIABETES";
-             abrirformulariodetalles(JTFDiabet);swdiabet=1;
+        // if(JTFDiabet.getText().compareTo("")==0){
+        nombredetalle = "DIABETES";
+        abrirformulariodetalles(JTFDiabet);
+        swdiabet = 1;
 
     }
 
-
     public void JBHipArt_actionPerformed(ActionEvent e) {
-           nombredetalle="HIPERTENSION ARTERIAL";
-           abrirformulariodetalles(JTFHiperArt);
-           swhipart=1;
+        nombredetalle = "HIPERTENSION ARTERIAL";
+        abrirformulariodetalles(JTFHiperArt);
+        swhipart = 1;
     }
 
     public void JBCoronario_actionPerformed(ActionEvent e) {
-            nombredetalle="CORONARIOPATIA";
-            abrirformulariodetalles(JFTCoronario);swcoronaria=1;
+        nombredetalle = "CORONARIOPATIA";
+        abrirformulariodetalles(JFTCoronario);
+        swcoronaria = 1;
     }
 
     public void JBDislipidemia_actionPerformed(ActionEvent e) {
-            nombredetalle="DISLIPIDEMIA";
-            abrirformulariodetalles(JTFDislipidemia);swdislipedia=1;
+        nombredetalle = "DISLIPIDEMIA";
+        abrirformulariodetalles(JTFDislipidemia);
+        swdislipedia = 1;
     }
 
     public void JBAsmaBronquial_actionPerformed(ActionEvent e) {
-           nombredetalle="ASMA BRONQUIAL";
-           abrirformulariodetalles(JTFAsmaBronquial);swasmabronq=1;
+        nombredetalle = "ASMA BRONQUIAL";
+        abrirformulariodetalles(JTFAsmaBronquial);
+        swasmabronq = 1;
     }
 
     public void JBPsicopatia_actionPerformed(ActionEvent e) {
-        nombredetalle="PSICOPATIA";
-        abrirformulariodetalles(JTFPsicopatia);swpsicopatia=1;
+        nombredetalle = "PSICOPATIA";
+        abrirformulariodetalles(JTFPsicopatia);
+        swpsicopatia = 1;
     }
 
     public void JBAlergias_actionPerformed(ActionEvent e) {
-           nombredetalle="ALERGIAS";
-           abrirformulariodetalles(JTFAlergiaAP);swalergia=1;
+        nombredetalle = "ALERGIAS";
+        abrirformulariodetalles(JTFAlergiaAP);
+        swalergia = 1;
     }
 
     public void JBTuberculosisAP_actionPerformed(ActionEvent e) {
-           nombredetalle="TUBERCULOSIS";
-           abrirformulariodetalles(JTFTuberculosisAP);swtuberculosis=1;
+        nombredetalle = "TUBERCULOSIS";
+        abrirformulariodetalles(JTFTuberculosisAP);
+        swtuberculosis = 1;
     }
 
     public void JBAtipia_actionPerformed(ActionEvent e) {
-           nombredetalle="ATIPIA";
-           abrirformulariodetalles(JTFAtipiaAP);swatipia=1;
+        nombredetalle = "ATIPIA";
+        abrirformulariodetalles(JTFAtipiaAP);
+        swatipia = 1;
     }
 
     public void JBGota_actionPerformed(ActionEvent e) {
-           nombredetalle="GOTA";
-           abrirformulariodetalles(JTFGotaAP);swgota=1;
+        nombredetalle = "GOTA";
+        abrirformulariodetalles(JTFGotaAP);
+        swgota = 1;
     }
 
     public void JBAfccBroncPulm_actionPerformed(ActionEvent e) {
-           nombredetalle="AFECCION BRONCOPULMONAR";
-           abrirformulariodetalles(JTFAfccbroncpulm);swatccbroncpulm=1;
+        nombredetalle = "AFECCION BRONCOPULMONAR";
+        abrirformulariodetalles(JTFAfccbroncpulm);
+        swatccbroncpulm = 1;
     }
 
     public void JBendocrinopatias_actionPerformed(ActionEvent e) {
-           nombredetalle="ENDOCRINOPATIAS";
-           abrirformulariodetalles(JTFEndocrinopatiasAP);swendocrinopatias=1;
+        nombredetalle = "ENDOCRINOPATIAS";
+        abrirformulariodetalles(JTFEndocrinopatiasAP);
+        swendocrinopatias = 1;
     }
 
     public void JBNefrologiasAP_actionPerformed(ActionEvent e) {
-           nombredetalle="NEFROPATIAS";
-           abrirformulariodetalles(JTNefrologiasAP);swnefrologias=1;
+        nombredetalle = "NEFROPATIAS";
+        abrirformulariodetalles(JTNefrologiasAP);
+        swnefrologias = 1;
     }
 
     public void JBPatia_actionPerformed(ActionEvent e) {
-           nombredetalle="QUIRURGICOS";
-           abrirformulariodetalles(JTFPatiasAP);swpatias=1;
+        nombredetalle = "QUIRURGICOS";
+        abrirformulariodetalles(JTFPatiasAP);
+        swpatias = 1;
     }
 
     public void JBHemopatiasAP_actionPerformed(ActionEvent e) {
-           nombredetalle="HEMOPATIAS";
-           abrirformulariodetalles(JTFHemopatias);swhemopatias=1;
+        nombredetalle = "HEMOPATIAS";
+        abrirformulariodetalles(JTFHemopatias);
+        swhemopatias = 1;
     }
 
     public void JBEts_actionPerformed(ActionEvent e) {
-           nombredetalle="E.T.S.";
-           abrirformulariodetalles(JTFETSap);swets=1;
+        nombredetalle = "E.T.S.";
+        abrirformulariodetalles(JTFETSap);
+        swets = 1;
     }
 
     public void JBUlcGastr_actionPerformed(ActionEvent e) {
-           nombredetalle="ULCERA GASTRODUODENAL";
-           abrirformulariodetalles(JTFUlcGastrDuodAP);swgastroduod=1;
+        nombredetalle = "ULCERA GASTRODUODENAL";
+        abrirformulariodetalles(JTFUlcGastrDuodAP);
+        swgastroduod = 1;
     }
 
     public void JBColecistopatia_actionPerformed(ActionEvent e) {
-           nombredetalle="COLECISTOPATIA";
-           abrirformulariodetalles(JTFColecistopatia);swcolecistopatia=1;
+        nombredetalle = "COLECISTOPATIA";
+        abrirformulariodetalles(JTFColecistopatia);
+        swcolecistopatia = 1;
     }
 
     public void JBHepatis_actionPerformed(ActionEvent e) {
-           nombredetalle="HEPATITIS";
-           abrirformulariodetalles(JTFHepatitis);swhepatitis=1;
+        nombredetalle = "HEPATITIS";
+        abrirformulariodetalles(JTFHepatitis);
+        swhepatitis = 1;
     }
 
     public void JBEnfNeurologicas_actionPerformed(ActionEvent e) {
-           nombredetalle="ENFERMEDADES NEUROLOGICAS";
-           abrirformulariodetalles(JTFEnfNeurologAP);swenfneurologicas=1;
+        nombredetalle = "ENFERMEDADES NEUROLOGICAS";
+        abrirformulariodetalles(JTFEnfNeurologAP);
+        swenfneurologicas = 1;
     }
 
     public void JBFiebresProlongAP_actionPerformed(ActionEvent e) {
-           nombredetalle="FIEBRES PROLONGADAS";
-           abrirformulariodetalles(JFTFiebresProlongAP);swfiebresprolongadas=1;
+        nombredetalle = "FIEBRES PROLONGADAS";
+        abrirformulariodetalles(JFTFiebresProlongAP);
+        swfiebresprolongadas = 1;
     }
 
     public void JBColagenopatias_actionPerformed(ActionEvent e) {
-           nombredetalle="COLAGENOPATIAS";
-           abrirformulariodetalles(JFTColagenopatias);swcolageno=1;
+        nombredetalle = "COLAGENOPATIAS";
+        abrirformulariodetalles(JFTColagenopatias);
+        swcolageno = 1;
     }
 
-
     public void procesoeditor(JTextField JFTvar) {
-       CDetallesAP Cdetap;
-       Cdetap=(CDetallesAP)framedetantperso;
-       Cdetap.JEDPdetAP.setText(JFTvar.getText());
+        CDetallesAP Cdetap;
+        Cdetap = (CDetallesAP) framedetantperso;
+        Cdetap.JEDPdetAP.setText(JFTvar.getText());
     }
 
     public void JCHDiabet_actionPerformed(ActionEvent e) {
-             controlbotones(JCHDiabet,JTFDiabet,JBDiabet);
-          // JBDiabet.setEnabled(true);
+        controlbotones(JCHDiabet, JTFDiabet, JBDiabet);
+        // JBDiabet.setEnabled(true);
     }
 
     public void JCHHipArt_actionPerformed(ActionEvent e) {
-            controlbotones(JCHHipArt,JTFHiperArt,JBHipArt);
-            //JBHipArt.setEnabled(true);
+        controlbotones(JCHHipArt, JTFHiperArt, JBHipArt);
+        //JBHipArt.setEnabled(true);
     }
 
     public void JCHCoronario_actionPerformed(ActionEvent e) {
-            controlbotones(JCHCoronario,JFTCoronario,JBCoronario);
-            //JBCoronario.setEnabled(true);
+        controlbotones(JCHCoronario, JFTCoronario, JBCoronario);
+        //JBCoronario.setEnabled(true);
     }
 
     public void JCHDislipedia_actionPerformed(ActionEvent e) {
-            controlbotones(JCHDislipedia,JTFDislipidemia,JBDislipidemia);
-            //JBDislipidemia.setEnabled(true);
+        controlbotones(JCHDislipedia, JTFDislipidemia, JBDislipidemia);
+        //JBDislipidemia.setEnabled(true);
     }
 
     public void JCHPsicopatia_actionPerformed(ActionEvent e) {
-           controlbotones(JCHPsicopatia,JTFPsicopatia,JBPsicopatia);
-           //JBPsicopatia.setEnabled(true);
+        controlbotones(JCHPsicopatia, JTFPsicopatia, JBPsicopatia);
+        //JBPsicopatia.setEnabled(true);
     }
 
     public void JCHAlergiaAp_actionPerformed(ActionEvent e) {
-          controlbotones(JCHAlergiaAp,JTFAlergiaAP,JBAlergias);
-           //JBAlergias.setEnabled(true);
+        controlbotones(JCHAlergiaAp, JTFAlergiaAP, JBAlergias);
+        //JBAlergias.setEnabled(true);
     }
 
     public void JCHTuberculosisAP_actionPerformed(ActionEvent e) {
-           controlbotones(JCHTuberculosisAP,JTFTuberculosisAP,JBTuberculosisAP);
-           //JBTuberculosisAP.setEnabled(true);
+        controlbotones(JCHTuberculosisAP, JTFTuberculosisAP, JBTuberculosisAP);
+        //JBTuberculosisAP.setEnabled(true);
     }
 
     public void JCHAtipiaAP_actionPerformed(ActionEvent e) {
-           controlbotones(JCHAtipiaAP,JTFAtipiaAP,JBAtipia);
-           //JBAtipia.setEnabled(true);
+        controlbotones(JCHAtipiaAP, JTFAtipiaAP, JBAtipia);
+        //JBAtipia.setEnabled(true);
     }
 
     public void JCHGotaAP_actionPerformed(ActionEvent e) {
-           controlbotones(JCHGotaAP,JTFGotaAP,JBGota);
-           //JBGota.setEnabled(true);
+        controlbotones(JCHGotaAP, JTFGotaAP, JBGota);
+        //JBGota.setEnabled(true);
     }
 
     public void JCHEndocrinopatiasAP_actionPerformed(ActionEvent e) {
-           controlbotones(JCHEndocrinopatiasAP,JTFEndocrinopatiasAP,JBendocrinopatias);
-           //JBendocrinopatias.setEnabled(true);
+        controlbotones(JCHEndocrinopatiasAP, JTFEndocrinopatiasAP, JBendocrinopatias);
+        //JBendocrinopatias.setEnabled(true);
     }
 
     public void JCHNefrologiasAP_actionPerformed(ActionEvent e) {
-           controlbotones(JCHNefrologiasAP,JTNefrologiasAP,JBNefrologiasAP);
-           //JBNefrologiasAP.setEnabled(true);
+        controlbotones(JCHNefrologiasAP, JTNefrologiasAP, JBNefrologiasAP);
+        //JBNefrologiasAP.setEnabled(true);
     }
 
     public void JCHPatiasAP_actionPerformed(ActionEvent e) {
-             controlbotones(JCHPatiasAP,JTFPatiasAP,JBPatia);
-             //JBPatia.setEnabled(true);
+        controlbotones(JCHPatiasAP, JTFPatiasAP, JBPatia);
+        //JBPatia.setEnabled(true);
     }
 
     public void JCHHemopatiasAP_actionPerformed(ActionEvent e) {
-            controlbotones(JCHHemopatiasAP,JTFHemopatias,JBHemopatiasAP);
-           //JBHemopatiasAP.setEnabled(true);
+        controlbotones(JCHHemopatiasAP, JTFHemopatias, JBHemopatiasAP);
+        //JBHemopatiasAP.setEnabled(true);
     }
 
     public void JCHEtsAP_actionPerformed(ActionEvent e) {
-            controlbotones(JCHEtsAP,JTFETSap,JBEts);
-            //JBEts.setEnabled(true);
+        controlbotones(JCHEtsAP, JTFETSap, JBEts);
+        //JBEts.setEnabled(true);
     }
 
     public void JCHUlceraGastr_actionPerformed(ActionEvent e) {
-             controlbotones(JCHUlceraGastr,JTFUlcGastrDuodAP,JBUlcGastr);
-            //JBEts.setEnabled(true);
+        controlbotones(JCHUlceraGastr, JTFUlcGastrDuodAP, JBUlcGastr);
+        //JBEts.setEnabled(true);
     }
 
     public void JCHColecistopatiaAP_actionPerformed(ActionEvent e) {
-           controlbotones(JCHColecistopatiaAP,JTFColecistopatia,JBColecistopatia);
-           //JBColecistopatia.setEnabled(true);
+        controlbotones(JCHColecistopatiaAP, JTFColecistopatia, JBColecistopatia);
+        //JBColecistopatia.setEnabled(true);
     }
 
     public void JCHHepatitis_actionPerformed(ActionEvent e) {
-           controlbotones(JCHHepatitis,JTFHepatitis,JBHepatis);
-           //JBHepatis.setEnabled(true);
+        controlbotones(JCHHepatitis, JTFHepatitis, JBHepatis);
+        //JBHepatis.setEnabled(true);
     }
 
     public void JCHEnfNeurologicaEP_actionPerformed(ActionEvent e) {
-            controlbotones(JCHEnfNeurologicaEP,JTFEnfNeurologAP,JBEnfNeurologicas);
-           //JBEnfNeurologicas.setEnabled(true);
+        controlbotones(JCHEnfNeurologicaEP, JTFEnfNeurologAP, JBEnfNeurologicas);
+        //JBEnfNeurologicas.setEnabled(true);
     }
 
     public void JCHFiebresProAP_actionPerformed(ActionEvent e) {
-            controlbotones(JCHFiebresProAP,JFTFiebresProlongAP,JBFiebresProlongAP);
-            //JBEnfNeurologicas.setEnabled(true);
+        controlbotones(JCHFiebresProAP, JFTFiebresProlongAP, JBFiebresProlongAP);
+        //JBEnfNeurologicas.setEnabled(true);
     }
 
     public void JCHColagenopatias_actionPerformed(ActionEvent e) {
-         controlbotones(JCHColagenopatias,JFTColagenopatias,JBColagenopatias);
-         //JBColagenopatias.setEnabled(true);
+        controlbotones(JCHColagenopatias, JFTColagenopatias, JBColagenopatias);
+        //JBColagenopatias.setEnabled(true);
     }
 
     public void JBSgteAP_actionPerformed(ActionEvent e) {
-      validarnulosGO();
-     }
+        validarnulosGO();
+    }
 
     public void JBAtrasAC_actionPerformed(ActionEvent e) {
-         CAntecedentesFamiliar frameAFAtras;
-         frameAFAtras=(CAntecedentesFamiliar)frameafOBJ;
-         frameAFAtras.setVisible(true);
-         objCAP.setVisible(false);
-     }
+        CAntecedentesFamiliar frameAFAtras;
+        frameAFAtras = (CAntecedentesFamiliar) frameafOBJ;
+        frameAFAtras.setVisible(true);
+        objCAP.setVisible(false);
+    }
+
     public void JBCancelarAP_actionPerformed(ActionEvent e) {
-          // procesocancelarAP();
+        // procesocancelarAP();
     }
 
     /**
      * validarnulosGO
      */
     public void validarnulosGO() {
-        swval=0;
+        swval = 0;
         CIngreso frameingreso;
-        frameingreso=(CIngreso)frameAPOBJ;
+        frameingreso = (CIngreso) frameAPOBJ;
         CHistoriaOcup framehistocup;
         CEnfermedadProf frameenfermedadprof;
         CHistoriaAcciTrab frameaccitrabajo;
         CAntecedentesFamiliar frameantecendnetesfam;
         CAntecedentesPersonales frameap;
-        frameap=(CAntecedentesPersonales)objCAP;
+        frameap = (CAntecedentesPersonales) objCAP;
         frameap.setVisible(false);
-        JDesktopPane JDPIngresoEP=new JDesktopPane();
-        JDPIngresoEP=(JDesktopPane)JDPIngresoobjAP;
-        framehistocup=(CHistoriaOcup)framehoOBJ;
-        frameenfermedadprof=(CEnfermedadProf)frameEnfProfOBJ;
-        frameaccitrabajo=(CHistoriaAcciTrab)frameAcciTrabajoOBJ;
-        frameantecendnetesfam=(CAntecedentesFamiliar)frameafOBJ;
-        if(swgte==0){
-            CAGineco frameGO = new CAGineco(obotactualizarGO,numingredicGO,swedicingrGO,nombrap,frameap,numhcap,JDPIngresoEP,frameingreso,framehistocup,frameenfermedadprof,frameaccitrabajo,frameantecendnetesfam,objppalap);
+        JDesktopPane JDPIngresoEP = new JDesktopPane();
+        JDPIngresoEP = (JDesktopPane) JDPIngresoobjAP;
+        framehistocup = (CHistoriaOcup) framehoOBJ;
+        frameenfermedadprof = (CEnfermedadProf) frameEnfProfOBJ;
+        frameaccitrabajo = (CHistoriaAcciTrab) frameAcciTrabajoOBJ;
+        frameantecendnetesfam = (CAntecedentesFamiliar) frameafOBJ;
+        if (swgte == 0) {
+            CAGineco frameGO = new CAGineco(obotactualizarGO, numingredicGO, swedicingrGO, nombrap, frameap, numhcap, JDPIngresoEP, frameingreso, framehistocup, frameenfermedadprof, frameaccitrabajo, frameantecendnetesfam, objppalap);
             frameGO.setBounds(0, 2, 1010, 600);
             frameGO.setTitle("ANTECEDENTES GINECOOBSTETRICIOS");
             JDPIngresoEP.add(frameGO, new Integer(1));
@@ -1099,79 +1110,77 @@ public class CAntecedentesPersonales extends JInternalFrame {
             frameGO.show();
             frameGO.setVisible(true);
             frameGO.inicioventanaAP(frameGO);
-            swgte=1;
-            objetoginecoobs=frameGO;
-                    if(swedicingrGO==1){
-                        String cadsqledicGO,idmenarquia,sqlGO;
-                        Connection con2=Cconsql.getConnection();
-                        cadsqledicGO="SELECT ingreso.id_ingreso, ginecologia.idmenarquia_gineco, ginecologia.ciclos_gineco, ginecologia.fechaultregla_gineco, ginecologia.gravidez_gineco, ginecologia.paridad_gineco, ginecologia.cesarea_gineco, ginecologia.aborto_gineco, ginecologia.planifica_gineco, ginecologia.idplanifica_gineco, ginecologia.fechaultcitologia_gineco, ginecologia.idresultadocitologia_gineco, ginecologia.tiempoplanifica_gineco FROM ingreso INNER JOIN ginecologia ON ingreso.id_ingreso = ginecologia.idingreso_gineco WHERE ingreso.id_ingreso="+numingredicGO;
-                        try{
-                            TSentenciaconsultaGO = con2.createStatement();
-                            RconsultaGO = TSentenciaconsultaGO.executeQuery(cadsqledicGO);
-                            while (RconsultaGO.next()) {
-                                idmenarquia=RconsultaGO.getString(2);
-                                sqlGO="select *from menarquia where menarquia.id_mquia="+"'"+idmenarquia+"'";
-                                idmenarquia=validGO.buscarcadena(sqlGO,2);
-                                Object GOobj=idmenarquia;
-                                frameGO.JCMenarquia.setSelectedItem(GOobj);
-                                frameGO.JTFCiclos.setText(RconsultaGO.getString(3));
-                                frameGO.JFTFechUltMestr.setText(RconsultaGO.getString(4));
-                                frameGO.JCHGravid.setSelected(RconsultaGO.getBoolean(5));
-                                frameGO.JTFParidad.setText(RconsultaGO.getString(6));
-                                frameGO.JCHCesarea.setSelected(RconsultaGO.getBoolean(7));
-                                frameGO.JCHAborto.setSelected(RconsultaGO.getBoolean(8));
-                                frameGO.JCHPlanifica.setSelected(RconsultaGO.getBoolean(9));
-                                idmenarquia=RconsultaGO.getString(10);
-                                sqlGO="select *from planifica where planifica.id_planif="+"'"+idmenarquia+"'";
-                                idmenarquia=validGO.buscarcadena(sqlGO,2);
-                                GOobj=idmenarquia;
-                                frameGO.JCPlanifica.setSelectedItem(GOobj);
-                                frameGO.JCPlanifica.setEnabled(true);
-                                frameGO.JFTFechUltCit.setText(RconsultaGO.getString(11));
-                                idmenarquia=RconsultaGO.getString(12);
-                                sqlGO="select *from resultados_gineco where resultados_gineco.id_resgico="+"'"+idmenarquia+"'";
-                                idmenarquia=validGO.buscarcadena(sqlGO,2);
-                                GOobj=idmenarquia;
-                                frameGO.JCResultado.setSelectedItem(GOobj);
-                                frameGO.JFTTiempoPlan.setText(RconsultaGO.getString(13));
-                            }
-                        }// fin del try
-                        catch(SQLException e1){
-                            e1.getMessage();
-                            cad2="NO SE PUDO EJECUTAR LA CONSULTA";
-                            cad1="PROBLEMAS CON LOS DATOS DE GINECO OBSTETRICIA EN EDICION";
-                            validGO.mensajeconfirmacion(cad1,cad2);
-                        }//cierra el catch
-                        Cconsql.CerrarConexion();
-                    }//fin del if swedicingrGO
+            swgte = 1;
+            objetoginecoobs = frameGO;
+            if (swedicingrGO == 1) {
+                String cadsqledicGO, idmenarquia, sqlGO;
+                Connection con2 = Cconsql.getConnection();
+                cadsqledicGO = "SELECT ingreso.id_ingreso, ginecologia.idmenarquia_gineco, ginecologia.ciclos_gineco, ginecologia.fechaultregla_gineco, ginecologia.gravidez_gineco, ginecologia.paridad_gineco, ginecologia.cesarea_gineco, ginecologia.aborto_gineco, ginecologia.planifica_gineco, ginecologia.idplanifica_gineco, ginecologia.fechaultcitologia_gineco, ginecologia.idresultadocitologia_gineco, ginecologia.tiempoplanifica_gineco FROM ingreso INNER JOIN ginecologia ON ingreso.id_ingreso = ginecologia.idingreso_gineco WHERE ingreso.id_ingreso=" + numingredicGO;
+                try {
+                    TSentenciaconsultaGO = con2.createStatement();
+                    RconsultaGO = TSentenciaconsultaGO.executeQuery(cadsqledicGO);
+                    while (RconsultaGO.next()) {
+                        idmenarquia = RconsultaGO.getString(2);
+                        sqlGO = "select *from menarquia where menarquia.id_mquia=" + "'" + idmenarquia + "'";
+                        idmenarquia = validGO.buscarcadena(sqlGO, 2);
+                        Object GOobj = idmenarquia;
+                        frameGO.JCMenarquia.setSelectedItem(GOobj);
+                        frameGO.JTFCiclos.setText(RconsultaGO.getString(3));
+                        frameGO.JFTFechUltMestr.setText(RconsultaGO.getString(4));
+                        frameGO.JCHGravid.setSelected(RconsultaGO.getBoolean(5));
+                        frameGO.JTFParidad.setText(RconsultaGO.getString(6));
+                        frameGO.JCHCesarea.setSelected(RconsultaGO.getBoolean(7));
+                        frameGO.JCHAborto.setSelected(RconsultaGO.getBoolean(8));
+                        frameGO.JCHPlanifica.setSelected(RconsultaGO.getBoolean(9));
+                        idmenarquia = RconsultaGO.getString(10);
+                        sqlGO = "select *from planifica where planifica.id_planif=" + "'" + idmenarquia + "'";
+                        idmenarquia = validGO.buscarcadena(sqlGO, 2);
+                        GOobj = idmenarquia;
+                        frameGO.JCPlanifica.setSelectedItem(GOobj);
+                        frameGO.JCPlanifica.setEnabled(true);
+                        frameGO.JFTFechUltCit.setText(RconsultaGO.getString(11));
+                        idmenarquia = RconsultaGO.getString(12);
+                        sqlGO = "select *from resultados_gineco where resultados_gineco.id_resgico=" + "'" + idmenarquia + "'";
+                        idmenarquia = validGO.buscarcadena(sqlGO, 2);
+                        GOobj = idmenarquia;
+                        frameGO.JCResultado.setSelectedItem(GOobj);
+                        frameGO.JFTTiempoPlan.setText(RconsultaGO.getString(13));
+                    }
+                }// fin del try
+                catch (SQLException e1) {
+                    e1.getMessage();
+                    cad2 = "NO SE PUDO EJECUTAR LA CONSULTA";
+                    cad1 = "PROBLEMAS CON LOS DATOS DE GINECO OBSTETRICIA EN EDICION";
+                    validGO.mensajeconfirmacion(cad1, cad2);
+                }//cierra el catch
+                Cconsql.CerrarConexion();
+            }//fin del if swedicingrGO
         }//fin del if swgte
-        else{
+        else {
             CAGineco frameGO;
-            frameGO=( CAGineco)objetoginecoobs;
-           // ObjectCingreso.setVisible(false);
+            frameGO = (CAGineco) objetoginecoobs;
+            // ObjectCingreso.setVisible(false);
             frameGO.setVisible(true);
-       }
+        }
 
     }
 
     /**
      * procesocancelarAP
      */
-  /*  public void procesocancelarAP() {
+    /*  public void procesocancelarAP() {
         objCAP.setVisible(false);
         objCAP.dispose();
         objvarME.procesocancelarME();
     }*/
-
     /**
      * controlbotones
      */
-    public void controlbotones(JCheckBox JCHparametro,JTextField JTFpar,JButton JBvar) {
-        if(JCHparametro.isSelected()==true){
+    public void controlbotones(JCheckBox JCHparametro, JTextField JTFpar, JButton JBvar) {
+        if (JCHparametro.isSelected() == true) {
             JCHparametro.setSelected(true);
             JBvar.setEnabled(true);
-        }
-        else{
+        } else {
             JCHparametro.setSelected(false);
             JTFpar.setText(" ");
             JBvar.setEnabled(false);
@@ -1181,39 +1190,40 @@ public class CAntecedentesPersonales extends JInternalFrame {
     }
 
     public void JCHTraumatismo_actionPerformed(ActionEvent e) {
-       controlbotones(JCHTraumatismo,JTFTraumatismo,JBtraumatism);
+        controlbotones(JCHTraumatismo, JTFTraumatismo, JBtraumatism);
     }
 
     public void JBtraumatism_actionPerformed(ActionEvent e) {
-           nombredetalle="TRAUMATISMO";
-           abrirformulariodetalles(JTFTraumatismo);
-           swtraumat=1;
+        nombredetalle = "TRAUMATISMO";
+        abrirformulariodetalles(JTFTraumatismo);
+        swtraumat = 1;
     }
 
     public void JCHOtros_actionPerformed(ActionEvent e) {
-          controlbotones(JCHOtros,JTFOtros,JBOtros);
+        controlbotones(JCHOtros, JTFOtros, JBOtros);
     }
 
     public void JBOtros_actionPerformed(ActionEvent e) {
-          nombredetalle="OTROS";
-          abrirformulariodetalles(JTFOtros);
-          swotros=1;
+        nombredetalle = "OTROS";
+        abrirformulariodetalles(JTFOtros);
+        swotros = 1;
 
     }
 
     public void JCHAffBroncoAP_actionPerformed(ActionEvent e) {
-           controlbotones(JCHAffBroncoAP,JTFAfccbroncpulm,JBAfccBroncPulm);
+        controlbotones(JCHAffBroncoAP, JTFAfccbroncpulm, JBAfccBroncPulm);
     }
 
-     public CAntecedentesPersonales() {
+    public CAntecedentesPersonales() {
 
-     }
+    }
 }//fin clase
-
 
 class CAntecedentesPersonales_JCHAffBroncoAP_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
+
     CAntecedentesPersonales_JCHAffBroncoAP_actionAdapter(
             CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
@@ -1224,11 +1234,11 @@ class CAntecedentesPersonales_JCHAffBroncoAP_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JBOtros_actionAdapter implements ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JBOtros_actionAdapter(CAntecedentesPersonales
-                                                  adaptee) {
+
+    CAntecedentesPersonales_JBOtros_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1237,11 +1247,11 @@ class CAntecedentesPersonales_JBOtros_actionAdapter implements ActionListener {
     }
 }
 
-
 class CAntecedentesPersonales_JCHOtros_actionAdapter implements ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JCHOtros_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JCHOtros_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1250,12 +1260,12 @@ class CAntecedentesPersonales_JCHOtros_actionAdapter implements ActionListener {
     }
 }
 
-
 class CAntecedentesPersonales_JBtraumatism_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JBtraumatism_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JBtraumatism_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1264,10 +1274,11 @@ class CAntecedentesPersonales_JBtraumatism_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JCHTraumatismo_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
+
     CAntecedentesPersonales_JCHTraumatismo_actionAdapter(
             CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
@@ -1277,11 +1288,13 @@ class CAntecedentesPersonales_JCHTraumatismo_actionAdapter implements
         adaptee.JCHTraumatismo_actionPerformed(e);
     }
 } //
+
 class CAntecedentesPersonales_JBCancelarAP_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JBCancelarAP_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JBCancelarAP_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1290,11 +1303,11 @@ class CAntecedentesPersonales_JBCancelarAP_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JBAtrasAC_actionAdapter implements ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JBAtrasAC_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JBAtrasAC_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1303,11 +1316,11 @@ class CAntecedentesPersonales_JBAtrasAC_actionAdapter implements ActionListener 
     }
 }
 
-
 class CAntecedentesPersonales_JBSgteAP_actionAdapter implements ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JBSgteAP_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JBSgteAP_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1316,12 +1329,11 @@ class CAntecedentesPersonales_JBSgteAP_actionAdapter implements ActionListener {
     }
 }
 
-
-
-
 class CAntecedentesPersonales_JCHColagenopatias_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
+
     CAntecedentesPersonales_JCHColagenopatias_actionAdapter(
             CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
@@ -1332,10 +1344,11 @@ class CAntecedentesPersonales_JCHColagenopatias_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JCHFiebresProAP_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
+
     CAntecedentesPersonales_JCHFiebresProAP_actionAdapter(
             CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
@@ -1346,10 +1359,11 @@ class CAntecedentesPersonales_JCHFiebresProAP_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JCHEnfNeurologicaEP_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
+
     CAntecedentesPersonales_JCHEnfNeurologicaEP_actionAdapter(
             CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
@@ -1360,12 +1374,12 @@ class CAntecedentesPersonales_JCHEnfNeurologicaEP_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JCHHepatitis_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JCHHepatitis_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JCHHepatitis_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1374,10 +1388,11 @@ class CAntecedentesPersonales_JCHHepatitis_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JCHColecistopatiaAP_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
+
     CAntecedentesPersonales_JCHColecistopatiaAP_actionAdapter(
             CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
@@ -1388,10 +1403,11 @@ class CAntecedentesPersonales_JCHColecistopatiaAP_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JCHUlceraGastr_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
+
     CAntecedentesPersonales_JCHUlceraGastr_actionAdapter(
             CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
@@ -1402,11 +1418,11 @@ class CAntecedentesPersonales_JCHUlceraGastr_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JCHEtsAP_actionAdapter implements ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JCHEtsAP_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JCHEtsAP_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1415,10 +1431,11 @@ class CAntecedentesPersonales_JCHEtsAP_actionAdapter implements ActionListener {
     }
 }
 
-
 class CAntecedentesPersonales_JCHHemopatiasAP_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
+
     CAntecedentesPersonales_JCHHemopatiasAP_actionAdapter(
             CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
@@ -1429,12 +1446,12 @@ class CAntecedentesPersonales_JCHHemopatiasAP_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JCHPatiasAP_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JCHPatiasAP_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JCHPatiasAP_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1443,10 +1460,11 @@ class CAntecedentesPersonales_JCHPatiasAP_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JCHNefrologiasAP_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
+
     CAntecedentesPersonales_JCHNefrologiasAP_actionAdapter(
             CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
@@ -1457,10 +1475,11 @@ class CAntecedentesPersonales_JCHNefrologiasAP_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JCHEndocrinopatiasAP_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
+
     CAntecedentesPersonales_JCHEndocrinopatiasAP_actionAdapter(
             CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
@@ -1471,11 +1490,11 @@ class CAntecedentesPersonales_JCHEndocrinopatiasAP_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JCHGotaAP_actionAdapter implements ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JCHGotaAP_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JCHGotaAP_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1484,12 +1503,12 @@ class CAntecedentesPersonales_JCHGotaAP_actionAdapter implements ActionListener 
     }
 }
 
-
 class CAntecedentesPersonales_JCHAtipiaAP_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JCHAtipiaAP_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JCHAtipiaAP_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1498,10 +1517,11 @@ class CAntecedentesPersonales_JCHAtipiaAP_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JCHTuberculosisAP_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
+
     CAntecedentesPersonales_JCHTuberculosisAP_actionAdapter(
             CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
@@ -1512,12 +1532,12 @@ class CAntecedentesPersonales_JCHTuberculosisAP_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JCHAlergiaAp_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JCHAlergiaAp_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JCHAlergiaAp_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1526,12 +1546,12 @@ class CAntecedentesPersonales_JCHAlergiaAp_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JCHPsicopatia_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JCHPsicopatia_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JCHPsicopatia_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1540,12 +1560,12 @@ class CAntecedentesPersonales_JCHPsicopatia_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JCHDislipedia_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JCHDislipedia_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JCHDislipedia_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1554,12 +1574,12 @@ class CAntecedentesPersonales_JCHDislipedia_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JCHCoronario_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JCHCoronario_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JCHCoronario_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1568,11 +1588,11 @@ class CAntecedentesPersonales_JCHCoronario_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JCHDiabet_actionAdapter implements ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JCHDiabet_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JCHDiabet_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1581,11 +1601,11 @@ class CAntecedentesPersonales_JCHDiabet_actionAdapter implements ActionListener 
     }
 }
 
-
 class CAntecedentesPersonales_JCHHipArt_actionAdapter implements ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JCHHipArt_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JCHHipArt_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1594,10 +1614,11 @@ class CAntecedentesPersonales_JCHHipArt_actionAdapter implements ActionListener 
     }
 }
 
-
 class CAntecedentesPersonales_JBColagenopatias_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
+
     CAntecedentesPersonales_JBColagenopatias_actionAdapter(
             CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
@@ -1608,10 +1629,11 @@ class CAntecedentesPersonales_JBColagenopatias_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JBFiebresProlongAP_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
+
     CAntecedentesPersonales_JBFiebresProlongAP_actionAdapter(
             CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
@@ -1622,10 +1644,11 @@ class CAntecedentesPersonales_JBFiebresProlongAP_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JBEnfNeurologicas_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
+
     CAntecedentesPersonales_JBEnfNeurologicas_actionAdapter(
             CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
@@ -1636,11 +1659,11 @@ class CAntecedentesPersonales_JBEnfNeurologicas_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JBHepatis_actionAdapter implements ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JBHepatis_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JBHepatis_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1649,10 +1672,11 @@ class CAntecedentesPersonales_JBHepatis_actionAdapter implements ActionListener 
     }
 }
 
-
 class CAntecedentesPersonales_JBColecistopatia_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
+
     CAntecedentesPersonales_JBColecistopatia_actionAdapter(
             CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
@@ -1663,12 +1687,12 @@ class CAntecedentesPersonales_JBColecistopatia_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JBUlcGastr_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JBUlcGastr_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JBUlcGastr_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1677,9 +1701,10 @@ class CAntecedentesPersonales_JBUlcGastr_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JBEts_actionAdapter implements ActionListener {
+
     private CAntecedentesPersonales adaptee;
+
     CAntecedentesPersonales_JBEts_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
@@ -1689,10 +1714,11 @@ class CAntecedentesPersonales_JBEts_actionAdapter implements ActionListener {
     }
 }
 
-
 class CAntecedentesPersonales_JBHemopatiasAP_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
+
     CAntecedentesPersonales_JBHemopatiasAP_actionAdapter(
             CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
@@ -1703,11 +1729,11 @@ class CAntecedentesPersonales_JBHemopatiasAP_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JBPatia_actionAdapter implements ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JBPatia_actionAdapter(CAntecedentesPersonales
-                                                  adaptee) {
+
+    CAntecedentesPersonales_JBPatia_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1716,10 +1742,11 @@ class CAntecedentesPersonales_JBPatia_actionAdapter implements ActionListener {
     }
 }
 
-
 class CAntecedentesPersonales_JBNefrologiasAP_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
+
     CAntecedentesPersonales_JBNefrologiasAP_actionAdapter(
             CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
@@ -1730,10 +1757,11 @@ class CAntecedentesPersonales_JBNefrologiasAP_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JBendocrinopatias_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
+
     CAntecedentesPersonales_JBendocrinopatias_actionAdapter(
             CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
@@ -1744,10 +1772,11 @@ class CAntecedentesPersonales_JBendocrinopatias_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JBAfccBroncPulm_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
+
     CAntecedentesPersonales_JBAfccBroncPulm_actionAdapter(
             CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
@@ -1758,11 +1787,11 @@ class CAntecedentesPersonales_JBAfccBroncPulm_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JBGota_actionAdapter implements ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JBGota_actionAdapter(CAntecedentesPersonales
-                                                 adaptee) {
+
+    CAntecedentesPersonales_JBGota_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1771,11 +1800,11 @@ class CAntecedentesPersonales_JBGota_actionAdapter implements ActionListener {
     }
 }
 
-
 class CAntecedentesPersonales_JBAtipia_actionAdapter implements ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JBAtipia_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JBAtipia_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1784,10 +1813,11 @@ class CAntecedentesPersonales_JBAtipia_actionAdapter implements ActionListener {
     }
 }
 
-
 class CAntecedentesPersonales_JBTuberculosisAP_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
+
     CAntecedentesPersonales_JBTuberculosisAP_actionAdapter(
             CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
@@ -1798,12 +1828,12 @@ class CAntecedentesPersonales_JBTuberculosisAP_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JBAlergias_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JBAlergias_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JBAlergias_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1812,12 +1842,12 @@ class CAntecedentesPersonales_JBAlergias_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JBPsicopatia_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JBPsicopatia_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JBPsicopatia_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1826,10 +1856,11 @@ class CAntecedentesPersonales_JBPsicopatia_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JBAsmaBronquial_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
+
     CAntecedentesPersonales_JBAsmaBronquial_actionAdapter(
             CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
@@ -1840,10 +1871,11 @@ class CAntecedentesPersonales_JBAsmaBronquial_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JBDislipidemia_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
+
     CAntecedentesPersonales_JBDislipidemia_actionAdapter(
             CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
@@ -1854,11 +1886,11 @@ class CAntecedentesPersonales_JBDislipidemia_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JBDiabet_actionAdapter implements ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JBDiabet_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JBDiabet_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1867,11 +1899,11 @@ class CAntecedentesPersonales_JBDiabet_actionAdapter implements ActionListener {
     }
 }
 
-
 class CAntecedentesPersonales_JBHipArt_actionAdapter implements ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JBHipArt_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JBHipArt_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1880,12 +1912,12 @@ class CAntecedentesPersonales_JBHipArt_actionAdapter implements ActionListener {
     }
 }
 
-
 class CAntecedentesPersonales_JBCoronario_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JBCoronario_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JBCoronario_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -1894,12 +1926,12 @@ class CAntecedentesPersonales_JBCoronario_actionAdapter implements
     }
 }
 
-
 class CAntecedentesPersonales_JCHAsmaBronq_actionAdapter implements
         ActionListener {
+
     private CAntecedentesPersonales adaptee;
-    CAntecedentesPersonales_JCHAsmaBronq_actionAdapter(CAntecedentesPersonales
-            adaptee) {
+
+    CAntecedentesPersonales_JCHAsmaBronq_actionAdapter(CAntecedentesPersonales adaptee) {
         this.adaptee = adaptee;
     }
 

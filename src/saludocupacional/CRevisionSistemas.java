@@ -1,4 +1,5 @@
 package saludocupacional;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
@@ -6,34 +7,35 @@ import java.sql.*;
 import javax.swing.*;
 
 public class CRevisionSistemas extends JInternalFrame {
+
     Object objppalrs;
     Object obotactualizarEF;
-    ValidarComponentes validEF=new ValidarComponentes();
+    ValidarComponentes validEF = new ValidarComponentes();
     String cad1;
     String cad2;
     public Statement TSentenciaconsultaEF;
     public ResultSet RconsultaEF;
-    public ConexionSql Cconsql= new ConexionSql();
+    public ConexionSql Cconsql = new ConexionSql();
     String numingredicEF;
     int swedicingrEF;
     int swgte;
-    Object  objetoexamfisico= new Object();
+    Object objetoexamfisico = new Object();
     int swval;
     //CRevisionSistemas objCRS;
-    Object objCRS=new Object();
-    Object JDPIngresoobjRS=new Object();
-    String nombrrs= new String();
-    String numhcrs= new String();
-    Object framehoOBJ= new Object();
-    Object frameEnfProfOBJ=new Object();
-    Object frameAcciTrabajoOBJ=new Object();
-    Object frameAntecFamOBJ=new Object();
-    Object frameAntecPersonalOBJ=new Object();
-    Object frameGinecologiaOBJ=new Object();
-    Object frameInmunizOBJ=new Object();
-    Object frameOtrosAntecOBJ=new Object();
-    Object frameRSOBJ= new Object();
-    Object frameOAOBJ= new Object();
+    Object objCRS = new Object();
+    Object JDPIngresoobjRS = new Object();
+    String nombrrs = new String();
+    String numhcrs = new String();
+    Object framehoOBJ = new Object();
+    Object frameEnfProfOBJ = new Object();
+    Object frameAcciTrabajoOBJ = new Object();
+    Object frameAntecFamOBJ = new Object();
+    Object frameAntecPersonalOBJ = new Object();
+    Object frameGinecologiaOBJ = new Object();
+    Object frameInmunizOBJ = new Object();
+    Object frameOtrosAntecOBJ = new Object();
+    Object frameRSOBJ = new Object();
+    Object frameOAOBJ = new Object();
     Object objRS;
     Object objApersonal;
     Object objmotenfe;
@@ -43,7 +45,7 @@ public class CRevisionSistemas extends JInternalFrame {
     Object objetoEfisico;
     int swgteRS;
     public String nombredetalleRS;
-     public  Object framedetRS=new Object();
+    public Object framedetRS = new Object();
     public JDesktopPane JDPrs = new JDesktopPane();
     Object objAFamiliar;
     //DECLARACION DE SW
@@ -296,42 +298,41 @@ public class CRevisionSistemas extends JInternalFrame {
     JFormattedTextField JFTArritmia = new JFormattedTextField();
     JRadioButton JRHa = new JRadioButton();
     JFormattedTextField JFTha = new JFormattedTextField();
-    public CRevisionSistemas(Object obotactualizarOA,String numingredicRS,int swedicingrRS,String Nombrepacrs,COtrosAnt frameoa,String varnHC,JDesktopPane JDPIngreso,CIngreso frameingreso,CHistoriaOcup framehistocup,CEnfermedadProf frameenfermedadprof,CHistoriaAcciTrab frameaccitrabajo,CAntecedentesFamiliar frameantecendnetesfam,CAntecedentesPersonales frameantecpersonal,CAGineco frameginecologia,CInmuniz frameinmunuz,Object objppaloa) {
-      try {
-           jbInit();
-           frameRSOBJ=frameingreso;
-           framehoOBJ=framehistocup;
-           frameEnfProfOBJ=frameenfermedadprof;
-           frameAcciTrabajoOBJ=frameaccitrabajo;
-           frameAntecFamOBJ=frameantecendnetesfam;
-           frameAntecPersonalOBJ=frameantecpersonal;
-           frameGinecologiaOBJ=frameginecologia;
-           frameInmunizOBJ=frameinmunuz;
-           //frameOtrosAntecOBJ=frameotrosantecedentes;
-           frameOAOBJ=frameoa;
-           JLBNumhcRS.setText(Nombrepacrs);
-           JLBNhc2RS.setText(varnHC);
-           JDPIngresoobjRS=JDPIngreso;
-           nombrrs=Nombrepacrs;
-           numhcrs=varnHC;
-           swgte=0;
-           swedicingrEF=swedicingrRS;
-           numingredicEF=numingredicRS;
-           obotactualizarEF=obotactualizarOA;
-           objppalrs=objppaloa;
-      }
-      catch (Exception ex) {
-          ex.printStackTrace();
-      }
-   }
 
+    public CRevisionSistemas(Object obotactualizarOA, String numingredicRS, int swedicingrRS, String Nombrepacrs, COtrosAnt frameoa, String varnHC, JDesktopPane JDPIngreso, CIngreso frameingreso, CHistoriaOcup framehistocup, CEnfermedadProf frameenfermedadprof, CHistoriaAcciTrab frameaccitrabajo, CAntecedentesFamiliar frameantecendnetesfam, CAntecedentesPersonales frameantecpersonal, CAGineco frameginecologia, CInmuniz frameinmunuz, Object objppaloa) {
+        try {
+            jbInit();
+            frameRSOBJ = frameingreso;
+            framehoOBJ = framehistocup;
+            frameEnfProfOBJ = frameenfermedadprof;
+            frameAcciTrabajoOBJ = frameaccitrabajo;
+            frameAntecFamOBJ = frameantecendnetesfam;
+            frameAntecPersonalOBJ = frameantecpersonal;
+            frameGinecologiaOBJ = frameginecologia;
+            frameInmunizOBJ = frameinmunuz;
+            //frameOtrosAntecOBJ=frameotrosantecedentes;
+            frameOAOBJ = frameoa;
+            JLBNumhcRS.setText(Nombrepacrs);
+            JLBNhc2RS.setText(varnHC);
+            JDPIngresoobjRS = JDPIngreso;
+            nombrrs = Nombrepacrs;
+            numhcrs = varnHC;
+            swgte = 0;
+            swedicingrEF = swedicingrRS;
+            numingredicEF = numingredicRS;
+            obotactualizarEF = obotactualizarOA;
+            objppalrs = objppaloa;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 
     private void jbInit() throws Exception {
         this.getContentPane().setLayout(null);
         JPRevisionSistemas.setBackground(new Color(122, 150, 223));
         JPRevisionSistemas.setFont(new java.awt.Font("Arial", Font.BOLD, 11));
         JPRevisionSistemas.setBorder(BorderFactory.createRaisedBevelBorder());
-        JPRevisionSistemas.setBounds(new Rectangle( -1, 2, 1000, 559));
+        JPRevisionSistemas.setBounds(new Rectangle(-1, 2, 1000, 559));
         JPRevisionSistemas.setLayout(null);
         //INICIALIZACION DE LOS PANELES
         this.setClosable(true);
@@ -343,8 +344,7 @@ public class CRevisionSistemas extends JInternalFrame {
         JBAtrasRS.setFont(new java.awt.Font("Arial", Font.BOLD, 12));
         JBAtrasRS.setMnemonic('R');
         JBAtrasRS.setText("Atras");
-        JBAtrasRS.addActionListener(new
-                                    CRevisionSistemas_JBAtrasRS_actionAdapter(this));
+        JBAtrasRS.addActionListener(new CRevisionSistemas_JBAtrasRS_actionAdapter(this));
         JBAtrasRS.setIcon(new ImageIcon(new java.net.URL("file:///C:/SALUD_OCUPACIONAL/Imagenes/AG_BTTN3.GIF")));
         JBAtrasRS.setSelectedIcon(null);
         JBSguteRV.setBounds(new Rectangle(434, 519, 133, 36));
@@ -352,8 +352,7 @@ public class CRevisionSistemas extends JInternalFrame {
         JBSguteRV.setToolTipText("");
         JBSguteRV.setMnemonic('S');
         JBSguteRV.setText("SIGUIENTE");
-        JBSguteRV.addActionListener(new
-                                    CRevisionSistemas_JBSguteRV_actionAdapter(this));
+        JBSguteRV.addActionListener(new CRevisionSistemas_JBSguteRV_actionAdapter(this));
         JBSguteRV.setIcon(new ImageIcon(new java.net.URL("file:///C:/SALUD_OCUPACIONAL/Imagenes/AG_BTTN3.GIF")));
         JBSguteRV.setSelectedIcon(null);
         JBcancelarRS.setBounds(new Rectangle(749, 522, 131, 36));
@@ -361,8 +360,7 @@ public class CRevisionSistemas extends JInternalFrame {
         JBcancelarRS.setToolTipText("");
         JBcancelarRS.setMnemonic('S');
         JBcancelarRS.setText("CANCELAR");
-        JBcancelarRS.addActionListener(new
-                CRevisionSistemas_JBcancelarRS_actionAdapter(this));
+        JBcancelarRS.addActionListener(new CRevisionSistemas_JBcancelarRS_actionAdapter(this));
         JBcancelarRS.setIcon(new ImageIcon(new java.net.URL("file:///C:/SALUD_OCUPACIONAL/Imagenes/AG_BTTN3.GIF")));
         JBcancelarRS.setSelectedIcon(null);
         JLBNumhcRS.setFont(new java.awt.Font("Arial", Font.BOLD, 14));
@@ -563,7 +561,7 @@ public class CRevisionSistemas extends JInternalFrame {
         JREstrenimiento.setBackground(Color.white);
         JREstrenimiento.setFont(new java.awt.Font("Arial", Font.BOLD, 11));
         JREstrenimiento.setToolTipText("");
-        JREstrenimiento.setText("Estre�imiento");
+        JREstrenimiento.setText("Estreñimiento");
         JREstrenimiento.setBounds(new Rectangle(0, 113, 133, 23));
         JREstrenimiento.addActionListener(new CRevisionSistemas_JREstrenimiento_actionAdapter(this));
         JRSangrado.setBackground(Color.white);
@@ -576,7 +574,7 @@ public class CRevisionSistemas extends JInternalFrame {
         JREpigastraigia.setFont(new java.awt.Font("Arial", Font.BOLD, 11));
         JREpigastraigia.setToolTipText("");
         JREpigastraigia.setText("Epigastraigia/Pirosis");
-        JREpigastraigia.setBounds(new Rectangle( -1, 86, 143, 23));
+        JREpigastraigia.setBounds(new Rectangle(-1, 86, 143, 23));
         JREpigastraigia.addActionListener(new CRevisionSistemas_JREpigastraigia_actionAdapter(this));
         JRDiarrea.setBackground(Color.white);
         JRDiarrea.setFont(new java.awt.Font("Arial", Font.BOLD, 11));
@@ -588,13 +586,13 @@ public class CRevisionSistemas extends JInternalFrame {
         JRDispepsia.setFont(new java.awt.Font("Arial", Font.BOLD, 11));
         JRDispepsia.setToolTipText("");
         JRDispepsia.setText("Dispepsia");
-        JRDispepsia.setBounds(new Rectangle( -1, 22, 81, 23));
+        JRDispepsia.setBounds(new Rectangle(-1, 22, 81, 23));
         JRDispepsia.addActionListener(new CRevisionSistemas_JRDispepsia_actionAdapter(this));
         JRDolorAbdominal.setBackground(Color.white);
         JRDolorAbdominal.setFont(new java.awt.Font("Arial", Font.BOLD, 11));
         JRDolorAbdominal.setToolTipText("");
         JRDolorAbdominal.setText("Dolor Abdominal");
-        JRDolorAbdominal.setBounds(new Rectangle( -1, 54, 128, 23));
+        JRDolorAbdominal.setBounds(new Rectangle(-1, 54, 128, 23));
         JRDolorAbdominal.addActionListener(new CRevisionSistemas_JRDolorAbdominal_actionAdapter(this));
         JBDispepsia.setBounds(new Rectangle(160, 18, 57, 29));
         JBDispepsia.setEnabled(false);
@@ -676,13 +674,13 @@ public class CRevisionSistemas extends JInternalFrame {
         JRDisuria.setFont(new java.awt.Font("Arial", Font.BOLD, 11));
         JRDisuria.setToolTipText("");
         JRDisuria.setText("Disuria");
-        JRDisuria.setBounds(new Rectangle( -1, 58, 110, 23));
+        JRDisuria.setBounds(new Rectangle(-1, 58, 110, 23));
         JRDisuria.addActionListener(new CRevisionSistemas_JRDisuria_actionAdapter(this));
         JRDisminucionCalibre.setBackground(Color.white);
         JRDisminucionCalibre.setFont(new java.awt.Font("Arial", Font.BOLD, 11));
         JRDisminucionCalibre.setToolTipText("");
         JRDisminucionCalibre.setText("Disminucion Calibre");
-        JRDisminucionCalibre.setBounds(new Rectangle( -1, 24, 139, 23));
+        JRDisminucionCalibre.setBounds(new Rectangle(-1, 24, 139, 23));
         JRDisminucionCalibre.addActionListener(new CRevisionSistemas_JRDisminucionCalibre_actionAdapter(this));
         JRPolaquiuria.setBackground(Color.white);
         JRPolaquiuria.setFont(new java.awt.Font("Arial", Font.BOLD, 11));
@@ -1069,7 +1067,7 @@ public class CRevisionSistemas extends JInternalFrame {
         JRTendinitis.setFont(new java.awt.Font("Arial", Font.BOLD, 11));
         JRTendinitis.setToolTipText("");
         JRTendinitis.setText("Tendinitis");
-        JRTendinitis.setBounds(new Rectangle( -1, 45, 91, 23));
+        JRTendinitis.setBounds(new Rectangle(-1, 45, 91, 23));
         JRTendinitis.addActionListener(new CRevisionSistemas_JRTendinitis_actionAdapter(this));
         JBTendinitis.setBounds(new Rectangle(153, 39, 57, 29));
         JBTendinitis.setEnabled(false);
@@ -1097,7 +1095,7 @@ public class CRevisionSistemas extends JInternalFrame {
         JRParentestesias.setFont(new java.awt.Font("Arial", Font.BOLD, 11));
         JRParentestesias.setToolTipText("");
         JRParentestesias.setText("Parestesias/Disestesias");
-        JRParentestesias.setBounds(new Rectangle( -1, 107, 162, 23));
+        JRParentestesias.setBounds(new Rectangle(-1, 107, 162, 23));
         JRParentestesias.addActionListener(new CRevisionSistemas_JRParentestesias_actionAdapter(this));
         JBParestesias.setBounds(new Rectangle(153, 103, 57, 29));
         JBParestesias.setEnabled(false);
@@ -1301,8 +1299,7 @@ public class CRevisionSistemas extends JInternalFrame {
         JRCoronaria.setToolTipText("");
         JRCoronaria.setText("Enfermedad Coronaria - Pre infarto");
         JRCoronaria.setBounds(new Rectangle(1, 1, 173, 23));
-        JRCoronaria.addActionListener(new
-                CRevisionSistemas_JRCoronaria_actionAdapter(this));
+        JRCoronaria.addActionListener(new CRevisionSistemas_JRCoronaria_actionAdapter(this));
         JFTCoronaria.setToolTipText("");
         JFTCoronaria.setBounds(new Rectangle(180, 5, 33, 16));
         JBcoronaria.setBounds(new Rectangle(156, 27, 57, 29));
@@ -1311,16 +1308,14 @@ public class CRevisionSistemas extends JInternalFrame {
         JBcoronaria.setToolTipText("");
         JBcoronaria.setActionCommand("JBDiabet");
         JBcoronaria.setIcon(new ImageIcon(new java.net.URL("file:///C:/SALUD_OCUPACIONAL/Imagenes/AG_CLICK.GIF")));
-        JBcoronaria.addActionListener(new
-                CRevisionSistemas_JBcoronaria_actionAdapter(this));
+        JBcoronaria.addActionListener(new CRevisionSistemas_JBcoronaria_actionAdapter(this));
         JBArritmia.setBounds(new Rectangle(155, 90, 57, 29));
         JBArritmia.setEnabled(false);
         JBArritmia.setBorder(BorderFactory.createLineBorder(Color.black));
         JBArritmia.setToolTipText("");
         JBArritmia.setActionCommand("JBDiabet");
         JBArritmia.setIcon(new ImageIcon(new java.net.URL("file:///C:/SALUD_OCUPACIONAL/Imagenes/AG_CLICK.GIF")));
-        JBArritmia.addActionListener(new
-                                     CRevisionSistemas_JBArritmia_actionAdapter(this));
+        JBArritmia.addActionListener(new CRevisionSistemas_JBArritmia_actionAdapter(this));
         JBHa.setBounds(new Rectangle(156, 159, 57, 29));
         JBHa.setEnabled(false);
         JBHa.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -1332,15 +1327,14 @@ public class CRevisionSistemas extends JInternalFrame {
         JRArritmia.setToolTipText("");
         JRArritmia.setText("Arritmia Cardiaca - Taquicardias");
         JRArritmia.setBounds(new Rectangle(0, 54, 163, 23));
-        JRArritmia.addActionListener(new
-                                     CRevisionSistemas_JRArritmia_actionAdapter(this));
+        JRArritmia.addActionListener(new CRevisionSistemas_JRArritmia_actionAdapter(this));
         JFTArritmia.setToolTipText("");
         JFTArritmia.setBounds(new Rectangle(180, 62, 33, 16));
         JRHa.setBackground(Color.white);
         JRHa.setFont(new java.awt.Font("Arial", Font.PLAIN, 9));
         JRHa.setToolTipText("");
         JRHa.setText("H.A. Severa");
-        JRHa.setBounds(new Rectangle( -1, 119, 106, 23));
+        JRHa.setBounds(new Rectangle(-1, 119, 106, 23));
         JRHa.addActionListener(new CRevisionSistemas_JRHa_actionAdapter(this));
         JFTha.setToolTipText("");
         JFTha.setBounds(new Rectangle(177, 131, 33, 16));
@@ -1513,7 +1507,8 @@ public class CRevisionSistemas extends JInternalFrame {
         JPorl.add(JRHipoacusia);
         JPorl.add(JBDisfonia);
         JPorl.add(JBEpistaxis);
-        JPorl.add(JBHipoacusia);JPorl.add(JRObstruccionNasal);
+        JPorl.add(JBHipoacusia);
+        JPorl.add(JRObstruccionNasal);
         JPorl.add(JRRinorrea);
         JPorl.add(JRTinitus);
         JPorl.add(JBRinorrea);
@@ -1539,7 +1534,6 @@ public class CRevisionSistemas extends JInternalFrame {
         JPAltura.add(JFTha);
     }
 
-
     /**
      * deshabilitar
      */
@@ -1552,23 +1546,23 @@ public class CRevisionSistemas extends JInternalFrame {
         JBDescamacion.setEnabled(false);
         JBEritema.setEnabled(false);
         JBHiperhidrosis.setEnabled(false);
-        JBBrote.setEnabled(false) ;
+        JBBrote.setEnabled(false);
         JBSequedad.setEnabled(false);
         JBPrurito.setEnabled(false);
         JBDispepsia.setEnabled(false);
         JBDolorAbdominal.setEnabled(false);
-        JBEpigastraigia.setEnabled(false) ;
-        JBEstrenimiento.setEnabled(false) ;
+        JBEpigastraigia.setEnabled(false);
+        JBEstrenimiento.setEnabled(false);
         JBDiarrea.setEnabled(false);
         JBSangrado.setEnabled(false);
-        JBDisminucionCalibre.setEnabled(false) ;
-        JBDisuria.setEnabled(false) ;
+        JBDisminucionCalibre.setEnabled(false);
+        JBDisuria.setEnabled(false);
         JBHematuria.setEnabled(false);
         JBTranstCicloMestrual.setEnabled(false);
         JBNicturia.setEnabled(false);
         JBPalaquiuria.setEnabled(false);
         JBCefalea.setEnabled(false);
-        JBAlteracionMemoria.setEnabled(false) ;
+        JBAlteracionMemoria.setEnabled(false);
         JBAlteracionSensibilidad.setEnabled(false);
         JBAlteracionMotora.setEnabled(false);
         JBVertigo.setEnabled(false);
@@ -1577,7 +1571,7 @@ public class CRevisionSistemas extends JInternalFrame {
         JBVisionBorrosa.setEnabled(false);
         JBLagrimeo.setEnabled(false);
         JBOjoRojo.setEnabled(false);
-        JBTos.setEnabled(false) ;
+        JBTos.setEnabled(false);
         JBDolorToraxico.setEnabled(false);
         JBExpectoracion.setEnabled(false);
         JBCervicalgia.setEnabled(false);
@@ -1598,24 +1592,24 @@ public class CRevisionSistemas extends JInternalFrame {
     }
 
     public void JFTtranstCicloMestr_actionPerformed(ActionEvent e) {
-        nombredetalleRS="TRANSTORNOS CICLO MESTRUAL";
-        abrirformulariodetalleRS(JFTtranstCicloMestr);swtransciclomestrual=1;
+        nombredetalleRS = "TRANSTORNOS CICLO MESTRUAL";
+        abrirformulariodetalleRS(JFTtranstCicloMestr);
+        swtransciclomestrual = 1;
     }
 
     /**
      * controlbotonrs
      */
-    public void controlbotonrs(JRadioButton JRparametro,JTextField JTFpar,JButton JBvar) {
-        if(JRparametro.isSelected()==true){
-          JRparametro.setSelected(true);
-          JBvar.setEnabled(true);
-      }
-      else{
-          JRparametro.setSelected(false);
-          JTFpar.setText(" ");
-          JBvar.setEnabled(false);
+    public void controlbotonrs(JRadioButton JRparametro, JTextField JTFpar, JButton JBvar) {
+        if (JRparametro.isSelected() == true) {
+            JRparametro.setSelected(true);
+            JBvar.setEnabled(true);
+        } else {
+            JRparametro.setSelected(false);
+            JTFpar.setText(" ");
+            JBvar.setEnabled(false);
 
-      }
+        }
 
     }
 
@@ -1675,268 +1669,267 @@ public class CRevisionSistemas extends JInternalFrame {
         JFTLumbalgia.setVisible(false);
         JFTIncapacitante.setVisible(false);
 
-
     }
 
     public void JRDolorPrecordial_actionPerformed(ActionEvent e) {
-           controlbotonrs(JRDolorPrecordial,JFTDolorPrecordial,JBDolorPrecordial);
+        controlbotonrs(JRDolorPrecordial, JFTDolorPrecordial, JBDolorPrecordial);
     }
 
     public void JRLipotimia_actionPerformed(ActionEvent e) {
-          controlbotonrs(JRLipotimia,JFTLipotimia,JBLipotimia);
+        controlbotonrs(JRLipotimia, JFTLipotimia, JBLipotimia);
     }
 
     public void JRPalpitaciones_actionPerformed(ActionEvent e) {
-          controlbotonrs(JRPalpitaciones,JFTPalpit,JBPalpitaciones);
+        controlbotonrs(JRPalpitaciones, JFTPalpit, JBPalpitaciones);
     }
 
     public void JRSincope_actionPerformed(ActionEvent e) {
-          controlbotonrs(JRSincope,JFTSincope,JBSincope);
+        controlbotonrs(JRSincope, JFTSincope, JBSincope);
     }
 
     public void JRDisnea_actionPerformed(ActionEvent e) {
-           controlbotonrs(JRDisnea,jFormattedTextField2,JBDisnea);
+        controlbotonrs(JRDisnea, jFormattedTextField2, JBDisnea);
     }
 
     public void JRDescamacion_actionPerformed(ActionEvent e) {
-           controlbotonrs(JRDescamacion,JFTdescam,JBDescamacion);
+        controlbotonrs(JRDescamacion, JFTdescam, JBDescamacion);
     }
 
     public void JREritema_actionPerformed(ActionEvent e) {
-          controlbotonrs(JREritema,JFTEritema,JBEritema);
+        controlbotonrs(JREritema, JFTEritema, JBEritema);
     }
 
     public void JRHiperhidrosis_actionPerformed(ActionEvent e) {
-          controlbotonrs(JRHiperhidrosis,JFTHiperhidrosis,JBHiperhidrosis);
+        controlbotonrs(JRHiperhidrosis, JFTHiperhidrosis, JBHiperhidrosis);
     }
 
     public void JRBrote_actionPerformed(ActionEvent e) {
-          controlbotonrs(JRBrote,JFTBrote,JBBrote);
+        controlbotonrs(JRBrote, JFTBrote, JBBrote);
     }
 
     public void JRSequedad_actionPerformed(ActionEvent e) {
-          controlbotonrs(JRSequedad,JFTSequedad,JBSequedad);
+        controlbotonrs(JRSequedad, JFTSequedad, JBSequedad);
     }
 
     public void JRPrurito_actionPerformed(ActionEvent e) {
-           controlbotonrs(JRPrurito,JFTprurito,JBPrurito);
+        controlbotonrs(JRPrurito, JFTprurito, JBPrurito);
     }
 
     public void JRDispepsia_actionPerformed(ActionEvent e) {
-           controlbotonrs(JRDispepsia,JFTDispepsia,JBDispepsia);
+        controlbotonrs(JRDispepsia, JFTDispepsia, JBDispepsia);
     }
 
     public void JRDolorAbdominal_actionPerformed(ActionEvent e) {
-         controlbotonrs(JRDolorAbdominal,JFTDolorAbd,JBDolorAbdominal);
+        controlbotonrs(JRDolorAbdominal, JFTDolorAbd, JBDolorAbdominal);
     }
 
     public void JREpigastraigia_actionPerformed(ActionEvent e) {
-          controlbotonrs(JREpigastraigia,JFTEpigastr,JBEpigastraigia);
+        controlbotonrs(JREpigastraigia, JFTEpigastr, JBEpigastraigia);
     }
 
     public void JREstrenimiento_actionPerformed(ActionEvent e) {
-         controlbotonrs(JREstrenimiento,JFTEstrenimiento,JBEstrenimiento);
+        controlbotonrs(JREstrenimiento, JFTEstrenimiento, JBEstrenimiento);
     }
 
     public void JRDiarrea_actionPerformed(ActionEvent e) {
-           controlbotonrs(JRDiarrea,JFTDiarrea,JBDiarrea);
+        controlbotonrs(JRDiarrea, JFTDiarrea, JBDiarrea);
     }
 
     public void JRSangrado_actionPerformed(ActionEvent e) {
-         controlbotonrs(JRSangrado,JFTSangrado,JBSangrado);
+        controlbotonrs(JRSangrado, JFTSangrado, JBSangrado);
     }
 
     public void JRDisminucionCalibre_actionPerformed(ActionEvent e) {
-           controlbotonrs(JRDisminucionCalibre,JFTDisminucionCalibre,JBDisminucionCalibre);
+        controlbotonrs(JRDisminucionCalibre, JFTDisminucionCalibre, JBDisminucionCalibre);
     }
 
     public void JRDisuria_actionPerformed(ActionEvent e) {
-         controlbotonrs(JRDisuria,JFTDisuria,JBDisuria);
+        controlbotonrs(JRDisuria, JFTDisuria, JBDisuria);
     }
 
     public void JRHematuria_actionPerformed(ActionEvent e) {
-           controlbotonrs(JRHematuria,JFTHematuria,JBHematuria);
+        controlbotonrs(JRHematuria, JFTHematuria, JBHematuria);
     }
 
     public void JRTrantCicloMestr_actionPerformed(ActionEvent e) {
-         controlbotonrs(JRTrantCicloMestr,JFTtranstCicloMestr,JBTranstCicloMestrual);
+        controlbotonrs(JRTrantCicloMestr, JFTtranstCicloMestr, JBTranstCicloMestrual);
     }
 
     public void JRNicturia_actionPerformed(ActionEvent e) {
-         controlbotonrs(JRNicturia,JFTNicturia,JBNicturia);
+        controlbotonrs(JRNicturia, JFTNicturia, JBNicturia);
     }
 
     public void JRPolaquiuria_actionPerformed(ActionEvent e) {
-          controlbotonrs(JRPolaquiuria,JFTPalquiuria,JBPalaquiuria);
+        controlbotonrs(JRPolaquiuria, JFTPalquiuria, JBPalaquiuria);
     }
 
     public void JRTenesmoVesical_actionPerformed(ActionEvent e) {
-          controlbotonrs(JRTenesmoVesical,JFTTenesmovesical,JBTenesmoVesical);
+        controlbotonrs(JRTenesmoVesical, JFTTenesmovesical, JBTenesmoVesical);
     }
 
     public void JRCefalea_actionPerformed(ActionEvent e) {
-           controlbotonrs(JRCefalea,JFTCefalea,JBCefalea);
+        controlbotonrs(JRCefalea, JFTCefalea, JBCefalea);
     }
 
     public void JRAlteracionMemoria_actionPerformed(ActionEvent e) {
-            controlbotonrs(JRAlteracionMemoria,JFTAlteracionMemoria,JBAlteracionMemoria);
+        controlbotonrs(JRAlteracionMemoria, JFTAlteracionMemoria, JBAlteracionMemoria);
     }
 
     public void JRAlteracionSensib_actionPerformed(ActionEvent e) {
-          controlbotonrs(JRAlteracionSensib,JFTAlteracionSencib,JBAlteracionSensibilidad);
+        controlbotonrs(JRAlteracionSensib, JFTAlteracionSencib, JBAlteracionSensibilidad);
     }
 
     public void JRAlteracionMotora_actionPerformed(ActionEvent e) {
-         controlbotonrs(JRAlteracionMotora,JFTAlteracMotora,JBAlteracionMotora);
+        controlbotonrs(JRAlteracionMotora, JFTAlteracMotora, JBAlteracionMotora);
     }
 
     public void JRVertigo_actionPerformed(ActionEvent e) {
-         controlbotonrs(JRVertigo,JFTVertigo,JBVertigo);
+        controlbotonrs(JRVertigo, JFTVertigo, JBVertigo);
     }
 
     public void JRArdorprurito_actionPerformed(ActionEvent e) {
-          controlbotonrs(JRArdorprurito,JFTArdorPrurito,JBArdor);
+        controlbotonrs(JRArdorprurito, JFTArdorPrurito, JBArdor);
     }
 
     public void JRCansancio_actionPerformed(ActionEvent e) {
-          controlbotonrs(JRCansancio,JFTCansancio,JBCansancio);
+        controlbotonrs(JRCansancio, JFTCansancio, JBCansancio);
     }
 
     public void JRVisionBorrosa_actionPerformed(ActionEvent e) {
-          controlbotonrs(JRVisionBorrosa,JFTVisionBorrosa,JBVisionBorrosa);
+        controlbotonrs(JRVisionBorrosa, JFTVisionBorrosa, JBVisionBorrosa);
     }
 
     public void JRLagrimeo_actionPerformed(ActionEvent e) {
-          controlbotonrs(JRLagrimeo,JFTLagrimeo,JBLagrimeo);
+        controlbotonrs(JRLagrimeo, JFTLagrimeo, JBLagrimeo);
     }
 
     public void JROjoRojo_actionPerformed(ActionEvent e) {
-           controlbotonrs(JROjoRojo,JFTOjoRojo,JBOjoRojo);
+        controlbotonrs(JROjoRojo, JFTOjoRojo, JBOjoRojo);
     }
 
     public void JRTos_actionPerformed(ActionEvent e) {
-           controlbotonrs(JRTos,JFTTos,JBTos);
+        controlbotonrs(JRTos, JFTTos, JBTos);
     }
 
     public void JRDolorToraxico_actionPerformed(ActionEvent e) {
-          controlbotonrs(JRDolorToraxico,JFTDolorToraxico,JBDolorToraxico);
+        controlbotonrs(JRDolorToraxico, JFTDolorToraxico, JBDolorToraxico);
     }
 
     public void JRExpectoracion_actionPerformed(ActionEvent e) {
-         controlbotonrs(JRExpectoracion,JFTExpectoracion,JBExpectoracion);
+        controlbotonrs(JRExpectoracion, JFTExpectoracion, JBExpectoracion);
     }
 
     public void JRDisfonia_actionPerformed(ActionEvent e) {
-          controlbotonrs(JRDisfonia,JFTDisfonia,JBDisfonia);
+        controlbotonrs(JRDisfonia, JFTDisfonia, JBDisfonia);
     }
 
     public void JREpistaxis_actionPerformed(ActionEvent e) {
-          controlbotonrs(JREpistaxis,JFTEpistaxis,JBEpistaxis);
+        controlbotonrs(JREpistaxis, JFTEpistaxis, JBEpistaxis);
     }
 
     public void JRHipoacusia_actionPerformed(ActionEvent e) {
-          controlbotonrs(JRHipoacusia,JFTHipoacusia,JBHipoacusia);
+        controlbotonrs(JRHipoacusia, JFTHipoacusia, JBHipoacusia);
     }
 
     public void JRObstruccionNasal_actionPerformed(ActionEvent e) {
-           controlbotonrs(JRObstruccionNasal,JFTObstruccionNasal,JBObstruccionNasal);
+        controlbotonrs(JRObstruccionNasal, JFTObstruccionNasal, JBObstruccionNasal);
     }
 
     public void JRRinorrea_actionPerformed(ActionEvent e) {
-         controlbotonrs(JRRinorrea,JFTRinorrea,JBRinorrea);
+        controlbotonrs(JRRinorrea, JFTRinorrea, JBRinorrea);
     }
 
     public void JRTinitus_actionPerformed(ActionEvent e) {
-          controlbotonrs(JRTinitus,JFTTinitus,JBTinitus);
+        controlbotonrs(JRTinitus, JFTTinitus, JBTinitus);
     }
 
     public void JRArtralgias_actionPerformed(ActionEvent e) {
-           controlbotonrs(JRArtralgias,JFTArtralgias,JBArtralgias);
+        controlbotonrs(JRArtralgias, JFTArtralgias, JBArtralgias);
     }
 
     public void JRTendinitis_actionPerformed(ActionEvent e) {
-         controlbotonrs(JRTendinitis,JFTTendinitis,JBTendinitis);
+        controlbotonrs(JRTendinitis, JFTTendinitis, JBTendinitis);
     }
 
     public void JRLimitacionFuncional_actionPerformed(ActionEvent e) {
-           controlbotonrs(JRLimitacionFuncional,JFTLimitacionFunc,JBLimitacionFuncional);
+        controlbotonrs(JRLimitacionFuncional, JFTLimitacionFunc, JBLimitacionFuncional);
     }
 
     public void JRParentestesias_actionPerformed(ActionEvent e) {
-          controlbotonrs(JRParentestesias,JFTParestesias,JBParestesias);
+        controlbotonrs(JRParentestesias, JFTParestesias, JBParestesias);
     }
 
     public void JRCervicalgia_actionPerformed(ActionEvent e) {
-         controlbotonrs(JRCervicalgia,JFTCervicalgia,JBCervicalgia);
+        controlbotonrs(JRCervicalgia, JFTCervicalgia, JBCervicalgia);
     }
 
     public void JRDorsalgia_actionPerformed(ActionEvent e) {
-          controlbotonrs(JRDorsalgia,JFTDorsalgia,JBDorsalgia);
+        controlbotonrs(JRDorsalgia, JFTDorsalgia, JBDorsalgia);
     }
 
     public void JRLumbalgia_actionPerformed(ActionEvent e) {
-          controlbotonrs(JRLumbalgia,JFTLumbalgia,JBLumbalgia);
+        controlbotonrs(JRLumbalgia, JFTLumbalgia, JBLumbalgia);
     }
 
     public void JRIncapacitante_actionPerformed(ActionEvent e) {
-            controlbotonrs(JRIncapacitante,JFTIncapacitante,JBIncapacitante);
+        controlbotonrs(JRIncapacitante, JFTIncapacitante, JBIncapacitante);
     }
 
     /**
      * declaracionSW
      */
     public void declaracionSW() {
-        swdolorprecordial=1;
-        swdlipotimia=1;
-        swpalpitaciones=1;
-        swsincope=1;
-        swdisnea=1;
-        swdescamacion=1;
-        swdolorabdominal=1;
-        swepigastraigia=1;
-        swestrenimiento=1;
-        swdiarrea=1;
-        swsangrado=1;
-        sweritema=1;
-        swhiperhidrosis=1;
-        swbrote=1;
-        swsequedad=1;
-        swprurito=1;
-        swdispepsia=1;
-        swdisminucioncalibre=1;
-        swdisuria=1;
-        swhematuria=1;
-        swtransciclomestrual=1;
-        swnicturia=1;
-        swpolaquiuria=1;
-        swtenesmovesical=1;
-        swcefalea=1;
-        swalteracionmemoria=1;
-        swealteraciosensibilidad=1;
-        swalteracionmotora=1;
-        swvertigo=1;
-        swardorprurito=1;
-        swcansancio=1;
-        swvisionborrosa=1;
-        swlagrimeo=1;
-        swojorojo=1;
-        swtos=1;
-        swdolortoraxico=1;
-        swexpectoracion=1;
-        swdisfonia=1;
-        swepistaxis=1;
-        swhipoacusia=1;
-        swobstruccionnasal=1;
-        swrinorrea=1;
-        swtinitus=1;
-        swartralgias=1;
-        swtendinitis=1;
-        swlimitacionfuncional=1;
-        swparestesias=1;
-        swcervicalgias=1;
-        swdorsalgia=1;
-        swlumbalgia=1;
-        swincapacitante=1;
+        swdolorprecordial = 1;
+        swdlipotimia = 1;
+        swpalpitaciones = 1;
+        swsincope = 1;
+        swdisnea = 1;
+        swdescamacion = 1;
+        swdolorabdominal = 1;
+        swepigastraigia = 1;
+        swestrenimiento = 1;
+        swdiarrea = 1;
+        swsangrado = 1;
+        sweritema = 1;
+        swhiperhidrosis = 1;
+        swbrote = 1;
+        swsequedad = 1;
+        swprurito = 1;
+        swdispepsia = 1;
+        swdisminucioncalibre = 1;
+        swdisuria = 1;
+        swhematuria = 1;
+        swtransciclomestrual = 1;
+        swnicturia = 1;
+        swpolaquiuria = 1;
+        swtenesmovesical = 1;
+        swcefalea = 1;
+        swalteracionmemoria = 1;
+        swealteraciosensibilidad = 1;
+        swalteracionmotora = 1;
+        swvertigo = 1;
+        swardorprurito = 1;
+        swcansancio = 1;
+        swvisionborrosa = 1;
+        swlagrimeo = 1;
+        swojorojo = 1;
+        swtos = 1;
+        swdolortoraxico = 1;
+        swexpectoracion = 1;
+        swdisfonia = 1;
+        swepistaxis = 1;
+        swhipoacusia = 1;
+        swobstruccionnasal = 1;
+        swrinorrea = 1;
+        swtinitus = 1;
+        swartralgias = 1;
+        swtendinitis = 1;
+        swlimitacionfuncional = 1;
+        swparestesias = 1;
+        swcervicalgias = 1;
+        swdorsalgia = 1;
+        swlumbalgia = 1;
+        swincapacitante = 1;
 
     }
 
@@ -1944,309 +1937,358 @@ public class CRevisionSistemas extends JInternalFrame {
      * abrirformulariodetalleRS
      */
     public void abrirformulariodetalleRS(JFormattedTextField JFTvar) {
-         JDesktopPane JDPIngresoRS=new JDesktopPane();
-         JDPIngresoRS=(JDesktopPane)JDPIngresoobjRS;
-         CRevisionSistemas framerevsistemas;
-         framerevsistemas=(CRevisionSistemas)objCRS;
-         framerevsistemas.setVisible(false);
-         CDetallesAP framedetallRS= new  CDetallesAP(framerevsistemas);
-         framedetRS=framedetallRS;procesoeditorRS(JFTvar);
-         framedetallRS.setBounds(0, 2, 550, 600);
-         framedetallRS.setTitle("DETALLES REVISION POR SISTEMAS");
-         JDPIngresoRS.add(framedetallRS, new Integer(1));
-         framedetallRS.setLocation(234, 55);
-         framedetallRS.show();
-         framedetallRS.setVisible(true);
-         framedetallRS.JEDPdetAP.requestFocus();
+        JDesktopPane JDPIngresoRS = new JDesktopPane();
+        JDPIngresoRS = (JDesktopPane) JDPIngresoobjRS;
+        CRevisionSistemas framerevsistemas;
+        framerevsistemas = (CRevisionSistemas) objCRS;
+        framerevsistemas.setVisible(false);
+        CDetallesAP framedetallRS = new CDetallesAP(framerevsistemas);
+        framedetRS = framedetallRS;
+        procesoeditorRS(JFTvar);
+        framedetallRS.setBounds(0, 2, 550, 600);
+        framedetallRS.setTitle("DETALLES REVISION POR SISTEMAS");
+        JDPIngresoRS.add(framedetallRS, new Integer(1));
+        framedetallRS.setLocation(234, 55);
+        framedetallRS.show();
+        framedetallRS.setVisible(true);
+        framedetallRS.JEDPdetAP.requestFocus();
     }
 
     /**
      * inicioventanaRS
      */
     public void inicioventanaRS(CRevisionSistemas framerevsistemas) {
-        objCRS=framerevsistemas;
+        objCRS = framerevsistemas;
     }
-
 
     public void procesoeditorRS(JFormattedTextField JFTvar) {
         CDetallesAP CdetRS;
-        CdetRS=(CDetallesAP)framedetRS;
+        CdetRS = (CDetallesAP) framedetRS;
         CdetRS.JEDPdetAP.setText(JFTvar.getText());
     }
 
     public void JBDolorPrecordial_actionPerformed(ActionEvent e) {
-        nombredetalleRS="DOLOR PRECORDIAL";
-        abrirformulariodetalleRS(JFTDolorPrecordial);swdolorprecordial=1;
+        nombredetalleRS = "DOLOR PRECORDIAL";
+        abrirformulariodetalleRS(JFTDolorPrecordial);
+        swdolorprecordial = 1;
     }
 
     public void JBLipotimia_actionPerformed(ActionEvent e) {
-        nombredetalleRS="LIPOTIMIA";
-        abrirformulariodetalleRS(JFTLipotimia);swdlipotimia=1;
+        nombredetalleRS = "LIPOTIMIA";
+        abrirformulariodetalleRS(JFTLipotimia);
+        swdlipotimia = 1;
     }
 
     public void JBPalpitaciones_actionPerformed(ActionEvent e) {
-        nombredetalleRS="PALPITACIONES";
-        abrirformulariodetalleRS(JFTPalpit);swpalpitaciones=1;
+        nombredetalleRS = "PALPITACIONES";
+        abrirformulariodetalleRS(JFTPalpit);
+        swpalpitaciones = 1;
     }
 
     public void JBSincope_actionPerformed(ActionEvent e) {
-        nombredetalleRS="SINCOPE";
-        abrirformulariodetalleRS(JFTSincope);swsincope=1;
+        nombredetalleRS = "SINCOPE";
+        abrirformulariodetalleRS(JFTSincope);
+        swsincope = 1;
     }
 
     public void JBDisnea_actionPerformed(ActionEvent e) {
-        nombredetalleRS="DISNEA";
-        abrirformulariodetalleRS(jFormattedTextField2);swdisnea=1;
+        nombredetalleRS = "DISNEA";
+        abrirformulariodetalleRS(jFormattedTextField2);
+        swdisnea = 1;
     }
 
     public void JBDescamacion_actionPerformed(ActionEvent e) {
-        nombredetalleRS="DESCAMACION";
-        abrirformulariodetalleRS(JFTdescam);swdescamacion=1;
+        nombredetalleRS = "DESCAMACION";
+        abrirformulariodetalleRS(JFTdescam);
+        swdescamacion = 1;
     }
 
     public void JBEritema_actionPerformed(ActionEvent e) {
-        nombredetalleRS="ERITEMA";
-        abrirformulariodetalleRS(JFTEritema);sweritema=1;
+        nombredetalleRS = "ERITEMA";
+        abrirformulariodetalleRS(JFTEritema);
+        sweritema = 1;
     }
 
     public void JBHiperhidrosis_actionPerformed(ActionEvent e) {
-        nombredetalleRS="HIPERHIDROSIS";
-        abrirformulariodetalleRS(JFTHiperhidrosis);swhiperhidrosis=1;
+        nombredetalleRS = "HIPERHIDROSIS";
+        abrirformulariodetalleRS(JFTHiperhidrosis);
+        swhiperhidrosis = 1;
     }
 
     public void JBBrote_actionPerformed(ActionEvent e) {
-        nombredetalleRS="BROTE";
-        abrirformulariodetalleRS(JFTBrote);swbrote=1;
+        nombredetalleRS = "BROTE";
+        abrirformulariodetalleRS(JFTBrote);
+        swbrote = 1;
     }
 
     public void JBSequedad_actionPerformed(ActionEvent e) {
-        nombredetalleRS="SEQUEDAD";
-        abrirformulariodetalleRS(JFTSequedad);swsequedad=1;
+        nombredetalleRS = "SEQUEDAD";
+        abrirformulariodetalleRS(JFTSequedad);
+        swsequedad = 1;
     }
 
     public void JBPrurito_actionPerformed(ActionEvent e) {
-        nombredetalleRS="PRURITO";
-        abrirformulariodetalleRS(JFTprurito);swprurito=1;
+        nombredetalleRS = "PRURITO";
+        abrirformulariodetalleRS(JFTprurito);
+        swprurito = 1;
     }
 
     public void JBDispepsia_actionPerformed(ActionEvent e) {
-        nombredetalleRS="DISPEPSIA";
-        abrirformulariodetalleRS(JFTDispepsia);swdispepsia=1;
+        nombredetalleRS = "DISPEPSIA";
+        abrirformulariodetalleRS(JFTDispepsia);
+        swdispepsia = 1;
     }
 
     public void JBDolorAbdominal_actionPerformed(ActionEvent e) {
-        nombredetalleRS="DOLOR ABDOMINAL";
-        abrirformulariodetalleRS(JFTDolorAbd);swdolorabdominal=1;
+        nombredetalleRS = "DOLOR ABDOMINAL";
+        abrirformulariodetalleRS(JFTDolorAbd);
+        swdolorabdominal = 1;
     }
 
     public void JBEpigastraigia_actionPerformed(ActionEvent e) {
-        nombredetalleRS="EPIGASTRAIGIA/PIROSIS";
-        abrirformulariodetalleRS(JFTEpigastr);swepigastraigia=1;
+        nombredetalleRS = "EPIGASTRAIGIA/PIROSIS";
+        abrirformulariodetalleRS(JFTEpigastr);
+        swepigastraigia = 1;
     }
 
     public void JBEstrenimiento_actionPerformed(ActionEvent e) {
-        nombredetalleRS="ESTRE�IMIENTO";
-        abrirformulariodetalleRS(JFTEstrenimiento);swestrenimiento=1;
+        nombredetalleRS = "ESTREÑIMIENTO";
+        abrirformulariodetalleRS(JFTEstrenimiento);
+        swestrenimiento = 1;
     }
 
     public void JBDiarrea_actionPerformed(ActionEvent e) {
-        nombredetalleRS="DIARREA";
-        abrirformulariodetalleRS(JFTDiarrea);swdiarrea=1;
+        nombredetalleRS = "DIARREA";
+        abrirformulariodetalleRS(JFTDiarrea);
+        swdiarrea = 1;
     }
 
     public void JBSangrado_actionPerformed(ActionEvent e) {
-        nombredetalleRS="SANGRADO";
-        abrirformulariodetalleRS(JFTSangrado);swsangrado=1;
+        nombredetalleRS = "SANGRADO";
+        abrirformulariodetalleRS(JFTSangrado);
+        swsangrado = 1;
     }
 
     public void JBDisminucionCalibre_actionPerformed(ActionEvent e) {
-        nombredetalleRS="DISMINUCION CALIBRE";
-        abrirformulariodetalleRS(JFTDisminucionCalibre);swdisminucioncalibre=1;
+        nombredetalleRS = "DISMINUCION CALIBRE";
+        abrirformulariodetalleRS(JFTDisminucionCalibre);
+        swdisminucioncalibre = 1;
     }
 
     public void JBDisuria_actionPerformed(ActionEvent e) {
-        nombredetalleRS="DISURIA";
-        abrirformulariodetalleRS(JFTDisuria);swdisuria=1;
+        nombredetalleRS = "DISURIA";
+        abrirformulariodetalleRS(JFTDisuria);
+        swdisuria = 1;
     }
 
     public void JBHematuria_actionPerformed(ActionEvent e) {
-        nombredetalleRS="HEMATURIA";
-        abrirformulariodetalleRS(JFTHematuria);swhematuria=1;
+        nombredetalleRS = "HEMATURIA";
+        abrirformulariodetalleRS(JFTHematuria);
+        swhematuria = 1;
     }
 
     public void JBTranstCicloMestrual_actionPerformed(ActionEvent e) {
-        nombredetalleRS="TRANSTORNOS CICLO MESTRUAL";
-        abrirformulariodetalleRS(JFTtranstCicloMestr);swtransciclomestrual=1;
+        nombredetalleRS = "TRANSTORNOS CICLO MESTRUAL";
+        abrirformulariodetalleRS(JFTtranstCicloMestr);
+        swtransciclomestrual = 1;
     }
 
     public void JBNicturia_actionPerformed(ActionEvent e) {
-        nombredetalleRS="NICTURIA";
-        abrirformulariodetalleRS(JFTNicturia);swnicturia=1;
+        nombredetalleRS = "NICTURIA";
+        abrirformulariodetalleRS(JFTNicturia);
+        swnicturia = 1;
     }
 
     public void JBPalaquiuria_actionPerformed(ActionEvent e) {
-        nombredetalleRS="POLAQUIURIA";
-        abrirformulariodetalleRS(JFTPalquiuria);swpolaquiuria=1;
+        nombredetalleRS = "POLAQUIURIA";
+        abrirformulariodetalleRS(JFTPalquiuria);
+        swpolaquiuria = 1;
     }
 
     public void JBTenesmoVesical_actionPerformed(ActionEvent e) {
-        nombredetalleRS="TENESMO VESICAL";
-        abrirformulariodetalleRS(JFTTenesmovesical);swtenesmovesical=1;
+        nombredetalleRS = "TENESMO VESICAL";
+        abrirformulariodetalleRS(JFTTenesmovesical);
+        swtenesmovesical = 1;
     }
 
     public void JBCefalea_actionPerformed(ActionEvent e) {
-        nombredetalleRS="CEFALEA";
-        abrirformulariodetalleRS(JFTCefalea);swcefalea=1;
+        nombredetalleRS = "CEFALEA";
+        abrirformulariodetalleRS(JFTCefalea);
+        swcefalea = 1;
     }
 
     public void JBAlteracionMemoria_actionPerformed(ActionEvent e) {
-        nombredetalleRS="ALTERACION MEMORIA";
-        abrirformulariodetalleRS(JFTAlteracionMemoria);swalteracionmemoria=1;
+        nombredetalleRS = "ALTERACION MEMORIA";
+        abrirformulariodetalleRS(JFTAlteracionMemoria);
+        swalteracionmemoria = 1;
     }
 
     public void JBAlteracionSensibilidad_actionPerformed(ActionEvent e) {
-        nombredetalleRS="ALTERACION SENSIBILIDAD";
-        abrirformulariodetalleRS(JFTAlteracionSencib);swealteraciosensibilidad=1;
+        nombredetalleRS = "ALTERACION SENSIBILIDAD";
+        abrirformulariodetalleRS(JFTAlteracionSencib);
+        swealteraciosensibilidad = 1;
     }
 
     public void JBAlteracionMotora_actionPerformed(ActionEvent e) {
-        nombredetalleRS="ALTERACION MOTORA";
-        abrirformulariodetalleRS(JFTAlteracMotora);swalteracionmotora=1;
+        nombredetalleRS = "ALTERACION MOTORA";
+        abrirformulariodetalleRS(JFTAlteracMotora);
+        swalteracionmotora = 1;
     }
 
     public void JBVertigo_actionPerformed(ActionEvent e) {
-        nombredetalleRS="VERTIGO";
-        abrirformulariodetalleRS(JFTVertigo);swvertigo=1;
+        nombredetalleRS = "VERTIGO";
+        abrirformulariodetalleRS(JFTVertigo);
+        swvertigo = 1;
     }
 
     public void JBArdor_actionPerformed(ActionEvent e) {
-        nombredetalleRS="ARDOR/PRURITO";
-        abrirformulariodetalleRS(JFTArdorPrurito);swardorprurito=1;
+        nombredetalleRS = "ARDOR/PRURITO";
+        abrirformulariodetalleRS(JFTArdorPrurito);
+        swardorprurito = 1;
     }
 
     public void JBCansancio_actionPerformed(ActionEvent e) {
-        nombredetalleRS="CANSANCIO";
-        abrirformulariodetalleRS(JFTCansancio);swcansancio=1;
+        nombredetalleRS = "CANSANCIO";
+        abrirformulariodetalleRS(JFTCansancio);
+        swcansancio = 1;
     }
 
     public void JBVisionBorrosa_actionPerformed(ActionEvent e) {
-        nombredetalleRS="VISION BORROSA";
-        abrirformulariodetalleRS(JFTVisionBorrosa);swvisionborrosa=1;
+        nombredetalleRS = "VISION BORROSA";
+        abrirformulariodetalleRS(JFTVisionBorrosa);
+        swvisionborrosa = 1;
     }
 
     public void JBLagrimeo_actionPerformed(ActionEvent e) {
-        nombredetalleRS="LAGRIMEO";
-        abrirformulariodetalleRS(JFTLagrimeo);swlagrimeo=1;
+        nombredetalleRS = "LAGRIMEO";
+        abrirformulariodetalleRS(JFTLagrimeo);
+        swlagrimeo = 1;
     }
 
     public void JBOjoRojo_actionPerformed(ActionEvent e) {
-        nombredetalleRS="OJO ROJO";
-        abrirformulariodetalleRS(JFTOjoRojo);swojorojo=1;
+        nombredetalleRS = "OJO ROJO";
+        abrirformulariodetalleRS(JFTOjoRojo);
+        swojorojo = 1;
     }
 
     public void JBTos_actionPerformed(ActionEvent e) {
-        nombredetalleRS="TOS";
-        abrirformulariodetalleRS(JFTTos);swtos=1;
+        nombredetalleRS = "TOS";
+        abrirformulariodetalleRS(JFTTos);
+        swtos = 1;
     }
 
     public void JBDolorToraxico_actionPerformed(ActionEvent e) {
-        nombredetalleRS="DOLOR TORAXICO";
-        abrirformulariodetalleRS(JFTDolorToraxico);swdolortoraxico=1;
+        nombredetalleRS = "DOLOR TORAXICO";
+        abrirformulariodetalleRS(JFTDolorToraxico);
+        swdolortoraxico = 1;
     }
 
     public void JBExpectoracion_actionPerformed(ActionEvent e) {
-        nombredetalleRS="EXPECTORACION";
-        abrirformulariodetalleRS(JFTExpectoracion);swexpectoracion=1;
+        nombredetalleRS = "EXPECTORACION";
+        abrirformulariodetalleRS(JFTExpectoracion);
+        swexpectoracion = 1;
     }
 
     public void JBDisfonia_actionPerformed(ActionEvent e) {
-        nombredetalleRS="DISFONIA";
-        abrirformulariodetalleRS(JFTDisfonia);swdisfonia=1;
+        nombredetalleRS = "DISFONIA";
+        abrirformulariodetalleRS(JFTDisfonia);
+        swdisfonia = 1;
     }
 
     public void JBEpistaxis_actionPerformed(ActionEvent e) {
-        nombredetalleRS="EPISTAXIS";
-        abrirformulariodetalleRS(JFTEpistaxis);swepistaxis=1;
+        nombredetalleRS = "EPISTAXIS";
+        abrirformulariodetalleRS(JFTEpistaxis);
+        swepistaxis = 1;
     }
 
     public void JBHipoacusia_actionPerformed(ActionEvent e) {
-        nombredetalleRS="HIPOACUSIA SUBJETIVA";
-        abrirformulariodetalleRS(JFTHipoacusia);swhipoacusia=1;
+        nombredetalleRS = "HIPOACUSIA SUBJETIVA";
+        abrirformulariodetalleRS(JFTHipoacusia);
+        swhipoacusia = 1;
     }
 
     public void JBObstruccionNasal_actionPerformed(ActionEvent e) {
-        nombredetalleRS="OBSTRUCCION NASAL";
-        abrirformulariodetalleRS(JFTObstruccionNasal);swobstruccionnasal=1;
+        nombredetalleRS = "OBSTRUCCION NASAL";
+        abrirformulariodetalleRS(JFTObstruccionNasal);
+        swobstruccionnasal = 1;
     }
 
     public void JBRinorrea_actionPerformed(ActionEvent e) {
-        nombredetalleRS="RINORREA";
-        abrirformulariodetalleRS(JFTRinorrea);swrinorrea=1;
+        nombredetalleRS = "RINORREA";
+        abrirformulariodetalleRS(JFTRinorrea);
+        swrinorrea = 1;
     }
 
     public void JBTinitus_actionPerformed(ActionEvent e) {
-        nombredetalleRS="TINITUS";
-        abrirformulariodetalleRS(JFTTinitus);swtinitus=1;
+        nombredetalleRS = "TINITUS";
+        abrirformulariodetalleRS(JFTTinitus);
+        swtinitus = 1;
     }
 
     public void JBArtralgias_actionPerformed(ActionEvent e) {
-        nombredetalleRS="ARTRALGIAS";
-        abrirformulariodetalleRS(JFTArtralgias);swartralgias=1;
+        nombredetalleRS = "ARTRALGIAS";
+        abrirformulariodetalleRS(JFTArtralgias);
+        swartralgias = 1;
     }
 
     public void JBTendinitis_actionPerformed(ActionEvent e) {
-        nombredetalleRS="TENDINITIS";
-        abrirformulariodetalleRS(JFTTendinitis);swtendinitis=1;
+        nombredetalleRS = "TENDINITIS";
+        abrirformulariodetalleRS(JFTTendinitis);
+        swtendinitis = 1;
     }
 
     public void JBLimitacionFuncional_actionPerformed(ActionEvent e) {
-        nombredetalleRS="LIMITACION FUNCIONAL";
-        abrirformulariodetalleRS(JFTLimitacionFunc);swlimitacionfuncional=1;
+        nombredetalleRS = "LIMITACION FUNCIONAL";
+        abrirformulariodetalleRS(JFTLimitacionFunc);
+        swlimitacionfuncional = 1;
     }
 
     public void JBParestesias_actionPerformed(ActionEvent e) {
-        nombredetalleRS="PARESTESIAS/DISESTESIAS";
-        abrirformulariodetalleRS(JFTParestesias);swparestesias=1;
+        nombredetalleRS = "PARESTESIAS/DISESTESIAS";
+        abrirformulariodetalleRS(JFTParestesias);
+        swparestesias = 1;
     }
 
     public void JBCervicalgia_actionPerformed(ActionEvent e) {
-        nombredetalleRS="CERVICALGIAS";
-        abrirformulariodetalleRS(JFTCervicalgia);swcervicalgias=1;
+        nombredetalleRS = "CERVICALGIAS";
+        abrirformulariodetalleRS(JFTCervicalgia);
+        swcervicalgias = 1;
     }
 
     public void JBDorsalgia_actionPerformed(ActionEvent e) {
-        nombredetalleRS="DORSALGIAS";
-        abrirformulariodetalleRS(JFTDorsalgia);swdorsalgia=1;
+        nombredetalleRS = "DORSALGIAS";
+        abrirformulariodetalleRS(JFTDorsalgia);
+        swdorsalgia = 1;
     }
 
     public void JBLumbalgia_actionPerformed(ActionEvent e) {
-        nombredetalleRS="LUMBALGIAS";
-        abrirformulariodetalleRS(JFTLumbalgia);swlumbalgia=1;
+        nombredetalleRS = "LUMBALGIAS";
+        abrirformulariodetalleRS(JFTLumbalgia);
+        swlumbalgia = 1;
     }
 
     public void JBIncapacitante_actionPerformed(ActionEvent e) {
-        nombredetalleRS="INCAPACITANTE";
-        abrirformulariodetalleRS(JFTIncapacitante);swincapacitante=1;
+        nombredetalleRS = "INCAPACITANTE";
+        abrirformulariodetalleRS(JFTIncapacitante);
+        swincapacitante = 1;
     }
 
     public void JBAtrasRS_actionPerformed(ActionEvent e) {
         CRevisionSistemas framerevsistemas;
         COtrosAnt frameRSAtras;
-        frameRSAtras=(COtrosAnt)frameOAOBJ;
+        frameRSAtras = (COtrosAnt) frameOAOBJ;
         frameRSAtras.setVisible(true);
-        framerevsistemas=(CRevisionSistemas)objCRS;
+        framerevsistemas = (CRevisionSistemas) objCRS;
         framerevsistemas.setVisible(false);
 
     }
 
     public void JBSguteRV_actionPerformed(ActionEvent e) {
-       validarnulosEF();
-
+        validarnulosEF();
 
     }
 
     public void JBcancelarRS_actionPerformed(ActionEvent e) {
-
 
     }
 
@@ -2254,7 +2296,7 @@ public class CRevisionSistemas extends JInternalFrame {
      * validarnulosEF
      */
     public void validarnulosEF() {
-        swval=0;
+        swval = 0;
         CIngreso frameingreso;
         CHistoriaOcup framehistocup;
         CEnfermedadProf frameenfermedadprof;
@@ -2264,22 +2306,22 @@ public class CRevisionSistemas extends JInternalFrame {
         CAGineco frameginecologia;
         CInmuniz frameinmunuz;
         COtrosAnt frameotrosantecedentes;
-        frameingreso=(CIngreso)frameRSOBJ;
+        frameingreso = (CIngreso) frameRSOBJ;
         CRevisionSistemas framers;
-        framers=(CRevisionSistemas)objCRS;
+        framers = (CRevisionSistemas) objCRS;
         framers.setVisible(false);
-        JDesktopPane JDPIngresoEP=new JDesktopPane();
-        JDPIngresoEP=(JDesktopPane)JDPIngresoobjRS;
-        framehistocup=(CHistoriaOcup) framehoOBJ;
-        frameenfermedadprof=(CEnfermedadProf)frameEnfProfOBJ;
-        frameaccitrabajo=(CHistoriaAcciTrab)frameAcciTrabajoOBJ;
-        frameantecendnetesfam=(CAntecedentesFamiliar)frameAntecFamOBJ;
-        frameantecpersonal=(CAntecedentesPersonales)frameAntecPersonalOBJ;
-        frameginecologia=(CAGineco)frameGinecologiaOBJ;
-        frameinmunuz=(CInmuniz)frameInmunizOBJ;
-        frameotrosantecedentes=(COtrosAnt)frameOAOBJ;
-        if(swgte==0){
-            CExamenFisico frameEF = new CExamenFisico(obotactualizarEF,numingredicEF,swedicingrEF,nombrrs,framers,numhcrs,JDPIngresoEP,frameingreso,framehistocup,frameenfermedadprof,frameaccitrabajo,frameantecendnetesfam,frameantecpersonal,frameginecologia,frameinmunuz,frameotrosantecedentes,objppalrs);
+        JDesktopPane JDPIngresoEP = new JDesktopPane();
+        JDPIngresoEP = (JDesktopPane) JDPIngresoobjRS;
+        framehistocup = (CHistoriaOcup) framehoOBJ;
+        frameenfermedadprof = (CEnfermedadProf) frameEnfProfOBJ;
+        frameaccitrabajo = (CHistoriaAcciTrab) frameAcciTrabajoOBJ;
+        frameantecendnetesfam = (CAntecedentesFamiliar) frameAntecFamOBJ;
+        frameantecpersonal = (CAntecedentesPersonales) frameAntecPersonalOBJ;
+        frameginecologia = (CAGineco) frameGinecologiaOBJ;
+        frameinmunuz = (CInmuniz) frameInmunizOBJ;
+        frameotrosantecedentes = (COtrosAnt) frameOAOBJ;
+        if (swgte == 0) {
+            CExamenFisico frameEF = new CExamenFisico(obotactualizarEF, numingredicEF, swedicingrEF, nombrrs, framers, numhcrs, JDPIngresoEP, frameingreso, framehistocup, frameenfermedadprof, frameaccitrabajo, frameantecendnetesfam, frameantecpersonal, frameginecologia, frameinmunuz, frameotrosantecedentes, objppalrs);
             frameEF.setBounds(0, 2, 1010, 600);
             frameEF.setTitle("EXAMEN FISICO");
             JDPIngresoEP.add(frameEF, new Integer(1));
@@ -2287,154 +2329,154 @@ public class CRevisionSistemas extends JInternalFrame {
             frameEF.show();
             frameEF.setVisible(true);
             frameEF.inicioventanaEF(frameEF);
-            swgte=1;
-            objetoexamfisico=frameEF;
-            if(swedicingrEF==1){
-                String cadsqledicEF,idestadogeneral,sqlEF;
-                Connection con2=Cconsql.getConnection();
-                cadsqledicEF="SELECT ingreso.id_ingreso, examen_fisico.estadogen_EF, examen_fisico.tasignovital_EF, examen_fisico.fcsignovita_EF, examen_fisico.frsignovital_EF, examen_fisico.pesosignovital_EF, examen_fisico.tallasignovita_EF, examen_fisico.imcsignovital_EF, examen_fisico.rangosignovital, examen_fisico.cab_EF, examen_fisico.textcab_EF, examen_fisico.cara_EF, examen_fisico.textcara_EF, examen_fisico.ojos_EF, examen_fisico.textojos_EF, examen_fisico.oidos_EF, examen_fisico.textoidos_EF, examen_fisico.nariz_EF, examen_fisico.textnariz_EF, examen_fisico.boca_EF, examen_fisico.textboca_EF, examen_fisico.dentadura_EF, examen_fisico.textdentadura_EF, examen_fisico.cuello_EF, examen_fisico.textcuello_EF, examen_fisico.torax_EF, examen_fisico.texttorax_EF, examen_fisico.cardiaco_EF, examen_fisico.textcardiaco_EF, examen_fisico.pulmon_EF, examen_fisico.textpulmon_EF, examen_fisico.mamas_EF, examen_fisico.textmamas_EF, examen_fisico.abdomen_EF, examen_fisico.textabdomen_EF, examen_fisico.genitales_EF, examen_fisico.textgenitales_EF, examen_fisico.msup_EF, examen_fisico.textmsup_EF, examen_fisico.minf_EF, examen_fisico.textminf_EF, examen_fisico.pies_EF, examen_fisico.textpies_EF, examen_fisico.columna_EF, examen_fisico.textcolumna_EF, examen_fisico.neurolog_EF, examen_fisico.textneurolog_EF, examen_fisico.piel_EF, examen_fisico.textpies_EF, examen_fisico.idlateral_EF FROM ingreso INNER JOIN examen_fisico ON ingreso.id_ingreso = examen_fisico.idingreso_EF WHERE ingreso.id_ingreso="+numingredicEF;
+            swgte = 1;
+            objetoexamfisico = frameEF;
+            if (swedicingrEF == 1) {
+                String cadsqledicEF, idestadogeneral, sqlEF;
+                Connection con2 = Cconsql.getConnection();
+                cadsqledicEF = "SELECT ingreso.id_ingreso, examen_fisico.estadogen_EF, examen_fisico.tasignovital_EF, examen_fisico.fcsignovita_EF, examen_fisico.frsignovital_EF, examen_fisico.pesosignovital_EF, examen_fisico.tallasignovita_EF, examen_fisico.imcsignovital_EF, examen_fisico.rangosignovital, examen_fisico.cab_EF, examen_fisico.textcab_EF, examen_fisico.cara_EF, examen_fisico.textcara_EF, examen_fisico.ojos_EF, examen_fisico.textojos_EF, examen_fisico.oidos_EF, examen_fisico.textoidos_EF, examen_fisico.nariz_EF, examen_fisico.textnariz_EF, examen_fisico.boca_EF, examen_fisico.textboca_EF, examen_fisico.dentadura_EF, examen_fisico.textdentadura_EF, examen_fisico.cuello_EF, examen_fisico.textcuello_EF, examen_fisico.torax_EF, examen_fisico.texttorax_EF, examen_fisico.cardiaco_EF, examen_fisico.textcardiaco_EF, examen_fisico.pulmon_EF, examen_fisico.textpulmon_EF, examen_fisico.mamas_EF, examen_fisico.textmamas_EF, examen_fisico.abdomen_EF, examen_fisico.textabdomen_EF, examen_fisico.genitales_EF, examen_fisico.textgenitales_EF, examen_fisico.msup_EF, examen_fisico.textmsup_EF, examen_fisico.minf_EF, examen_fisico.textminf_EF, examen_fisico.pies_EF, examen_fisico.textpies_EF, examen_fisico.columna_EF, examen_fisico.textcolumna_EF, examen_fisico.neurolog_EF, examen_fisico.textneurolog_EF, examen_fisico.piel_EF, examen_fisico.textpies_EF, examen_fisico.idlateral_EF FROM ingreso INNER JOIN examen_fisico ON ingreso.id_ingreso = examen_fisico.idingreso_EF WHERE ingreso.id_ingreso=" + numingredicEF;
 
-                try{
-                   TSentenciaconsultaEF = con2.createStatement();
-                   RconsultaEF = TSentenciaconsultaEF.executeQuery(cadsqledicEF);
-                   while (RconsultaEF.next()) {
-                       idestadogeneral=RconsultaEF.getString(2);
-                       sqlEF="select *from estado_general where estado_general.id_ag="+"'"+idestadogeneral+"'";
-                       idestadogeneral=validEF.buscarcadena(sqlEF,2);
-                       Object EFobj=idestadogeneral;
-                       frameEF.JCBEstadoGeneral.setSelectedItem(EFobj);
-                       frameEF.JFTTaEF.setText(RconsultaEF.getString(3));
-                       frameEF.JFTfcEF.setText(RconsultaEF.getString(4));
-                       frameEF.JFTfrEF.setText(RconsultaEF.getString(5));
-                       frameEF.JFTPesoEF.setText(RconsultaEF.getString(6));
-                       frameEF.JFTBtallaEF.setText(RconsultaEF.getString(7));
-                       frameEF.JFTimcEF.setText(RconsultaEF.getString(8));
-                       frameEF.JFTrangoEF.setText(RconsultaEF.getString(9));
-                       llenarradio(frameEF.JRsiCab,RconsultaEF.getBoolean(10),frameEF.JRnoCab);
-                       frameEF.JTFCabeza.setText(RconsultaEF.getString(11));
-                       llenarradio(frameEF.JRsiCaraEF,RconsultaEF.getBoolean(12),frameEF.JRnoCara);
-                       frameEF.JTFcaraEF.setText(RconsultaEF.getString(13));
-                       llenarradio(frameEF.JRsiOjosEF,RconsultaEF.getBoolean(14),frameEF.JRnoOjosEF);
-                       frameEF.JTFojosEF.setText(RconsultaEF.getString(15));
-                       llenarradio(frameEF.JRsiOidosEF,RconsultaEF.getBoolean(16),frameEF.JRnoOidos);
-                       frameEF.JTFoidosEF.setText(RconsultaEF.getString(17));
-                       llenarradio(frameEF.JRBsiNarizEF,RconsultaEF.getBoolean(18),frameEF.JRBnoNariz);
-                       frameEF.JTFnarizEF.setText(RconsultaEF.getString(19));
-                       llenarradio(frameEF.JRsiBocaEF,RconsultaEF.getBoolean(20),frameEF.JRBnoBocaEF);
-                       frameEF.JTFbocaEF.setText(RconsultaEF.getString(21));
-                       llenarradio(frameEF.JRsiDentEF,RconsultaEF.getBoolean(22),frameEF.JRBnoDentEF);
-                       frameEF.JTFDentEF.setText(RconsultaEF.getString(23));
-                       llenarradio(frameEF.JRBsiCuelloEF,RconsultaEF.getBoolean(24),frameEF.JRBnoCuelloEF);
-                       frameEF.JTFcuelloEF.setText(RconsultaEF.getString(25));
-                       llenarradio(frameEF.JRsiToraxEF,RconsultaEF.getBoolean(26),frameEF.JRBnoToraxEF);
-                       frameEF.JTFtoraxEF.setText(RconsultaEF.getString(27));
-                       llenarradio(frameEF.JRBsicardiacoEF,RconsultaEF.getBoolean(28),frameEF.JRBnoCardiacoEF);
-                       frameEF.JTFCardiacoEF.setText(RconsultaEF.getString(29));
-                       llenarradio(frameEF.JRBsiPulmonEF,RconsultaEF.getBoolean(30),frameEF.JRBnoPulmonEF);
-                       frameEF.JTFPulmonEF.setText(RconsultaEF.getString(31));
-                       llenarradio(frameEF.JRsimamasEF,RconsultaEF.getBoolean(32),frameEF.JRBnomamasEF);
-                       frameEF.JTFMamasEF.setText(RconsultaEF.getString(33));
-                       llenarradio(frameEF.JRBsiAbdomenEF,RconsultaEF.getBoolean(34),frameEF.JRBnoAbdomenEF);
-                       frameEF.JTFAbdomenEF.setText(RconsultaEF.getString(35));
-                       llenarradio(frameEF.JRsiGenitalesEF,RconsultaEF.getBoolean(36),frameEF.JRBnoGenitalesEF);
-                       frameEF.JTFGenitalesEF.setText(RconsultaEF.getString(37));
-                       llenarradio(frameEF.JRBsiMsupEF,RconsultaEF.getBoolean(38),frameEF.JRBnoMsupEF);
-                       frameEF.JTFMsup.setText(RconsultaEF.getString(39));
-                       llenarradio(frameEF.JRBsiMinfEF,RconsultaEF.getBoolean(40),frameEF.JRnoMinfEF);
-                       frameEF.JTFMinfEF.setText(RconsultaEF.getString(41));
-                       llenarradio(frameEF.JRsiPiesEF,RconsultaEF.getBoolean(42),frameEF.JRBnoPiesEF);
-                       frameEF.JTFPiesEF.setText(RconsultaEF.getString(43));
-                       llenarradio(frameEF.JRBsiColEF,RconsultaEF.getBoolean(44),frameEF.JRBnoColEF);
-                       frameEF.JTFColEF.setText(RconsultaEF.getString(45));
-                       llenarradio(frameEF.JRBNeurEF,RconsultaEF.getBoolean(46),frameEF.JRBnoNeurl);
-                       frameEF.JTFNeurlogEF.setText(RconsultaEF.getString(47));
-                       llenarradio(frameEF.JRBsiPiel,RconsultaEF.getBoolean(48),frameEF.JRBnoPielEF);
-                       frameEF.JTFPielEF.setText(RconsultaEF.getString(49));
-                       idestadogeneral=RconsultaEF.getString(50);
-                       sqlEF="select *from lateral where lateral.id_lateral="+"'"+idestadogeneral+"'";
-                       idestadogeneral=validEF.buscarcadena(sqlEF,2);
-                       EFobj=idestadogeneral;
-                       frameEF.JCBLateral.setSelectedItem(EFobj);
-                       activarboton(frameEF.JBCab);
-                       activarboton(frameEF.JBCaraEF);
-                       activarboton(frameEF.JBOjosEF);
-                       activarboton(frameEF.JBOidosEF);
-                       activarboton(frameEF.JBnarizEF);
-                       activarboton(frameEF.JBbocaEF);
-                       activarboton(frameEF.JBDentEF);
-                       activarboton(frameEF.JBCuelloEF);
-                       activarboton(frameEF.JBToraxEF);
-                       activarboton(frameEF.JBCardiacoEF);
-                       activarboton(frameEF.JBPulmonEF);
-                       activarboton(frameEF.JBmamasEF);
-                       activarboton(frameEF.JBAbdomenEF);
-                       activarboton(frameEF.JBGenitalesEF);
-                       activarboton(frameEF.JBMsupEF);
-                       activarboton(frameEF.JBMinfEF);
-                       activarboton(frameEF.JBPiesEF);
-                       activarboton(frameEF.JBColEF);
-                       activarboton(frameEF.JBNeurologEF);
-                       activarboton(frameEF.JBTPielEF);
-                   }
-                }
-                catch(SQLException e1){
-                  e1.getMessage();
-                  cad2="NO SE PUDO EJECUTAR LA CONSULTA";
-                  cad1="PROBLEMAS CON LOS DATOS DE EXAMEN FISICO EN EDICION";
-                  validEF.mensajeconfirmacion(cad1,cad2);
+                try {
+                    TSentenciaconsultaEF = con2.createStatement();
+                    RconsultaEF = TSentenciaconsultaEF.executeQuery(cadsqledicEF);
+                    while (RconsultaEF.next()) {
+                        idestadogeneral = RconsultaEF.getString(2);
+                        sqlEF = "select *from estado_general where estado_general.id_ag=" + "'" + idestadogeneral + "'";
+                        idestadogeneral = validEF.buscarcadena(sqlEF, 2);
+                        Object EFobj = idestadogeneral;
+                        frameEF.JCBEstadoGeneral.setSelectedItem(EFobj);
+                        frameEF.JFTTaEF.setText(RconsultaEF.getString(3));
+                        frameEF.JFTfcEF.setText(RconsultaEF.getString(4));
+                        frameEF.JFTfrEF.setText(RconsultaEF.getString(5));
+                        frameEF.JFTPesoEF.setText(RconsultaEF.getString(6));
+                        frameEF.JFTBtallaEF.setText(RconsultaEF.getString(7));
+                        frameEF.JFTimcEF.setText(RconsultaEF.getString(8));
+                        frameEF.JFTrangoEF.setText(RconsultaEF.getString(9));
+                        llenarradio(frameEF.JRsiCab, RconsultaEF.getBoolean(10), frameEF.JRnoCab);
+                        frameEF.JTFCabeza.setText(RconsultaEF.getString(11));
+                        llenarradio(frameEF.JRsiCaraEF, RconsultaEF.getBoolean(12), frameEF.JRnoCara);
+                        frameEF.JTFcaraEF.setText(RconsultaEF.getString(13));
+                        llenarradio(frameEF.JRsiOjosEF, RconsultaEF.getBoolean(14), frameEF.JRnoOjosEF);
+                        frameEF.JTFojosEF.setText(RconsultaEF.getString(15));
+                        llenarradio(frameEF.JRsiOidosEF, RconsultaEF.getBoolean(16), frameEF.JRnoOidos);
+                        frameEF.JTFoidosEF.setText(RconsultaEF.getString(17));
+                        llenarradio(frameEF.JRBsiNarizEF, RconsultaEF.getBoolean(18), frameEF.JRBnoNariz);
+                        frameEF.JTFnarizEF.setText(RconsultaEF.getString(19));
+                        llenarradio(frameEF.JRsiBocaEF, RconsultaEF.getBoolean(20), frameEF.JRBnoBocaEF);
+                        frameEF.JTFbocaEF.setText(RconsultaEF.getString(21));
+                        llenarradio(frameEF.JRsiDentEF, RconsultaEF.getBoolean(22), frameEF.JRBnoDentEF);
+                        frameEF.JTFDentEF.setText(RconsultaEF.getString(23));
+                        llenarradio(frameEF.JRBsiCuelloEF, RconsultaEF.getBoolean(24), frameEF.JRBnoCuelloEF);
+                        frameEF.JTFcuelloEF.setText(RconsultaEF.getString(25));
+                        llenarradio(frameEF.JRsiToraxEF, RconsultaEF.getBoolean(26), frameEF.JRBnoToraxEF);
+                        frameEF.JTFtoraxEF.setText(RconsultaEF.getString(27));
+                        llenarradio(frameEF.JRBsicardiacoEF, RconsultaEF.getBoolean(28), frameEF.JRBnoCardiacoEF);
+                        frameEF.JTFCardiacoEF.setText(RconsultaEF.getString(29));
+                        llenarradio(frameEF.JRBsiPulmonEF, RconsultaEF.getBoolean(30), frameEF.JRBnoPulmonEF);
+                        frameEF.JTFPulmonEF.setText(RconsultaEF.getString(31));
+                        llenarradio(frameEF.JRsimamasEF, RconsultaEF.getBoolean(32), frameEF.JRBnomamasEF);
+                        frameEF.JTFMamasEF.setText(RconsultaEF.getString(33));
+                        llenarradio(frameEF.JRBsiAbdomenEF, RconsultaEF.getBoolean(34), frameEF.JRBnoAbdomenEF);
+                        frameEF.JTFAbdomenEF.setText(RconsultaEF.getString(35));
+                        llenarradio(frameEF.JRsiGenitalesEF, RconsultaEF.getBoolean(36), frameEF.JRBnoGenitalesEF);
+                        frameEF.JTFGenitalesEF.setText(RconsultaEF.getString(37));
+                        llenarradio(frameEF.JRBsiMsupEF, RconsultaEF.getBoolean(38), frameEF.JRBnoMsupEF);
+                        frameEF.JTFMsup.setText(RconsultaEF.getString(39));
+                        llenarradio(frameEF.JRBsiMinfEF, RconsultaEF.getBoolean(40), frameEF.JRnoMinfEF);
+                        frameEF.JTFMinfEF.setText(RconsultaEF.getString(41));
+                        llenarradio(frameEF.JRsiPiesEF, RconsultaEF.getBoolean(42), frameEF.JRBnoPiesEF);
+                        frameEF.JTFPiesEF.setText(RconsultaEF.getString(43));
+                        llenarradio(frameEF.JRBsiColEF, RconsultaEF.getBoolean(44), frameEF.JRBnoColEF);
+                        frameEF.JTFColEF.setText(RconsultaEF.getString(45));
+                        llenarradio(frameEF.JRBNeurEF, RconsultaEF.getBoolean(46), frameEF.JRBnoNeurl);
+                        frameEF.JTFNeurlogEF.setText(RconsultaEF.getString(47));
+                        llenarradio(frameEF.JRBsiPiel, RconsultaEF.getBoolean(48), frameEF.JRBnoPielEF);
+                        frameEF.JTFPielEF.setText(RconsultaEF.getString(49));
+                        idestadogeneral = RconsultaEF.getString(50);
+                        sqlEF = "select *from lateral where lateral.id_lateral=" + "'" + idestadogeneral + "'";
+                        idestadogeneral = validEF.buscarcadena(sqlEF, 2);
+                        EFobj = idestadogeneral;
+                        frameEF.JCBLateral.setSelectedItem(EFobj);
+                        activarboton(frameEF.JBCab);
+                        activarboton(frameEF.JBCaraEF);
+                        activarboton(frameEF.JBOjosEF);
+                        activarboton(frameEF.JBOidosEF);
+                        activarboton(frameEF.JBnarizEF);
+                        activarboton(frameEF.JBbocaEF);
+                        activarboton(frameEF.JBDentEF);
+                        activarboton(frameEF.JBCuelloEF);
+                        activarboton(frameEF.JBToraxEF);
+                        activarboton(frameEF.JBCardiacoEF);
+                        activarboton(frameEF.JBPulmonEF);
+                        activarboton(frameEF.JBmamasEF);
+                        activarboton(frameEF.JBAbdomenEF);
+                        activarboton(frameEF.JBGenitalesEF);
+                        activarboton(frameEF.JBMsupEF);
+                        activarboton(frameEF.JBMinfEF);
+                        activarboton(frameEF.JBPiesEF);
+                        activarboton(frameEF.JBColEF);
+                        activarboton(frameEF.JBNeurologEF);
+                        activarboton(frameEF.JBTPielEF);
+                    }
+                } catch (SQLException e1) {
+                    e1.getMessage();
+                    cad2 = "NO SE PUDO EJECUTAR LA CONSULTA";
+                    cad1 = "PROBLEMAS CON LOS DATOS DE EXAMEN FISICO EN EDICION";
+                    validEF.mensajeconfirmacion(cad1, cad2);
                 }//cierra el catch
                 Cconsql.CerrarConexion();
 
-               }
-        }
-        else{
-             CExamenFisico frameEF;
-             frameEF=(CExamenFisico)objetoexamfisico;
-           // ObjectCingreso.setVisible(false);
+            }
+        } else {
+            CExamenFisico frameEF;
+            frameEF = (CExamenFisico) objetoexamfisico;
+            // ObjectCingreso.setVisible(false);
             frameEF.setVisible(true);
-       }
+        }
 
     }
 
     public void JRCoronaria_actionPerformed(ActionEvent e) {
-          controlbotonrs(JRCoronaria,JFTCoronaria,JBcoronaria);
+        controlbotonrs(JRCoronaria, JFTCoronaria, JBcoronaria);
     }
 
     public void JRArritmia_actionPerformed(ActionEvent e) {
-          controlbotonrs(JRArritmia,JFTArritmia,JBArritmia);
+        controlbotonrs(JRArritmia, JFTArritmia, JBArritmia);
     }
 
     public void JRHa_actionPerformed(ActionEvent e) {
-          controlbotonrs(JRHa,JFTha,JBHa);
+        controlbotonrs(JRHa, JFTha, JBHa);
     }
 
     public void JBcoronaria_actionPerformed(ActionEvent e) {
-        nombredetalleRS="ENFERMEDADES CORONARIAS - PRE INFARTO";
-        abrirformulariodetalleRS(JFTCoronaria);swcoronaria=1;
+        nombredetalleRS = "ENFERMEDADES CORONARIAS - PRE INFARTO";
+        abrirformulariodetalleRS(JFTCoronaria);
+        swcoronaria = 1;
     }
 
     public void JBArritmia_actionPerformed(ActionEvent e) {
-        nombredetalleRS="ARRITMIA CARDIACA-TAQUICARDIA";
-        abrirformulariodetalleRS(JFTArritmia);swarritmia=1;
+        nombredetalleRS = "ARRITMIA CARDIACA-TAQUICARDIA";
+        abrirformulariodetalleRS(JFTArritmia);
+        swarritmia = 1;
     }
 
     public void JBHa_actionPerformed(ActionEvent e) {
-        nombredetalleRS="HIPERTENSION ARTERIAL SEVERA";
-        abrirformulariodetalleRS(JFTha);swHA=1;
+        nombredetalleRS = "HIPERTENSION ARTERIAL SEVERA";
+        abrirformulariodetalleRS(JFTha);
+        swHA = 1;
     }
 
     /**
      * llenarradio
      */
-    public void llenarradio(JRadioButton jrvarsi,boolean varbool,JRadioButton jrvarno) {
-        if(varbool==true){
-           jrvarsi.setSelected(false);
-           jrvarno.setSelected(true);
-       }
-       else{
-           jrvarsi.setSelected(true);
-           jrvarno.setSelected(false);
-       }
+    public void llenarradio(JRadioButton jrvarsi, boolean varbool, JRadioButton jrvarno) {
+        if (varbool == true) {
+            jrvarsi.setSelected(false);
+            jrvarno.setSelected(true);
+        } else {
+            jrvarsi.setSelected(true);
+            jrvarno.setSelected(false);
+        }
     }
 
     /**
@@ -2449,9 +2491,10 @@ public class CRevisionSistemas extends JInternalFrame {
     }
 }//fin de la clase
 
-
 class CRevisionSistemas_JBHa_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBHa_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2461,9 +2504,10 @@ class CRevisionSistemas_JBHa_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBArritmia_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBArritmia_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2473,9 +2517,10 @@ class CRevisionSistemas_JBArritmia_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBcoronaria_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBcoronaria_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2485,9 +2530,10 @@ class CRevisionSistemas_JBcoronaria_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRHa_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRHa_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2497,9 +2543,10 @@ class CRevisionSistemas_JRHa_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRArritmia_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRArritmia_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2509,9 +2556,10 @@ class CRevisionSistemas_JRArritmia_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRCoronaria_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRCoronaria_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2521,9 +2569,10 @@ class CRevisionSistemas_JRCoronaria_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBcancelarRS_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBcancelarRS_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2533,9 +2582,10 @@ class CRevisionSistemas_JBcancelarRS_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBAtrasRS_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBAtrasRS_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2545,9 +2595,10 @@ class CRevisionSistemas_JBAtrasRS_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBSguteRV_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBSguteRV_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2557,9 +2608,10 @@ class CRevisionSistemas_JBSguteRV_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBIncapacitante_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBIncapacitante_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2569,9 +2621,10 @@ class CRevisionSistemas_JBIncapacitante_actionAdapter implements ActionListener 
     }
 }
 
-
 class CRevisionSistemas_JBLumbalgia_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBLumbalgia_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2581,9 +2634,10 @@ class CRevisionSistemas_JBLumbalgia_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBDorsalgia_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBDorsalgia_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2593,9 +2647,10 @@ class CRevisionSistemas_JBDorsalgia_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBParestesias_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBParestesias_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2605,12 +2660,12 @@ class CRevisionSistemas_JBParestesias_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBLimitacionFuncional_actionAdapter implements
         ActionListener {
+
     private CRevisionSistemas adaptee;
-    CRevisionSistemas_JBLimitacionFuncional_actionAdapter(CRevisionSistemas
-            adaptee) {
+
+    CRevisionSistemas_JBLimitacionFuncional_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -2619,9 +2674,10 @@ class CRevisionSistemas_JBLimitacionFuncional_actionAdapter implements
     }
 }
 
-
 class CRevisionSistemas_JBTendinitis_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBTendinitis_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2631,9 +2687,10 @@ class CRevisionSistemas_JBTendinitis_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBArtralgias_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBArtralgias_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2643,9 +2700,10 @@ class CRevisionSistemas_JBArtralgias_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBRinorrea_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBRinorrea_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2655,9 +2713,10 @@ class CRevisionSistemas_JBRinorrea_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBTinitus_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBTinitus_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2667,12 +2726,12 @@ class CRevisionSistemas_JBTinitus_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBObstruccionNasal_actionAdapter implements
         ActionListener {
+
     private CRevisionSistemas adaptee;
-    CRevisionSistemas_JBObstruccionNasal_actionAdapter(CRevisionSistemas
-            adaptee) {
+
+    CRevisionSistemas_JBObstruccionNasal_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -2681,9 +2740,10 @@ class CRevisionSistemas_JBObstruccionNasal_actionAdapter implements
     }
 }
 
-
 class CRevisionSistemas_JBHipoacusia_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBHipoacusia_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2693,9 +2753,10 @@ class CRevisionSistemas_JBHipoacusia_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBEpistaxis_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBEpistaxis_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2705,9 +2766,10 @@ class CRevisionSistemas_JBEpistaxis_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBExpectoracion_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBExpectoracion_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2717,9 +2779,10 @@ class CRevisionSistemas_JBExpectoracion_actionAdapter implements ActionListener 
     }
 }
 
-
 class CRevisionSistemas_JBDolorToraxico_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBDolorToraxico_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2729,9 +2792,10 @@ class CRevisionSistemas_JBDolorToraxico_actionAdapter implements ActionListener 
     }
 }
 
-
 class CRevisionSistemas_JBTos_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBTos_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2741,9 +2805,10 @@ class CRevisionSistemas_JBTos_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBOjoRojo_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBOjoRojo_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2753,9 +2818,10 @@ class CRevisionSistemas_JBOjoRojo_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBLagrimeo_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBLagrimeo_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2765,9 +2831,10 @@ class CRevisionSistemas_JBLagrimeo_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBVisionBorrosa_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBVisionBorrosa_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2777,9 +2844,10 @@ class CRevisionSistemas_JBVisionBorrosa_actionAdapter implements ActionListener 
     }
 }
 
-
 class CRevisionSistemas_JBCansancio_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBCansancio_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2789,9 +2857,10 @@ class CRevisionSistemas_JBCansancio_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBArdor_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBArdor_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2801,9 +2870,10 @@ class CRevisionSistemas_JBArdor_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBVertigo_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBVertigo_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2813,12 +2883,12 @@ class CRevisionSistemas_JBVertigo_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBAlteracionMotora_actionAdapter implements
         ActionListener {
+
     private CRevisionSistemas adaptee;
-    CRevisionSistemas_JBAlteracionMotora_actionAdapter(CRevisionSistemas
-            adaptee) {
+
+    CRevisionSistemas_JBAlteracionMotora_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -2827,12 +2897,12 @@ class CRevisionSistemas_JBAlteracionMotora_actionAdapter implements
     }
 }
 
-
 class CRevisionSistemas_JBAlteracionSensibilidad_actionAdapter implements
         ActionListener {
+
     private CRevisionSistemas adaptee;
-    CRevisionSistemas_JBAlteracionSensibilidad_actionAdapter(CRevisionSistemas
-            adaptee) {
+
+    CRevisionSistemas_JBAlteracionSensibilidad_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -2841,9 +2911,10 @@ class CRevisionSistemas_JBAlteracionSensibilidad_actionAdapter implements
     }
 }
 
-
 class CRevisionSistemas_JBCefalea_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBCefalea_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2853,12 +2924,12 @@ class CRevisionSistemas_JBCefalea_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBAlteracionMemoria_actionAdapter implements
         ActionListener {
+
     private CRevisionSistemas adaptee;
-    CRevisionSistemas_JBAlteracionMemoria_actionAdapter(CRevisionSistemas
-            adaptee) {
+
+    CRevisionSistemas_JBAlteracionMemoria_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -2867,10 +2938,11 @@ class CRevisionSistemas_JBAlteracionMemoria_actionAdapter implements
     }
 }
 
-
 class CRevisionSistemas_JBTenesmoVesical_actionAdapter implements
         ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBTenesmoVesical_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2880,9 +2952,10 @@ class CRevisionSistemas_JBTenesmoVesical_actionAdapter implements
     }
 }
 
-
 class CRevisionSistemas_JBPalaquiuria_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBPalaquiuria_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2892,9 +2965,10 @@ class CRevisionSistemas_JBPalaquiuria_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBNicturia_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBNicturia_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2904,12 +2978,12 @@ class CRevisionSistemas_JBNicturia_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBTranstCicloMestrual_actionAdapter implements
         ActionListener {
+
     private CRevisionSistemas adaptee;
-    CRevisionSistemas_JBTranstCicloMestrual_actionAdapter(CRevisionSistemas
-            adaptee) {
+
+    CRevisionSistemas_JBTranstCicloMestrual_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -2918,9 +2992,10 @@ class CRevisionSistemas_JBTranstCicloMestrual_actionAdapter implements
     }
 }
 
-
 class CRevisionSistemas_JBHematuria_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBHematuria_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2930,9 +3005,10 @@ class CRevisionSistemas_JBHematuria_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBDisuria_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBDisuria_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2942,12 +3018,12 @@ class CRevisionSistemas_JBDisuria_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBDisminucionCalibre_actionAdapter implements
         ActionListener {
+
     private CRevisionSistemas adaptee;
-    CRevisionSistemas_JBDisminucionCalibre_actionAdapter(CRevisionSistemas
-            adaptee) {
+
+    CRevisionSistemas_JBDisminucionCalibre_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -2956,9 +3032,10 @@ class CRevisionSistemas_JBDisminucionCalibre_actionAdapter implements
     }
 }
 
-
 class CRevisionSistemas_JBSangrado_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBSangrado_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2968,9 +3045,10 @@ class CRevisionSistemas_JBSangrado_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBEpigastraigia_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBEpigastraigia_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2980,9 +3058,10 @@ class CRevisionSistemas_JBEpigastraigia_actionAdapter implements ActionListener 
     }
 }
 
-
 class CRevisionSistemas_JBEstrenimiento_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBEstrenimiento_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -2992,9 +3071,10 @@ class CRevisionSistemas_JBEstrenimiento_actionAdapter implements ActionListener 
     }
 }
 
-
 class CRevisionSistemas_JBDiarrea_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBDiarrea_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3004,10 +3084,11 @@ class CRevisionSistemas_JBDiarrea_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBDolorAbdominal_actionAdapter implements
         ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBDolorAbdominal_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3017,9 +3098,10 @@ class CRevisionSistemas_JBDolorAbdominal_actionAdapter implements
     }
 }
 
-
 class CRevisionSistemas_JBDispepsia_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBDispepsia_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3029,9 +3111,10 @@ class CRevisionSistemas_JBDispepsia_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBPrurito_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBPrurito_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3041,9 +3124,10 @@ class CRevisionSistemas_JBPrurito_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBSequedad_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBSequedad_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3053,9 +3137,10 @@ class CRevisionSistemas_JBSequedad_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBBrote_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBBrote_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3065,9 +3150,10 @@ class CRevisionSistemas_JBBrote_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBHiperhidrosis_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBHiperhidrosis_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3077,9 +3163,10 @@ class CRevisionSistemas_JBHiperhidrosis_actionAdapter implements ActionListener 
     }
 }
 
-
 class CRevisionSistemas_JBEritema_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBEritema_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3089,9 +3176,10 @@ class CRevisionSistemas_JBEritema_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBDescamacion_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBDescamacion_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3101,9 +3189,10 @@ class CRevisionSistemas_JBDescamacion_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBDisnea_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBDisnea_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3113,9 +3202,10 @@ class CRevisionSistemas_JBDisnea_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBSincope_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBSincope_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3125,9 +3215,10 @@ class CRevisionSistemas_JBSincope_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBPalpitaciones_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBPalpitaciones_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3137,10 +3228,11 @@ class CRevisionSistemas_JBPalpitaciones_actionAdapter implements ActionListener 
     }
 }
 
-
 class CRevisionSistemas_JBDolorPrecordial_actionAdapter implements
         ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBDolorPrecordial_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3150,9 +3242,10 @@ class CRevisionSistemas_JBDolorPrecordial_actionAdapter implements
     }
 }
 
-
 class CRevisionSistemas_JBLipotimia_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBLipotimia_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3162,9 +3255,10 @@ class CRevisionSistemas_JBLipotimia_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRIncapacitante_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRIncapacitante_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3174,9 +3268,10 @@ class CRevisionSistemas_JRIncapacitante_actionAdapter implements ActionListener 
     }
 }
 
-
 class CRevisionSistemas_JRLumbalgia_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRLumbalgia_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3186,9 +3281,10 @@ class CRevisionSistemas_JRLumbalgia_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRDorsalgia_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRDorsalgia_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3198,12 +3294,12 @@ class CRevisionSistemas_JRDorsalgia_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRLimitacionFuncional_actionAdapter implements
         ActionListener {
+
     private CRevisionSistemas adaptee;
-    CRevisionSistemas_JRLimitacionFuncional_actionAdapter(CRevisionSistemas
-            adaptee) {
+
+    CRevisionSistemas_JRLimitacionFuncional_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -3212,10 +3308,11 @@ class CRevisionSistemas_JRLimitacionFuncional_actionAdapter implements
     }
 }
 
-
 class CRevisionSistemas_JRParentestesias_actionAdapter implements
         ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRParentestesias_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3225,9 +3322,10 @@ class CRevisionSistemas_JRParentestesias_actionAdapter implements
     }
 }
 
-
 class CRevisionSistemas_JRCervicalgia_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRCervicalgia_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3237,9 +3335,10 @@ class CRevisionSistemas_JRCervicalgia_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBCervicalgia_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBCervicalgia_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3249,9 +3348,10 @@ class CRevisionSistemas_JBCervicalgia_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRTinitus_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRTinitus_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3261,9 +3361,10 @@ class CRevisionSistemas_JRTinitus_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRArtralgias_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRArtralgias_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3273,9 +3374,10 @@ class CRevisionSistemas_JRArtralgias_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRTendinitis_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRTendinitis_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3285,9 +3387,10 @@ class CRevisionSistemas_JRTendinitis_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRRinorrea_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRRinorrea_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3297,12 +3400,12 @@ class CRevisionSistemas_JRRinorrea_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRObstruccionNasal_actionAdapter implements
         ActionListener {
+
     private CRevisionSistemas adaptee;
-    CRevisionSistemas_JRObstruccionNasal_actionAdapter(CRevisionSistemas
-            adaptee) {
+
+    CRevisionSistemas_JRObstruccionNasal_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -3311,9 +3414,10 @@ class CRevisionSistemas_JRObstruccionNasal_actionAdapter implements
     }
 }
 
-
 class CRevisionSistemas_JRHipoacusia_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRHipoacusia_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3323,9 +3427,10 @@ class CRevisionSistemas_JRHipoacusia_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRDisfonia_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRDisfonia_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3335,9 +3440,10 @@ class CRevisionSistemas_JRDisfonia_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JBDisfonia_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JBDisfonia_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3347,9 +3453,10 @@ class CRevisionSistemas_JBDisfonia_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JREpistaxis_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JREpistaxis_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3359,9 +3466,10 @@ class CRevisionSistemas_JREpistaxis_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRExpectoracion_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRExpectoracion_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3371,9 +3479,10 @@ class CRevisionSistemas_JRExpectoracion_actionAdapter implements ActionListener 
     }
 }
 
-
 class CRevisionSistemas_JRTos_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRTos_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3383,9 +3492,10 @@ class CRevisionSistemas_JRTos_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRDolorToraxico_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRDolorToraxico_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3395,9 +3505,10 @@ class CRevisionSistemas_JRDolorToraxico_actionAdapter implements ActionListener 
     }
 }
 
-
 class CRevisionSistemas_JROjoRojo_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JROjoRojo_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3407,9 +3518,10 @@ class CRevisionSistemas_JROjoRojo_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRLagrimeo_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRLagrimeo_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3419,9 +3531,10 @@ class CRevisionSistemas_JRLagrimeo_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRVisionBorrosa_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRVisionBorrosa_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3431,9 +3544,10 @@ class CRevisionSistemas_JRVisionBorrosa_actionAdapter implements ActionListener 
     }
 }
 
-
 class CRevisionSistemas_JRCansancio_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRCansancio_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3443,9 +3557,10 @@ class CRevisionSistemas_JRCansancio_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRArdorprurito_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRArdorprurito_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3455,9 +3570,10 @@ class CRevisionSistemas_JRArdorprurito_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRVertigo_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRVertigo_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3467,12 +3583,12 @@ class CRevisionSistemas_JRVertigo_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRAlteracionMotora_actionAdapter implements
         ActionListener {
+
     private CRevisionSistemas adaptee;
-    CRevisionSistemas_JRAlteracionMotora_actionAdapter(CRevisionSistemas
-            adaptee) {
+
+    CRevisionSistemas_JRAlteracionMotora_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -3481,12 +3597,12 @@ class CRevisionSistemas_JRAlteracionMotora_actionAdapter implements
     }
 }
 
-
 class CRevisionSistemas_JRAlteracionSensib_actionAdapter implements
         ActionListener {
+
     private CRevisionSistemas adaptee;
-    CRevisionSistemas_JRAlteracionSensib_actionAdapter(CRevisionSistemas
-            adaptee) {
+
+    CRevisionSistemas_JRAlteracionSensib_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -3495,12 +3611,12 @@ class CRevisionSistemas_JRAlteracionSensib_actionAdapter implements
     }
 }
 
-
 class CRevisionSistemas_JRAlteracionMemoria_actionAdapter implements
         ActionListener {
+
     private CRevisionSistemas adaptee;
-    CRevisionSistemas_JRAlteracionMemoria_actionAdapter(CRevisionSistemas
-            adaptee) {
+
+    CRevisionSistemas_JRAlteracionMemoria_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -3509,9 +3625,10 @@ class CRevisionSistemas_JRAlteracionMemoria_actionAdapter implements
     }
 }
 
-
 class CRevisionSistemas_JRCefalea_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRCefalea_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3521,10 +3638,11 @@ class CRevisionSistemas_JRCefalea_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRTenesmoVesical_actionAdapter implements
         ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRTenesmoVesical_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3534,9 +3652,10 @@ class CRevisionSistemas_JRTenesmoVesical_actionAdapter implements
     }
 }
 
-
 class CRevisionSistemas_JRPolaquiuria_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRPolaquiuria_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3546,9 +3665,10 @@ class CRevisionSistemas_JRPolaquiuria_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRNicturia_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRNicturia_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3558,10 +3678,11 @@ class CRevisionSistemas_JRNicturia_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRTrantCicloMestr_actionAdapter implements
         ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRTrantCicloMestr_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3571,9 +3692,10 @@ class CRevisionSistemas_JRTrantCicloMestr_actionAdapter implements
     }
 }
 
-
 class CRevisionSistemas_JRHematuria_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRHematuria_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3583,9 +3705,10 @@ class CRevisionSistemas_JRHematuria_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRDisuria_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRDisuria_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3595,12 +3718,12 @@ class CRevisionSistemas_JRDisuria_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRDisminucionCalibre_actionAdapter implements
         ActionListener {
+
     private CRevisionSistemas adaptee;
-    CRevisionSistemas_JRDisminucionCalibre_actionAdapter(CRevisionSistemas
-            adaptee) {
+
+    CRevisionSistemas_JRDisminucionCalibre_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -3609,9 +3732,10 @@ class CRevisionSistemas_JRDisminucionCalibre_actionAdapter implements
     }
 }
 
-
 class CRevisionSistemas_JRSangrado_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRSangrado_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3621,9 +3745,10 @@ class CRevisionSistemas_JRSangrado_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRDiarrea_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRDiarrea_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3633,9 +3758,10 @@ class CRevisionSistemas_JRDiarrea_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JREstrenimiento_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JREstrenimiento_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3645,9 +3771,10 @@ class CRevisionSistemas_JREstrenimiento_actionAdapter implements ActionListener 
     }
 }
 
-
 class CRevisionSistemas_JREpigastraigia_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JREpigastraigia_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3657,9 +3784,10 @@ class CRevisionSistemas_JREpigastraigia_actionAdapter implements ActionListener 
     }
 }
 
-
 class CRevisionSistemas_JRDispepsia_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRDispepsia_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3669,10 +3797,11 @@ class CRevisionSistemas_JRDispepsia_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRDolorAbdominal_actionAdapter implements
         ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRDolorAbdominal_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3682,9 +3811,10 @@ class CRevisionSistemas_JRDolorAbdominal_actionAdapter implements
     }
 }
 
-
 class CRevisionSistemas_JRPrurito_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRPrurito_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3694,9 +3824,10 @@ class CRevisionSistemas_JRPrurito_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRSequedad_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRSequedad_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3706,9 +3837,10 @@ class CRevisionSistemas_JRSequedad_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRBrote_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRBrote_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3718,9 +3850,10 @@ class CRevisionSistemas_JRBrote_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRHiperhidrosis_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRHiperhidrosis_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3730,9 +3863,10 @@ class CRevisionSistemas_JRHiperhidrosis_actionAdapter implements ActionListener 
     }
 }
 
-
 class CRevisionSistemas_JREritema_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JREritema_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3742,9 +3876,10 @@ class CRevisionSistemas_JREritema_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRDisnea_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRDisnea_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3754,9 +3889,10 @@ class CRevisionSistemas_JRDisnea_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRDescamacion_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRDescamacion_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3766,9 +3902,10 @@ class CRevisionSistemas_JRDescamacion_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRSincope_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRSincope_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3778,10 +3915,11 @@ class CRevisionSistemas_JRSincope_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRDolorPrecordial_actionAdapter implements
         ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRDolorPrecordial_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3791,9 +3929,10 @@ class CRevisionSistemas_JRDolorPrecordial_actionAdapter implements
     }
 }
 
-
 class CRevisionSistemas_JRLipotimia_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRLipotimia_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3803,9 +3942,10 @@ class CRevisionSistemas_JRLipotimia_actionAdapter implements ActionListener {
     }
 }
 
-
 class CRevisionSistemas_JRPalpitaciones_actionAdapter implements ActionListener {
+
     private CRevisionSistemas adaptee;
+
     CRevisionSistemas_JRPalpitaciones_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
@@ -3815,12 +3955,12 @@ class CRevisionSistemas_JRPalpitaciones_actionAdapter implements ActionListener 
     }
 }
 
-
 class CRevisionSistemas_JFTtranstCicloMestr_actionAdapter implements
         ActionListener {
+
     private CRevisionSistemas adaptee;
-    CRevisionSistemas_JFTtranstCicloMestr_actionAdapter(CRevisionSistemas
-            adaptee) {
+
+    CRevisionSistemas_JFTtranstCicloMestr_actionAdapter(CRevisionSistemas adaptee) {
         this.adaptee = adaptee;
     }
 
@@ -3828,4 +3968,3 @@ class CRevisionSistemas_JFTtranstCicloMestr_actionAdapter implements
         adaptee.JFTtranstCicloMestr_actionPerformed(e);
     }
 }
-

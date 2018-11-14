@@ -412,14 +412,10 @@ public class CEntradaConsulta extends JInternalFrame {
             while (Rvarconsulta.next()) {
                 if (Rvarconsulta.getString(14).compareTo("INGRESO") == 0 || Rvarconsulta.getString(14).compareTo("INGRESO OSTEOMUSCULAR") == 0 || Rvarconsulta.getString(14).compareTo("INGRESO CON ENFASIS EN ALTURA") == 0 || Rvarconsulta.getString(14).compareTo("REINGRESO") == 0) {
                     imprimirexingreso(Rvarconsulta);
-                } else {
-                    if (Rvarconsulta.getString(14).compareTo("RETIRO") == 0) {
-                        imprimirretiro(Rvarconsulta);
-                    } else {
-                        if (Rvarconsulta.getString(14).compareTo("PERIODICO") == 0) {
-                            imprimirperiodico(Rvarconsulta);
-                        }
-                    }
+                } else if (Rvarconsulta.getString(14).compareTo("RETIRO") == 0) {
+                    imprimirretiro(Rvarconsulta);
+                } else if (Rvarconsulta.getString(14).compareTo("PERIODICO") == 0) {
+                    imprimirperiodico(Rvarconsulta);
                 }
             }//CIERRA EL WHILE
         }//CIERRA EL TRY

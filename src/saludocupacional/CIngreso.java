@@ -16,12 +16,14 @@ import java.awt.Font;
 import java.awt.MediaTracker;
 import java.awt.Toolkit;
 import java.lang.InterruptedException.*;
+
 public class CIngreso extends JInternalFrame {
+
     Object objppalig;
     String numingredic;
     int swedicioningr;
-    static int swimagen=0;
-    ImageIcon m ;
+    static int swimagen = 0;
+    ImageIcon m;
     byte[] imagimpr;
     private JFileChooser fc;
     Object ingresoobject;
@@ -30,10 +32,10 @@ public class CIngreso extends JInternalFrame {
     CIngreso ObjectCingreso;
     public Statement TSentenciaconsultahc;
     public ResultSet Rconsultahc;
-    public ConexionSql Cconsql= new ConexionSql();
-    Connection con2=Cconsql.getConnection();
+    public ConexionSql Cconsql = new ConexionSql();
+    Connection con2 = Cconsql.getConnection();
     JCalendar jCalendar1 = new JCalendar();
-    Date fechanacdate=new Date();
+    Date fechanacdate = new Date();
     String sFecha;
     JButton JBguardarIng;
     JButton JBnuevoIng;
@@ -148,7 +150,7 @@ public class CIngreso extends JInternalFrame {
     JFormattedTextField JFTOtros = new JFormattedTextField();
     JLabel JLBOtros = new JLabel();
     //DECLARACION DE OBJETOS DE validar
-    ValidarComponentes objllencomboIngr=new ValidarComponentes();
+    ValidarComponentes objllencomboIngr = new ValidarComponentes();
     JLabel JLBObservacion = new JLabel();
     JTextPane JTAObservacion = new JTextPane();
     JTextPane JTADescrCargo = new JTextPane();
@@ -162,34 +164,37 @@ public class CIngreso extends JInternalFrame {
     JButton JBFoto = new JButton();
     JFormattedTextField JFTEmpresa = new JFormattedTextField();
     JFormattedTextField JFTTipEmpr = new JFormattedTextField();
-    public CIngreso(String sident,int swedicionconsulta,JButton JBGuardar,JButton JBNuevo,JButton JBModificar,JButton JBActualizar,JButton JBBorrar,JDesktopPane JDPIngreso,Object objppalec) {
+
+    public CIngreso(String sident, int swedicionconsulta, JButton JBGuardar, JButton JBNuevo, JButton JBModificar, JButton JBActualizar, JButton JBBorrar, JDesktopPane JDPIngreso, Object objppalec) {
         try {
             jbInit();
             llenarnumingreso();
-            obotguardar=JBGuardar;
-            obotnuevo=JBNuevo;
-            obotmodificar=JBModificar;
-            obotactualizar=JBActualizar;
-            obotborrar=JBBorrar;
-            ingresoobject=JDPIngreso;
+            obotguardar = JBGuardar;
+            obotnuevo = JBNuevo;
+            obotmodificar = JBModificar;
+            obotactualizar = JBActualizar;
+            obotborrar = JBBorrar;
+            ingresoobject = JDPIngreso;
             JBFoto.setEnabled(false);
             JFTEmpresa.setVisible(false);
-            swedicioningr=swedicionconsulta;
-            numingredic=sident;
-            objppalig=objppalec;
+            swedicioningr = swedicionconsulta;
+            numingredic = sident;
+            objppalig = objppalec;
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
-    public CIngreso(JDesktopPane JDPIngreso){
+
+    public CIngreso(JDesktopPane JDPIngreso) {
         try {
             jbInit();
-            ingresoobject=JDPIngreso;
-        }catch (Exception ex) {
+            ingresoobject = JDPIngreso;
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
 
     }
+
     private void jbInit() throws Exception {
         configurarformatofecha();
         this.setClosable(true);
@@ -306,7 +311,7 @@ public class CIngreso extends JInternalFrame {
         JTIngreso.add(JPDatosDemograficos, "DATOS DEMOGRAFICOS");
         JTIngreso.add(JPInfEmpAct, "INFORMACION DEL EMPLEO ACTUAL");
         JLBNHistoria.setFont(new java.awt.Font("Arial", Font.BOLD, 11));
-        JLBNHistoria.setText("N� HISTORIA");
+        JLBNHistoria.setText("N# HISTORIA");
         JLBNHistoria.setBounds(new Rectangle(7, 5, 82, 20));
         JFTNhistoria.setFont(new java.awt.Font("Arial", Font.BOLD, 12));
         JFTNhistoria.setBorder(BorderFactory.createRaisedBevelBorder());
@@ -320,7 +325,7 @@ public class CIngreso extends JInternalFrame {
         JCBTipoDocumento.setBounds(new Rectangle(158, 26, 158, 22));
         JLBNDocumento.setFont(new java.awt.Font("Arial", Font.BOLD, 11));
         JLBNDocumento.setToolTipText("");
-        JLBNDocumento.setText("N� DOCUMENTO");
+        JLBNDocumento.setText("N# DOCUMENTO");
         JLBNDocumento.setBounds(new Rectangle(334, 4, 106, 20));
         JLBPrimerApell.setFont(new java.awt.Font("Arial", Font.BOLD, 11));
         JLBPrimerApell.setToolTipText("");
@@ -373,7 +378,7 @@ public class CIngreso extends JInternalFrame {
         JLBECivil.setBounds(new Rectangle(443, 102, 88, 20));
         JLBNumHijos.setFont(new java.awt.Font("Arial", Font.BOLD, 11));
         JLBNumHijos.setToolTipText("");
-        JLBNumHijos.setText("N� HIJOS");
+        JLBNumHijos.setText("N# HIJOS");
         JLBNumHijos.setBounds(new Rectangle(600, 102, 52, 20));
         JLBNatural.setFont(new java.awt.Font("Arial", Font.BOLD, 14));
         JLBNatural.setForeground(Color.red);
@@ -403,7 +408,7 @@ public class CIngreso extends JInternalFrame {
         JLBDptoProc.setBounds(new Rectangle(743, 200, 130, 20));
         JLBNumIngr.setFont(new java.awt.Font("Arial", Font.BOLD, 11));
         JLBNumIngr.setToolTipText("");
-        JLBNumIngr.setText("N� INGRESO");
+        JLBNumIngr.setText("N# INGRESO");
         JLBNumIngr.setBounds(new Rectangle(517, 1, 106, 20));
         JLBarrio.setFont(new java.awt.Font("Arial", Font.BOLD, 11));
         JLBarrio.setToolTipText("");
@@ -756,7 +761,8 @@ public class CIngreso extends JInternalFrame {
         JPFoto.add(JBFoto);
         JPDatosDemograficos.add(JFTNhistoria);
         JPDatosDemograficos.add(JLBEdad);
-        JPDatosDemograficos.add(JPFoto);JPInfEmpAct.add(JLBInfEx);
+        JPDatosDemograficos.add(JPFoto);
+        JPInfEmpAct.add(JLBInfEx);
         JPInfEmpAct.add(JLBMedTrat);
         JPInfEmpAct.add(JCBMedTrat);
         JPInfEmpAct.add(JLBTipoExa);
@@ -819,8 +825,8 @@ public class CIngreso extends JInternalFrame {
      */
     public void llenarcargo() {
         String cadenaocup;
-        cadenaocup="select *from ocupacion ORDER BY ocupacion.Nbre_Ocupacion";
-        objllencomboIngr.llenarcombos(cadenaocup,JCBCargo,2);
+        cadenaocup = "select *from ocupacion ORDER BY ocupacion.Nbre_Ocupacion";
+        objllencomboIngr.llenarcombos(cadenaocup, JCBCargo, 2);
     }
 
     /**
@@ -828,81 +834,83 @@ public class CIngreso extends JInternalFrame {
      */
     public void llenardptoproc() {
         String cadenadpto;
-        cadenadpto="select *from departamento ORDER BY departamento.Nbre_Departamento ";
-        objllencomboIngr.llenarcombos(cadenadpto,JCBDptoProc,2);
+        cadenadpto = "select *from departamento ORDER BY departamento.Nbre_Departamento ";
+        objllencomboIngr.llenarcombos(cadenadpto, JCBDptoProc, 2);
 
     }
 
     //
     public void JFTNDoc_focusLost(FocusEvent e) {
         //FrameHistoriasClinicas frameboton=null;
-          int resulthc; String cadenasqlhc,sqlconsultaingr;
-          cadenasqlhc="select *from datosusuarios where NoHC_du="+"'"+JFTNDoc.getText() +"'";
-          resulthc=objllencomboIngr.verificarcodigocadena(cadenasqlhc);
-          if(resulthc!=0)
-          {  //JBSigute.setEnabled(false);
-             cad1="ESTE PACIENTE YA EXISTE EN LA BASE DE DATOS";
-             cad2="DATOS USUARIO";
-             objllencomboIngr.mensajeconfirmacion(cad1,cad2);
-             JBguardarIng=new JButton();
-             JBnuevoIng=new JButton();
-             JBmodificarIng=new JButton();
-             JBactualizarIng=new JButton();
-             JBborrarIng=new JButton();
-             JBguardarIng=(JButton)obotguardar;
-             JBguardarIng.setEnabled(false);
-             JBnuevoIng=(JButton)obotnuevo;
-             JBnuevoIng.setEnabled(false);
-             JBmodificarIng=(JButton)obotmodificar;
-             JBmodificarIng.setEnabled(false);
-             JBborrarIng=(JButton)obotborrar;
-             JBborrarIng.setEnabled(false);
-             JBactualizarIng=(JButton)obotactualizar;
-             JBactualizarIng.setEnabled(true);
-             JBFoto.setEnabled(true);
-             
-             sqlconsultaingr="SELECT datosusuarios.NoHC_du, datosusuarios.Documento_du, datosusuarios.PrimerApellido_du, datosusuarios.SegundoApellido_du, datosusuarios.PrimerNombre_du, datosusuarios.SegundoNombre_du, datosusuarios.FechadeNacimiento_du, datosusuarios.idtipoedad_du, datosusuarios.edad_du, datosusuarios.IdSexo_du, datosusuarios.IdEstadoCivi_du, datosusuarios.NumHijos_du, datosusuarios.IdMunicipionatural, datosusuarios.IdDepartamentonatural_du, datosusuarios.IdMunicipioprocedente_du, datosusuarios.IdDepartamentoprocedente_du, datosusuarios.idzonares_du, datosusuarios.DireccionResidencia_du, datosusuarios.Barrio_du,datosusuarios.idtipoescolaridad_du, datosusuarios.profesion_du, datosusuarios.TelefonoCelular_du, datosusuarios.idocupacion_du, datosusuarios.ideps_du, datosusuarios.idips_du, ingreso.idtipoex_ingreso, ingreso.fechaexa_ingreso, ingreso.idciudadexam_ingreso, ingreso.idempresa_ingreso, ingreso.idtipoindustria_ingreso, ingreso.idjornadatrabajo_ingreso, ingreso.idmedico_ingreso, ingreso.cargoaspira_ingreso, ingreso.descripcioncargo_ingreso, ingreso.elemguantes_ingreso, ingreso.elemrespi_ingreso, ingreso.elemauditiva_ingreso, ingreso.elemvisual_ingreso, ingreso.elemotros_ingreso, ingreso.descrotros_ingreso,ingreso.observacion_ingreso,ingreso.horaentrada_ingreso,datosusuarios.foto_du FROM datosusuarios INNER JOIN ingreso ON datosusuarios.NoHC_du = ingreso.NoHC_ingreso WHERE datosusuarios.NoHC_du="+"'"+JFTNDoc.getText() +"'";
-             try{
-                 TSentenciaconsultahc=con2.createStatement();
-                 Rconsultahc=TSentenciaconsultahc.executeQuery(sqlconsultaingr);
-                 llenarpanelingreso(Rconsultahc);
-                 bloquearingr();
-             }//cierra el try
-             catch(SQLException e1){
+        int resulthc;
+        String cadenasqlhc, sqlconsultaingr;
+        cadenasqlhc = "select *from datosusuarios where NoHC_du=" + "'" + JFTNDoc.getText() + "'";
+        resulthc = objllencomboIngr.verificarcodigocadena(cadenasqlhc);
+        if (resulthc != 0) {  //JBSigute.setEnabled(false);
+            cad1 = "ESTE PACIENTE YA EXISTE EN LA BASE DE DATOS";
+            cad2 = "DATOS USUARIO";
+            objllencomboIngr.mensajeconfirmacion(cad1, cad2);
+            JBguardarIng = new JButton();
+            JBnuevoIng = new JButton();
+            JBmodificarIng = new JButton();
+            JBactualizarIng = new JButton();
+            JBborrarIng = new JButton();
+            JBguardarIng = (JButton) obotguardar;
+            JBguardarIng.setEnabled(false);
+            JBnuevoIng = (JButton) obotnuevo;
+            JBnuevoIng.setEnabled(false);
+            JBmodificarIng = (JButton) obotmodificar;
+            JBmodificarIng.setEnabled(false);
+            JBborrarIng = (JButton) obotborrar;
+            JBborrarIng.setEnabled(false);
+            JBactualizarIng = (JButton) obotactualizar;
+            JBactualizarIng.setEnabled(true);
+            JBFoto.setEnabled(true);
+
+            sqlconsultaingr = "SELECT datosusuarios.NoHC_du, datosusuarios.Documento_du, datosusuarios.PrimerApellido_du, datosusuarios.SegundoApellido_du, datosusuarios.PrimerNombre_du, datosusuarios.SegundoNombre_du, datosusuarios.FechadeNacimiento_du, datosusuarios.idtipoedad_du, datosusuarios.edad_du, datosusuarios.IdSexo_du, datosusuarios.IdEstadoCivi_du, datosusuarios.NumHijos_du, datosusuarios.IdMunicipionatural, datosusuarios.IdDepartamentonatural_du, datosusuarios.IdMunicipioprocedente_du, datosusuarios.IdDepartamentoprocedente_du, datosusuarios.idzonares_du, datosusuarios.DireccionResidencia_du, datosusuarios.Barrio_du,datosusuarios.idtipoescolaridad_du, datosusuarios.profesion_du, datosusuarios.TelefonoCelular_du, datosusuarios.idocupacion_du, datosusuarios.ideps_du, datosusuarios.idips_du, ingreso.idtipoex_ingreso, ingreso.fechaexa_ingreso, ingreso.idciudadexam_ingreso, ingreso.idempresa_ingreso, ingreso.idtipoindustria_ingreso, ingreso.idjornadatrabajo_ingreso, ingreso.idmedico_ingreso, ingreso.cargoaspira_ingreso, ingreso.descripcioncargo_ingreso, ingreso.elemguantes_ingreso, ingreso.elemrespi_ingreso, ingreso.elemauditiva_ingreso, ingreso.elemvisual_ingreso, ingreso.elemotros_ingreso, ingreso.descrotros_ingreso,ingreso.observacion_ingreso,ingreso.horaentrada_ingreso,datosusuarios.foto_du FROM datosusuarios INNER JOIN ingreso ON datosusuarios.NoHC_du = ingreso.NoHC_ingreso WHERE datosusuarios.NoHC_du=" + "'" + JFTNDoc.getText() + "'";
+            try {
+                TSentenciaconsultahc = con2.createStatement();
+                Rconsultahc = TSentenciaconsultahc.executeQuery(sqlconsultaingr);
+                llenarpanelingreso(Rconsultahc);
+                bloquearingr();
+            }//cierra el try
+            catch (SQLException e1) {
                 e1.getMessage();
-                cad1="NO SE PUDO EJECUTAR LA CONSULTA";
-                cad2="PROBLEMAS CON LOS DATOS DEL USUARIO E INGRESO";
-                objllencomboIngr.mensajeconfirmacion(cad1,cad2);
-             }//cierra el catch
-          }
-          else
-             JFTNhistoria.setText(JFTNDoc.getText());
+                cad1 = "NO SE PUDO EJECUTAR LA CONSULTA";
+                cad2 = "PROBLEMAS CON LOS DATOS DEL USUARIO E INGRESO";
+                objllencomboIngr.mensajeconfirmacion(cad1, cad2);
+            }//cierra el catch
+        } else {
+            JFTNhistoria.setText(JFTNDoc.getText());
+        }
 
     }
 //fin de JFTNDoc_focusLost(FocusEvent e)
+
     public void JFTPrimerApll_actionPerformed(ActionEvent e) {
 
     }//fin de JFTPrimerApll_actionPerformed(ActionEvent e)
+
     public void JFTSgdoApll_actionPerformed(ActionEvent e) {
 
     }//fin de JFTSgdoApll_actionPerformed(ActionEvent e)
-     public void JFTFechaNac_focusLost(FocusEvent e) {
 
-     }//fin de JFTFechaNac_focusLost
+    public void JFTFechaNac_focusLost(FocusEvent e) {
+
+    }//fin de JFTFechaNac_focusLost
 
     /**
      * configurarformatofecha
      */
     public void configurarformatofecha() {
         //CONFIGURAMOS EL EDITOR DE LA FECHA
-          try{
-               MaskFormatter mascara= new MaskFormatter("##/##/####");
-               JFTFechaNac=new JFormattedTextField(mascara);
-              //JTFfechalote.setValue("  /  /    ");
-             }
-            catch (ParseException e){
-                System.out.println("problema en la mascara del valor unitario de ls entrada por inventario inicial");
-            }
+        try {
+            MaskFormatter mascara = new MaskFormatter("##/##/####");
+            JFTFechaNac = new JFormattedTextField(mascara);
+            //JTFfechalote.setValue("  /  /    ");
+        } catch (ParseException e) {
+            System.out.println("problema en la mascara del valor unitario de ls entrada por inventario inicial");
+        }
     }
 
     /**
@@ -910,8 +918,8 @@ public class CIngreso extends JInternalFrame {
      */
     public void llenarcombotd() {
         String cadenatd;
-        cadenatd="select *from tipodocumento ORDER BY tipodocumento.Nbre_TipoDocumento";
-        objllencomboIngr.llenarcombos(cadenatd,JCBTipoDocumento,2);
+        cadenatd = "select *from tipodocumento ORDER BY tipodocumento.Nbre_TipoDocumento";
+        objllencomboIngr.llenarcombos(cadenatd, JCBTipoDocumento, 2);
         JCBTipoDocumento.setSelectedIndex(2);
     }
 
@@ -920,8 +928,8 @@ public class CIngreso extends JInternalFrame {
      */
     public void llenarcombosex() {
         String cadenasex;
-        cadenasex="select *from sexo ORDER BY sexo.Nbre_Sexo";
-        objllencomboIngr.llenarcombos(cadenasex,JCBSexo,2);
+        cadenasex = "select *from sexo ORDER BY sexo.Nbre_Sexo";
+        objllencomboIngr.llenarcombos(cadenasex, JCBSexo, 2);
     }
 
     /**
@@ -929,8 +937,8 @@ public class CIngreso extends JInternalFrame {
      */
     public void llenarcomboec() {
         String cadenaec;
-        cadenaec="select *from estadocivil ORDER BY estadocivil.Nbre_EstadoCivil";
-        objllencomboIngr.llenarcombos(cadenaec,JCBEstadoCivil,2);
+        cadenaec = "select *from estadocivil ORDER BY estadocivil.Nbre_EstadoCivil";
+        objllencomboIngr.llenarcombos(cadenaec, JCBEstadoCivil, 2);
     }
 
     /**
@@ -938,8 +946,8 @@ public class CIngreso extends JInternalFrame {
      */
     public void llenardptonat() {
         String cadenadpto;
-        cadenadpto="select *from departamento ORDER BY departamento.Nbre_Departamento ";
-        objllencomboIngr.llenarcombos(cadenadpto,JCBDptoNat,2);
+        cadenadpto = "select *from departamento ORDER BY departamento.Nbre_Departamento ";
+        objllencomboIngr.llenarcombos(cadenadpto, JCBDptoNat, 2);
     }
 
     /**
@@ -947,8 +955,8 @@ public class CIngreso extends JInternalFrame {
      */
     public void llenarmcpionat() {
         String cadenadmcpio;
-        cadenadmcpio="select *from municipio ORDER BY municipio.Nbre_Municipio";
-        objllencomboIngr.llenarcombos(cadenadmcpio,JCBMunNat,2);
+        cadenadmcpio = "select *from municipio ORDER BY municipio.Nbre_Municipio";
+        objllencomboIngr.llenarcombos(cadenadmcpio, JCBMunNat, 2);
 
     }
 
@@ -957,8 +965,8 @@ public class CIngreso extends JInternalFrame {
      */
     public void llenarmcpioproc() {
         String cadenadmcpio;
-        cadenadmcpio="select *from municipio ORDER BY municipio.Nbre_Municipio";
-        objllencomboIngr.llenarcombos(cadenadmcpio,JCBMunProc,2);
+        cadenadmcpio = "select *from municipio ORDER BY municipio.Nbre_Municipio";
+        objllencomboIngr.llenarcombos(cadenadmcpio, JCBMunProc, 2);
     }
 
     /**
@@ -966,8 +974,8 @@ public class CIngreso extends JInternalFrame {
      */
     public void llenarzona() {
         String cadenadmcpio;
-        cadenadmcpio="select *from zona ORDER BY zona.nombre_zona";
-        objllencomboIngr.llenarcombos(cadenadmcpio,JCBZonRes,2);
+        cadenadmcpio = "select *from zona ORDER BY zona.nombre_zona";
+        objllencomboIngr.llenarcombos(cadenadmcpio, JCBZonRes, 2);
 
     }
 
@@ -976,8 +984,8 @@ public class CIngreso extends JInternalFrame {
      */
     public void llenarbarrio() {
         String cadenabarrio;
-        cadenabarrio="select *from barrio ORDER BY barrio.Nbre_Barrio";
-        objllencomboIngr.llenarcombos(cadenabarrio,JCBBarrio,3);
+        cadenabarrio = "select *from barrio ORDER BY barrio.Nbre_Barrio";
+        objllencomboIngr.llenarcombos(cadenabarrio, JCBBarrio, 3);
     }
 
     /**
@@ -985,8 +993,8 @@ public class CIngreso extends JInternalFrame {
      */
     public void llenarescolar() {
         String cadenaescolar;
-        cadenaescolar="select *from escolaridad ORDER BY escolaridad.nombre_es";
-        objllencomboIngr.llenarcombos(cadenaescolar,JCBEscolaridad,2);
+        cadenaescolar = "select *from escolaridad ORDER BY escolaridad.nombre_es";
+        objllencomboIngr.llenarcombos(cadenaescolar, JCBEscolaridad, 2);
     }
 
     /**
@@ -994,8 +1002,8 @@ public class CIngreso extends JInternalFrame {
      */
     public void llenarprofesion() {
         String cadenaprof;
-        cadenaprof="select *from profesionales ORDER BY profesionales.nombre_pro";
-        objllencomboIngr.llenarcombos(cadenaprof,JCBProfesion,2);
+        cadenaprof = "select *from profesionales ORDER BY profesionales.nombre_pro";
+        objllencomboIngr.llenarcombos(cadenaprof, JCBProfesion, 2);
 
     }
 
@@ -1004,8 +1012,8 @@ public class CIngreso extends JInternalFrame {
      */
     public void llenarocupacion() {
         String cadenaocup;
-        cadenaocup="select *from ocupacion ORDER BY ocupacion.Nbre_Ocupacion";
-        objllencomboIngr.llenarcombos(cadenaocup,JCBOcupacion,2);
+        cadenaocup = "select *from ocupacion ORDER BY ocupacion.Nbre_Ocupacion";
+        objllencomboIngr.llenarcombos(cadenaocup, JCBOcupacion, 2);
     }
 
     /**
@@ -1013,8 +1021,8 @@ public class CIngreso extends JInternalFrame {
      */
     public void llenareps() {
         String cadenaeps;
-        cadenaeps="select *from eps ORDER BY eps.nombre_eps";
-        objllencomboIngr.llenarcombos(cadenaeps,JCBEps,2);
+        cadenaeps = "select *from eps ORDER BY eps.nombre_eps";
+        objllencomboIngr.llenarcombos(cadenaeps, JCBEps, 2);
 
     }
 
@@ -1023,8 +1031,8 @@ public class CIngreso extends JInternalFrame {
      */
     public void llenarips() {
         String cadenaips;
-        cadenaips="select *from ips ORDER BY ips.nombre_ips";
-        objllencomboIngr.llenarcombos(cadenaips,JCBIps,2);
+        cadenaips = "select *from ips ORDER BY ips.nombre_ips";
+        objllencomboIngr.llenarcombos(cadenaips, JCBIps, 2);
     }
 
     /**
@@ -1032,8 +1040,8 @@ public class CIngreso extends JInternalFrame {
      */
     public void llenarmed() {
         String cadenamed;
-        cadenamed="select *from medicos_tratantes ORDER BY medicos_tratantes.nombre_medtrat";
-        objllencomboIngr.llenarcombos(cadenamed,JCBMedTrat,2);
+        cadenamed = "select *from medicos_tratantes ORDER BY medicos_tratantes.nombre_medtrat";
+        objllencomboIngr.llenarcombos(cadenamed, JCBMedTrat, 2);
 
     }
 
@@ -1042,8 +1050,8 @@ public class CIngreso extends JInternalFrame {
      */
     public void llenarte() {
         String cadenate;
-        cadenate="select *from tipo_examen ORDER BY tipo_examen.nombre_TE";
-        objllencomboIngr.llenarcombos(cadenate,JCBTipoEx,2);
+        cadenate = "select *from tipo_examen ORDER BY tipo_examen.nombre_TE";
+        objllencomboIngr.llenarcombos(cadenate, JCBTipoEx, 2);
     }
 
     /**
@@ -1051,8 +1059,8 @@ public class CIngreso extends JInternalFrame {
      */
     public void llenarempre() {
         String cadenaempr;
-        cadenaempr="select *from empresa ORDER BY empresa.nombre_empresa";
-        objllencomboIngr.llenarcombos(cadenaempr,JCBEmpresa,2);
+        cadenaempr = "select *from empresa ORDER BY empresa.nombre_empresa";
+        objllencomboIngr.llenarcombos(cadenaempr, JCBEmpresa, 2);
 
     }
 
@@ -1061,8 +1069,8 @@ public class CIngreso extends JInternalFrame {
      */
     public void llenartipempr() {
         String cadenatipempr;
-        cadenatipempr="select *from tipo_industria ORDER BY tipo_industria.nombre_tindustria";
-        objllencomboIngr.llenarcombos(cadenatipempr,JCBTipoEmpr,2);
+        cadenatipempr = "select *from tipo_industria ORDER BY tipo_industria.nombre_tindustria";
+        objllencomboIngr.llenarcombos(cadenatipempr, JCBTipoEmpr, 2);
     }
 
     /**
@@ -1070,8 +1078,8 @@ public class CIngreso extends JInternalFrame {
      */
     public void llenarjornada() {
         String cadenajor;
-        cadenajor="select *from jornada_trabajo ORDER BY jornada_trabajo.nombrejornada_jtrabajo";
-        objllencomboIngr.llenarcombos(cadenajor,JCBJornada,2);
+        cadenajor = "select *from jornada_trabajo ORDER BY jornada_trabajo.nombrejornada_jtrabajo";
+        objllencomboIngr.llenarcombos(cadenajor, JCBJornada, 2);
 
     }
 
@@ -1087,27 +1095,27 @@ public class CIngreso extends JInternalFrame {
         this.JFTTipoEdad.setVisible(false);
         this.JLBDptoNat.setVisible(false);
         this.JCBDptoNat.setVisible(false);
-     }
+    }
 
     public void jCalendar1_mouseReleased(MouseEvent e) {
-         //String patron="yyyy-MM-dd";
-         String patron="dd/MM/yyyy";
-         SimpleDateFormat formato2=new SimpleDateFormat(patron);
-         fechanacdate=jCalendar1.getDate();
-         sFecha=formato2.format(fechanacdate);
-         JFTFechaNac.setText(sFecha);
-         jCalendar1.setVisible(false);
-         JFTFechaNac.setVisible(true);
-         this.JLBEdad.setVisible(true);
-         this.JFTEdad.setVisible(true);
-         this.JLBNatural.setVisible(true);
-         this.JLBMuniNat.setVisible(true);
-         this.JCBMunNat.setVisible(true);
-         this.JLBTipoEdad.setVisible(true);
-         this.JFTTipoEdad.setVisible(true);
-         this.JLBDptoNat.setVisible(true);
-         this.JCBDptoNat.setVisible(true);
-         calcularedad();
+        //String patron="yyyy-MM-dd";
+        String patron = "dd/MM/yyyy";
+        SimpleDateFormat formato2 = new SimpleDateFormat(patron);
+        fechanacdate = jCalendar1.getDate();
+        sFecha = formato2.format(fechanacdate);
+        JFTFechaNac.setText(sFecha);
+        jCalendar1.setVisible(false);
+        JFTFechaNac.setVisible(true);
+        this.JLBEdad.setVisible(true);
+        this.JFTEdad.setVisible(true);
+        this.JLBNatural.setVisible(true);
+        this.JLBMuniNat.setVisible(true);
+        this.JCBMunNat.setVisible(true);
+        this.JLBTipoEdad.setVisible(true);
+        this.JFTTipoEdad.setVisible(true);
+        this.JLBDptoNat.setVisible(true);
+        this.JCBDptoNat.setVisible(true);
+        calcularedad();
 
     }
 
@@ -1127,29 +1135,31 @@ public class CIngreso extends JInternalFrame {
      * calcularedad
      */
     public void calcularedad() {
-         CalcularEdad objedad=new CalcularEdad();
-          double varedad;int varedad2;String tipoedad;
-          objllencomboIngr.validarfecha(JFTFechaNac.getText());
-          if(objllencomboIngr.swfechavalida==1){
-                      //HAY QUE VOLVER A COLOCAR EL FOCO EN LA FECHA DE NAC
-                      objllencomboIngr.swfechavalida=0;
-          }
-          varedad=objedad.fechaentera(JFTFechaNac.getText());
-          varedad2=(int)varedad;
-          Integer objintedad=new Integer(varedad2);
-          String sedad=new String() ;
-          sedad=objintedad.toString();
-          JFTEdad.setText(sedad);
-          JFTEdad.setEditable(false);
-          tipoedad=objedad.fechatexto(JFTFechaNac.getText());
-          JFTTipoEdad.setText(tipoedad);
-          JFTTipoEdad.setEditable(false);
+        CalcularEdad objedad = new CalcularEdad();
+        double varedad;
+        int varedad2;
+        String tipoedad;
+        objllencomboIngr.validarfecha(JFTFechaNac.getText());
+        if (objllencomboIngr.swfechavalida == 1) {
+            //HAY QUE VOLVER A COLOCAR EL FOCO EN LA FECHA DE NAC
+            objllencomboIngr.swfechavalida = 0;
+        }
+        varedad = objedad.fechaentera(JFTFechaNac.getText());
+        varedad2 = (int) varedad;
+        Integer objintedad = new Integer(varedad2);
+        String sedad = new String();
+        sedad = objintedad.toString();
+        JFTEdad.setText(sedad);
+        JFTEdad.setEditable(false);
+        tipoedad = objedad.fechatexto(JFTFechaNac.getText());
+        JFTTipoEdad.setText(tipoedad);
+        JFTTipoEdad.setEditable(false);
 
     }
 
     public void JCBBarrio_focusLost(FocusEvent focusEvent) {
-           JFTEstrato.setText("0");
-           JFTDirResidencia.requestFocus();
+        JFTEstrato.setText("0");
+        JFTDirResidencia.requestFocus();
     }
 
     /**
@@ -1160,31 +1170,30 @@ public class CIngreso extends JInternalFrame {
     }
 
     public void JCHOtros_actionPerformed(ActionEvent e) {
-             JFTOtros.setEditable(true);
-             JFTOtros.requestFocus();
+        JFTOtros.setEditable(true);
+        JFTOtros.requestFocus();
     }
 
     /**
      * llenarnumingreso
      */
     public void llenarnumingreso() {
-        String cadsqlnumingreso;int tamconsulta;
-         cadsqlnumingreso="select *from ingreso";
-         try{
-           TSentenciaconsultahc=con2.createStatement();
-           Rconsultahc=TSentenciaconsultahc.executeQuery(cadsqlnumingreso);
-           Rconsultahc.last();
-           tamconsulta=Rconsultahc.getInt(1)+1;
-           cadsqlnumingreso=cadsqlnumingreso.valueOf(tamconsulta);
-           JFTNumIngr.setText(cadsqlnumingreso);
+        String cadsqlnumingreso;
+        int tamconsulta;
+        cadsqlnumingreso = "select *from ingreso";
+        try {
+            TSentenciaconsultahc = con2.createStatement();
+            Rconsultahc = TSentenciaconsultahc.executeQuery(cadsqlnumingreso);
+            Rconsultahc.last();
+            tamconsulta = Rconsultahc.getInt(1) + 1;
+            cadsqlnumingreso = cadsqlnumingreso.valueOf(tamconsulta);
+            JFTNumIngr.setText(cadsqlnumingreso);
 
+        } catch (Exception ex) {
+            objllencomboIngr.mensajeconfirmacion("PROBLEMA BUSCAR NUMERO INGRESO", "ERROR GRABAR INGRESO");
 
-           }
-         catch (Exception ex) {
-               objllencomboIngr.mensajeconfirmacion("PROBLEMA BUSCAR NUMERO INGRESO","ERROR GRABAR INGRESO");
-
-         }
-       }
+        }
+    }
 
     public void JFTNumIngr_focusLost(FocusEvent e) {
 
@@ -1194,149 +1203,148 @@ public class CIngreso extends JInternalFrame {
      * llenarpanelingreso
      */
     public void llenarpanelingreso(ResultSet Rconsultahc) {
-        int codmncpio,codbarr,codmncpioproc;
-       String ccingresotipo,cadccsql,cadzona,cadbarrio,cadescolar,sqloesc,fechacad,ultimafecha,cadmedtrat,sqlbarrio,sqlzona,sqlmedtrat,cadmedenv,sqlmedenv,cadeps,sqleps,cadtipoedad,cadempresa,sqlempresa,tipoedadsql,cadsexo,sqlsexo,cadec,sqlec,cadmunic,sqlmunicip,caddpto,sqldpto,cadbarr,sqlbarr,cadocup,sqlocup;
-       try{
-           Rconsultahc.last();
-           JFTNhistoria.setText(Rconsultahc.getString(1));
-           JFTNDoc.setText(Rconsultahc.getString(1));
-           ccingresotipo=Rconsultahc.getString(2);
-           cadccsql="select *from tipodocumento where tipodocumento.Id_TipoDocumento="+"'"+ccingresotipo+"'";
-           ccingresotipo= objllencomboIngr.buscarcadena(cadccsql,2);
-           Object tipodoc=ccingresotipo;
-           JCBTipoDocumento.setSelectedItem(ccingresotipo);
-           JFTPrimerApll.setText(Rconsultahc.getString(3));
-           JFTSgdoApll.setText(Rconsultahc.getString(4));
-           JFTPrimerNbre.setText(Rconsultahc.getString(6));
-           JFTSgdoNbre.setText(Rconsultahc.getString(5));
-           fechacad=objllencomboIngr.cambiarformatofechaotro(Rconsultahc.getString(7));
-           JFTFechaNac.setText(fechacad);
-           JFTEdad.setText(Rconsultahc.getString(9));
-           cadtipoedad=Rconsultahc.getString(8);
-           tipoedadsql="select *from tipoedad where tipoedad.Id_tipoedad="+"'"+cadtipoedad+"'";
-           cadtipoedad=objllencomboIngr.buscarcadena(tipoedadsql,2);
-           JFTTipoEdad.setText(cadtipoedad);
-           cadsexo=Rconsultahc.getString(10);
-           sqlsexo="select *from sexo where sexo.Id_Sexo="+"'"+cadsexo+"'";
-           cadsexo=objllencomboIngr.buscarcadena(sqlsexo,2);
-           Object sexobj=cadsexo;
-           JCBSexo.setSelectedItem(sexobj);
-           cadec=Rconsultahc.getString(11);
-           sqlec="select *from estadocivil where estadocivil.Id_EstadoCivil="+"'"+cadec+"'";
-           cadec=objllencomboIngr.buscarcadena(sqlec,2);
-           Object ecobj=cadec;
-           JCBEstadoCivil.setSelectedItem(ecobj);
-           JFTNHijos.setText(Rconsultahc.getString(12));
-           codmncpio=Rconsultahc.getInt(13);
-           sqlmunicip="select *from municipio where municipio.Id_Municipio="+codmncpio;
-           cadmunic=objllencomboIngr.buscarcadena(sqlmunicip,2);
-           Object munobj=cadmunic;
-           JCBMunNat.setSelectedItem(munobj);
-           caddpto=Rconsultahc.getString(14);
-           sqldpto="select *from departamento where departamento.Id_Departamento="+"'"+caddpto+"'";
-           caddpto=objllencomboIngr.buscarcadena(sqldpto,2);
-           Object dptoobj=caddpto;
-           JCBDptoNat.setSelectedItem(dptoobj);
-           codmncpioproc=Rconsultahc.getInt(15);
-           sqlmunicip="select *from municipio where municipio.Id_Municipio="+codmncpioproc;
-           cadmunic=objllencomboIngr.buscarcadena(sqlmunicip,2);
-           munobj=cadmunic;
-           JCBMunProc.setSelectedItem(munobj);
-           caddpto=Rconsultahc.getString(16);
-           sqldpto="select *from departamento where departamento.Id_Departamento="+"'"+caddpto+"'";
-           caddpto=objllencomboIngr.buscarcadena(sqldpto,2);
-           dptoobj=caddpto;
-           JCBDptoProc.setSelectedItem(dptoobj);
-           cadzona=Rconsultahc.getString(17);
-           sqlzona="select *from zona where zona.id_zona="+"'"+cadzona+"'";
-           cadzona=objllencomboIngr.buscarcadena(sqlzona,2);
-           Object zonaobj=cadzona;
-           JCBZonRes.setSelectedItem(zonaobj);
-           cadbarrio=Rconsultahc.getString(19);
-           sqlbarrio="select *from barrio where barrio.Id_Barrio="+"'"+cadbarrio+"'";
-           cadbarrio=objllencomboIngr.buscarcadena(sqlbarrio,3);
-           Object barrioobj=cadbarrio;
-           JCBBarrio.setSelectedItem(barrioobj);
-           JFTEstrato.setText(objllencomboIngr.buscarcadena(sqlbarrio,4));
-           JFTDirResidencia.setText(Rconsultahc.getString(18));
-           JFTTel.setText(Rconsultahc.getString(22));
-           cadocup=Rconsultahc.getString(23);
-           sqlocup="select *from ocupacion where ocupacion.Id_Ocupacion="+"'"+cadocup+"'";
-           cadocup=objllencomboIngr.buscarcadena(sqlocup,2);
-           Object ocupobj=cadocup;
-           JCBOcupacion.setSelectedItem(ocupobj);
-           cadescolar=Rconsultahc.getString(20);
-           sqloesc="select *from escolaridad where escolaridad.idescolaridad_es="+"'"+cadescolar+"'";
-           cadescolar=objllencomboIngr.buscarcadena(sqloesc,2);
-           Object escobj=cadescolar;
-           JCBEscolaridad.setSelectedItem(escobj);
-           cadescolar=Rconsultahc.getString(21);
-           sqloesc="select *from profesionales where profesionales.idpro_pro="+"'"+cadescolar+"'";
-           cadescolar=objllencomboIngr.buscarcadena(sqloesc,2);
-           escobj=cadescolar;
-           JCBProfesion.setSelectedItem(escobj);
-           cadeps=Rconsultahc.getString(24);
-           sqleps="select *from eps where eps.id_eps="+"'"+cadeps+"'";
-           cadeps=objllencomboIngr.buscarcadena(sqleps,2);
-           Object epsobj=cadeps;
-           JCBEps.setSelectedItem(epsobj);
-           cadeps=Rconsultahc.getString(25);
-           sqleps="select *from ips where ips.id_ips="+"'"+cadeps+"'";
-           cadeps=objllencomboIngr.buscarcadena(sqleps,2);
-           epsobj=cadeps;
-           JCBIps.setSelectedItem(epsobj);
-           cadmedtrat=Rconsultahc.getString(32);
-           sqlmedtrat="select *from medicos_tratantes where medicos_tratantes.id_medtrat="+"'"+cadmedtrat+"'";
-           cadmedtrat=objllencomboIngr.buscarcadena(sqlmedtrat,2);
-           Object mtobj=cadmedtrat;
-           JCBMedTrat.setSelectedItem(mtobj);
-           cadmedenv=Rconsultahc.getString(26);
-           sqlmedenv="select *from tipo_examen where tipo_examen.idtipo_TE="+"'"+cadmedenv+"'";
-           cadmedenv=objllencomboIngr.buscarcadena(sqlmedenv,2);
-           Object meobj=cadmedenv;
-           JCBTipoEx.setSelectedItem(meobj);
-           cadempresa=Rconsultahc.getString(29);
-           sqlempresa="select *from empresa where empresa.id_empresa="+"'"+cadempresa+"'";
-           cadempresa=objllencomboIngr.buscarcadena(sqlempresa,2);
-           Object emprobj=cadempresa;
-           JCBEmpresa.setSelectedItem(emprobj);
-           cadempresa=Rconsultahc.getString(30);
-           sqlempresa="select *from tipo_industria where tipo_industria.id_tindustria="+"'"+cadempresa+"'";
-           cadempresa=objllencomboIngr.buscarcadena(sqlempresa,2);
-           emprobj=cadempresa;
-           JCBTipoEmpr.setSelectedItem(emprobj);
-           cadempresa=Rconsultahc.getString(31);
-           sqlempresa="select *from jornada_trabajo where jornada_trabajo.idjornada_jtrabajo="+"'"+cadempresa+"'";
-           cadempresa=objllencomboIngr.buscarcadena(sqlempresa,2);
-           emprobj=cadempresa;
-           JCBJornada.setSelectedItem(emprobj);
-           cadocup=Rconsultahc.getString(33);
-           sqlocup="select *from ocupacion where ocupacion.Id_Ocupacion="+"'"+cadocup+"'";
-           cadocup=objllencomboIngr.buscarcadena(sqlocup,2);
-           ocupobj=cadocup;
-           JCBCargo.setSelectedItem(ocupobj);
-           JCHGuantes.setSelected(Rconsultahc.getBoolean(35));
-           JCHProtcResp.setSelected(Rconsultahc.getBoolean(36));
-           JCHAuditiva.setSelected(Rconsultahc.getBoolean(37));
-           JCHVisual.setSelected(Rconsultahc.getBoolean(38));
-           JCHOtros.setSelected(Rconsultahc.getBoolean(39));
-           JFTOtros.setText(Rconsultahc.getString(40));
-           JTAObservacion.setText(Rconsultahc.getString(41));
-           JTADescrCargo.setText(Rconsultahc.getString(34));
-           JFTHoraAtencion.setText(Rconsultahc.getString(42));
-           //JBFoto.setIcon(new ImageIcon(new java.net.URL(Rconsultahc.getString(43))));
-           JBFoto.setIcon(leerimagen(Rconsultahc.getBytes(43)));
-          // if(JBFoto.getIcon()==null)
-               //System.out.println("tURKIA");
-           JFTCargoAspira.setVisible(false);
-           JFTEmpresa.setVisible(false);
-           JFTTipEmpr.setVisible(false);
+        int codmncpio, codbarr, codmncpioproc;
+        String ccingresotipo, cadccsql, cadzona, cadbarrio, cadescolar, sqloesc, fechacad, ultimafecha, cadmedtrat, sqlbarrio, sqlzona, sqlmedtrat, cadmedenv, sqlmedenv, cadeps, sqleps, cadtipoedad, cadempresa, sqlempresa, tipoedadsql, cadsexo, sqlsexo, cadec, sqlec, cadmunic, sqlmunicip, caddpto, sqldpto, cadbarr, sqlbarr, cadocup, sqlocup;
+        try {
+            Rconsultahc.last();
+            JFTNhistoria.setText(Rconsultahc.getString(1));
+            JFTNDoc.setText(Rconsultahc.getString(1));
+            ccingresotipo = Rconsultahc.getString(2);
+            cadccsql = "select *from tipodocumento where tipodocumento.Id_TipoDocumento=" + "'" + ccingresotipo + "'";
+            ccingresotipo = objllencomboIngr.buscarcadena(cadccsql, 2);
+            Object tipodoc = ccingresotipo;
+            JCBTipoDocumento.setSelectedItem(ccingresotipo);
+            JFTPrimerApll.setText(Rconsultahc.getString(3));
+            JFTSgdoApll.setText(Rconsultahc.getString(4));
+            JFTPrimerNbre.setText(Rconsultahc.getString(6));
+            JFTSgdoNbre.setText(Rconsultahc.getString(5));
+            fechacad = objllencomboIngr.cambiarformatofechaotro(Rconsultahc.getString(7));
+            JFTFechaNac.setText(fechacad);
+            JFTEdad.setText(Rconsultahc.getString(9));
+            cadtipoedad = Rconsultahc.getString(8);
+            tipoedadsql = "select *from tipoedad where tipoedad.Id_tipoedad=" + "'" + cadtipoedad + "'";
+            cadtipoedad = objllencomboIngr.buscarcadena(tipoedadsql, 2);
+            JFTTipoEdad.setText(cadtipoedad);
+            cadsexo = Rconsultahc.getString(10);
+            sqlsexo = "select *from sexo where sexo.Id_Sexo=" + "'" + cadsexo + "'";
+            cadsexo = objllencomboIngr.buscarcadena(sqlsexo, 2);
+            Object sexobj = cadsexo;
+            JCBSexo.setSelectedItem(sexobj);
+            cadec = Rconsultahc.getString(11);
+            sqlec = "select *from estadocivil where estadocivil.Id_EstadoCivil=" + "'" + cadec + "'";
+            cadec = objllencomboIngr.buscarcadena(sqlec, 2);
+            Object ecobj = cadec;
+            JCBEstadoCivil.setSelectedItem(ecobj);
+            JFTNHijos.setText(Rconsultahc.getString(12));
+            codmncpio = Rconsultahc.getInt(13);
+            sqlmunicip = "select *from municipio where municipio.Id_Municipio=" + codmncpio;
+            cadmunic = objllencomboIngr.buscarcadena(sqlmunicip, 2);
+            Object munobj = cadmunic;
+            JCBMunNat.setSelectedItem(munobj);
+            caddpto = Rconsultahc.getString(14);
+            sqldpto = "select *from departamento where departamento.Id_Departamento=" + "'" + caddpto + "'";
+            caddpto = objllencomboIngr.buscarcadena(sqldpto, 2);
+            Object dptoobj = caddpto;
+            JCBDptoNat.setSelectedItem(dptoobj);
+            codmncpioproc = Rconsultahc.getInt(15);
+            sqlmunicip = "select *from municipio where municipio.Id_Municipio=" + codmncpioproc;
+            cadmunic = objllencomboIngr.buscarcadena(sqlmunicip, 2);
+            munobj = cadmunic;
+            JCBMunProc.setSelectedItem(munobj);
+            caddpto = Rconsultahc.getString(16);
+            sqldpto = "select *from departamento where departamento.Id_Departamento=" + "'" + caddpto + "'";
+            caddpto = objllencomboIngr.buscarcadena(sqldpto, 2);
+            dptoobj = caddpto;
+            JCBDptoProc.setSelectedItem(dptoobj);
+            cadzona = Rconsultahc.getString(17);
+            sqlzona = "select *from zona where zona.id_zona=" + "'" + cadzona + "'";
+            cadzona = objllencomboIngr.buscarcadena(sqlzona, 2);
+            Object zonaobj = cadzona;
+            JCBZonRes.setSelectedItem(zonaobj);
+            cadbarrio = Rconsultahc.getString(19);
+            sqlbarrio = "select *from barrio where barrio.Id_Barrio=" + "'" + cadbarrio + "'";
+            cadbarrio = objllencomboIngr.buscarcadena(sqlbarrio, 3);
+            Object barrioobj = cadbarrio;
+            JCBBarrio.setSelectedItem(barrioobj);
+            JFTEstrato.setText(objllencomboIngr.buscarcadena(sqlbarrio, 4));
+            JFTDirResidencia.setText(Rconsultahc.getString(18));
+            JFTTel.setText(Rconsultahc.getString(22));
+            cadocup = Rconsultahc.getString(23);
+            sqlocup = "select *from ocupacion where ocupacion.Id_Ocupacion=" + "'" + cadocup + "'";
+            cadocup = objllencomboIngr.buscarcadena(sqlocup, 2);
+            Object ocupobj = cadocup;
+            JCBOcupacion.setSelectedItem(ocupobj);
+            cadescolar = Rconsultahc.getString(20);
+            sqloesc = "select *from escolaridad where escolaridad.idescolaridad_es=" + "'" + cadescolar + "'";
+            cadescolar = objllencomboIngr.buscarcadena(sqloesc, 2);
+            Object escobj = cadescolar;
+            JCBEscolaridad.setSelectedItem(escobj);
+            cadescolar = Rconsultahc.getString(21);
+            sqloesc = "select *from profesionales where profesionales.idpro_pro=" + "'" + cadescolar + "'";
+            cadescolar = objllencomboIngr.buscarcadena(sqloesc, 2);
+            escobj = cadescolar;
+            JCBProfesion.setSelectedItem(escobj);
+            cadeps = Rconsultahc.getString(24);
+            sqleps = "select *from eps where eps.id_eps=" + "'" + cadeps + "'";
+            cadeps = objllencomboIngr.buscarcadena(sqleps, 2);
+            Object epsobj = cadeps;
+            JCBEps.setSelectedItem(epsobj);
+            cadeps = Rconsultahc.getString(25);
+            sqleps = "select *from ips where ips.id_ips=" + "'" + cadeps + "'";
+            cadeps = objllencomboIngr.buscarcadena(sqleps, 2);
+            epsobj = cadeps;
+            JCBIps.setSelectedItem(epsobj);
+            cadmedtrat = Rconsultahc.getString(32);
+            sqlmedtrat = "select *from medicos_tratantes where medicos_tratantes.id_medtrat=" + "'" + cadmedtrat + "'";
+            cadmedtrat = objllencomboIngr.buscarcadena(sqlmedtrat, 2);
+            Object mtobj = cadmedtrat;
+            JCBMedTrat.setSelectedItem(mtobj);
+            cadmedenv = Rconsultahc.getString(26);
+            sqlmedenv = "select *from tipo_examen where tipo_examen.idtipo_TE=" + "'" + cadmedenv + "'";
+            cadmedenv = objllencomboIngr.buscarcadena(sqlmedenv, 2);
+            Object meobj = cadmedenv;
+            JCBTipoEx.setSelectedItem(meobj);
+            cadempresa = Rconsultahc.getString(29);
+            sqlempresa = "select *from empresa where empresa.id_empresa=" + "'" + cadempresa + "'";
+            cadempresa = objllencomboIngr.buscarcadena(sqlempresa, 2);
+            Object emprobj = cadempresa;
+            JCBEmpresa.setSelectedItem(emprobj);
+            cadempresa = Rconsultahc.getString(30);
+            sqlempresa = "select *from tipo_industria where tipo_industria.id_tindustria=" + "'" + cadempresa + "'";
+            cadempresa = objllencomboIngr.buscarcadena(sqlempresa, 2);
+            emprobj = cadempresa;
+            JCBTipoEmpr.setSelectedItem(emprobj);
+            cadempresa = Rconsultahc.getString(31);
+            sqlempresa = "select *from jornada_trabajo where jornada_trabajo.idjornada_jtrabajo=" + "'" + cadempresa + "'";
+            cadempresa = objllencomboIngr.buscarcadena(sqlempresa, 2);
+            emprobj = cadempresa;
+            JCBJornada.setSelectedItem(emprobj);
+            cadocup = Rconsultahc.getString(33);
+            sqlocup = "select *from ocupacion where ocupacion.Id_Ocupacion=" + "'" + cadocup + "'";
+            cadocup = objllencomboIngr.buscarcadena(sqlocup, 2);
+            ocupobj = cadocup;
+            JCBCargo.setSelectedItem(ocupobj);
+            JCHGuantes.setSelected(Rconsultahc.getBoolean(35));
+            JCHProtcResp.setSelected(Rconsultahc.getBoolean(36));
+            JCHAuditiva.setSelected(Rconsultahc.getBoolean(37));
+            JCHVisual.setSelected(Rconsultahc.getBoolean(38));
+            JCHOtros.setSelected(Rconsultahc.getBoolean(39));
+            JFTOtros.setText(Rconsultahc.getString(40));
+            JTAObservacion.setText(Rconsultahc.getString(41));
+            JTADescrCargo.setText(Rconsultahc.getString(34));
+            JFTHoraAtencion.setText(Rconsultahc.getString(42));
+            //JBFoto.setIcon(new ImageIcon(new java.net.URL(Rconsultahc.getString(43))));
+            JBFoto.setIcon(leerimagen(Rconsultahc.getBytes(43)));
+            // if(JBFoto.getIcon()==null)
+            //System.out.println("tURKIA");
+            JFTCargoAspira.setVisible(false);
+            JFTEmpresa.setVisible(false);
+            JFTTipEmpr.setVisible(false);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            swimagen = 1;
+            System.out.println("problema en la consulta" + swimagen);
         }
-       catch (Exception ex) {
-             ex.printStackTrace();
-             swimagen=1;
-             System.out.println("problema en la consulta"+swimagen);
-         }
 
     }//fin llenarpanelingreso
 
@@ -1369,26 +1377,26 @@ public class CIngreso extends JInternalFrame {
         JCBEscolaridad.setEnabled(true);
         JCBProfesion.setEnabled(true);
         JCBOcupacion.setEnabled(true);
-      }
+    }
 
     public void JCBBarrio_keyReleased(KeyEvent e) {
-            procesocrear(e,JFTBarrio,JCBBarrio);
+        procesocrear(e, JFTBarrio, JCBBarrio);
     }
 
     /**
      * procesocrear
      */
-    public void procesocrear(KeyEvent e,JFormattedTextField jftvar,JComboBox jcbvar) {
+    public void procesocrear(KeyEvent e, JFormattedTextField jftvar, JComboBox jcbvar) {
         int c = e.getKeyCode();
-       if (c == KeyEvent.VK_ESCAPE) {
-           jftvar.setVisible(true);
-           jcbvar.setSelectedItem("");
-           jcbvar.setVisible(false);
-       }
+        if (c == KeyEvent.VK_ESCAPE) {
+            jftvar.setVisible(true);
+            jcbvar.setSelectedItem("");
+            jcbvar.setVisible(false);
+        }
     }
 
     public void JCBProfesion_keyReleased(KeyEvent e) {
-           procesocrear(e,JFTProfesion,JCBProfesion);
+        procesocrear(e, JFTProfesion, JCBProfesion);
     }
 
     public void JCBOcupacion_actionPerformed(ActionEvent e) {
@@ -1396,62 +1404,63 @@ public class CIngreso extends JInternalFrame {
     }
 
     public void JCBOcupacion_keyReleased(KeyEvent e) {
-         procesocrear(e,JFTOcup,JCBOcupacion);
+        procesocrear(e, JFTOcup, JCBOcupacion);
     }
 
     public void JCBEps_keyReleased(KeyEvent e) {
-        procesocrear(e,JFTEps,JCBEps);
+        procesocrear(e, JFTEps, JCBEps);
     }
 
     public void JCBIps_keyReleased(KeyEvent e) {
-         procesocrear(e,JFTIps,JCBIps);
+        procesocrear(e, JFTIps, JCBIps);
     }
 
     public void JCBCargo_keyReleased(KeyEvent e) {
-          procesocrear(e,JFTCargoAspira,JCBCargo);
+        procesocrear(e, JFTCargoAspira, JCBCargo);
     }
 
     public void JTIngreso_keyReleased(KeyEvent e) {
-       JDesktopPane JDPIngreso;
-       JDPIngreso=(JDesktopPane)ingresoobject;
-       int c = e.getKeyCode();
-       if (c == KeyEvent.VK_ADD) {
-                 this.setVisible(false);
-                 CHistoriaOcup frameho=new CHistoriaOcup(obotactualizar,numingredic,swedicioningr,JFTPrimerApll.getText(),JFTSgdoApll.getText(),JFTPrimerNbre.getText(),JFTSgdoNbre.getText(),JFTNDoc.getText(),JDPIngreso,this,objppalig);
-                 frameho.setBounds(0, 2, 1010, 600);
-                 frameho.setTitle("HISTORIA OCUPACIONAL");
-                 JDPIngreso.add(frameho, new Integer(1));
-                 frameho.setLocation(5, 55);
-                 frameho.show();
-                 frameho.JBAtrasAF.setEnabled(true);
-        //frameho.inicioventanamotenf(framemotivo);
-                 frameho.setVisible(true);
-                 frameho.inilizarventanaHO(frameho);
-                 if(swedicioningr==1){
-                     String cadsqledicHO;int ifila=0;
-                     cadsqledicHO="SELECT ingreso.id_ingreso, historiaocupacional.nombempresa_ho, historiaocupacional.fechaini_ho, historiaocupacional.fechafin_ho, historiaocupacional.tiempoempresa_ho, historiaocupacional.cargo_ho, historiaocupacional.factorriesgo_ho, historiaocupacional.elemriesgo_ho, historiaocupacional.tiempoexposicion_ho, historiaocupacional.empresanueva_ho FROM ingreso INNER JOIN historiaocupacional ON ingreso.id_ingreso = historiaocupacional.idingreso_ho WHERE ingreso.id_ingreso="+numingredic;
-                     try{
-                            TSentenciaconsultahc=con2.createStatement();
-                            Rconsultahc=TSentenciaconsultahc.executeQuery(cadsqledicHO);
-                            while(Rconsultahc.next()){
-                                if(Rconsultahc.getString(2).compareTo("")!=0){
-                                  frameho.llenarmodeloHO(ifila,Rconsultahc.getString(2),Rconsultahc.getString(3),Rconsultahc.getString(4),Rconsultahc.getString(5),Rconsultahc.getString(6),Rconsultahc.getString(7),Rconsultahc.getBoolean(10),Rconsultahc.getString(9));
-                                  ifila=ifila+1;}
-                            }
-                     }
-                     catch(SQLException e1){
+        JDesktopPane JDPIngreso;
+        JDPIngreso = (JDesktopPane) ingresoobject;
+        int c = e.getKeyCode();
+        if (c == KeyEvent.VK_ADD) {
+            this.setVisible(false);
+            CHistoriaOcup frameho = new CHistoriaOcup(obotactualizar, numingredic, swedicioningr, JFTPrimerApll.getText(), JFTSgdoApll.getText(), JFTPrimerNbre.getText(), JFTSgdoNbre.getText(), JFTNDoc.getText(), JDPIngreso, this, objppalig);
+            frameho.setBounds(0, 2, 1010, 600);
+            frameho.setTitle("HISTORIA OCUPACIONAL");
+            JDPIngreso.add(frameho, new Integer(1));
+            frameho.setLocation(5, 55);
+            frameho.show();
+            frameho.JBAtrasAF.setEnabled(true);
+            //frameho.inicioventanamotenf(framemotivo);
+            frameho.setVisible(true);
+            frameho.inilizarventanaHO(frameho);
+            if (swedicioningr == 1) {
+                String cadsqledicHO;
+                int ifila = 0;
+                cadsqledicHO = "SELECT ingreso.id_ingreso, historiaocupacional.nombempresa_ho, historiaocupacional.fechaini_ho, historiaocupacional.fechafin_ho, historiaocupacional.tiempoempresa_ho, historiaocupacional.cargo_ho, historiaocupacional.factorriesgo_ho, historiaocupacional.elemriesgo_ho, historiaocupacional.tiempoexposicion_ho, historiaocupacional.empresanueva_ho FROM ingreso INNER JOIN historiaocupacional ON ingreso.id_ingreso = historiaocupacional.idingreso_ho WHERE ingreso.id_ingreso=" + numingredic;
+                try {
+                    TSentenciaconsultahc = con2.createStatement();
+                    Rconsultahc = TSentenciaconsultahc.executeQuery(cadsqledicHO);
+                    while (Rconsultahc.next()) {
+                        if (Rconsultahc.getString(2).compareTo("") != 0) {
+                            frameho.llenarmodeloHO(ifila, Rconsultahc.getString(2), Rconsultahc.getString(3), Rconsultahc.getString(4), Rconsultahc.getString(5), Rconsultahc.getString(6), Rconsultahc.getString(7), Rconsultahc.getBoolean(10), Rconsultahc.getString(9));
+                            ifila = ifila + 1;
+                        }
+                    }
+                } catch (SQLException e1) {
 
-                           cad2="NO SE PUDO EJECUTAR LA CONSULTA";
-                           cad1="PROBLEMAS CON LOS DATOS DE HISTORIA OCUPACIONAL EN EDICION";
-                           objllencomboIngr.mensajeconfirmacion(cad1,cad2);
-                     }//cierra el catch
+                    cad2 = "NO SE PUDO EJECUTAR LA CONSULTA";
+                    cad1 = "PROBLEMAS CON LOS DATOS DE HISTORIA OCUPACIONAL EN EDICION";
+                    objllencomboIngr.mensajeconfirmacion(cad1, cad2);
+                }//cierra el catch
 
-                    }//fin del if
-       }
+            }//fin del if
+        }
     }
 
     public void JFTNHijos_keyReleased(KeyEvent e) {
-       //JPDatosDemograficos.requestFocus();
+        //JPDatosDemograficos.requestFocus();
 
     }
 
@@ -1460,7 +1469,7 @@ public class CIngreso extends JInternalFrame {
     }
 
     public void JPIngreso_keyReleased(KeyEvent e) {
-          /*  int c = e.getKeyCode();
+        /*  int c = e.getKeyCode();
           if (c == KeyEvent.VK_ADD) {
               JDesktopPane JDPIngreso;
               JDPIngreso=(JDesktopPane)ingresoobject;
@@ -1481,58 +1490,57 @@ public class CIngreso extends JInternalFrame {
 
     public void JBAgregar_actionPerformed(ActionEvent e) {
         JBFoto.setEnabled(true);
-         fc = new JFileChooser("C:\\SALUD_OCUPACIONAL\\Imagenes\\CAMARA\\Capture");
-         //fc = new JFileChooser("C:\\Documents and Settings\\LILIAN\\Mis documentos\\WebCam Media\\Capture");
-         int returnVal = fc.showDialog(CIngreso.this,"Ok");
-         if (returnVal == JFileChooser.APPROVE_OPTION) {
-             File directorio=fc.getSelectedFile();
-             String cadenaruta=directorio.toString();
-             //Image imagen = Toolkit.getDefaultToolkit().getImage ("file:///C:/SALUD_OCUPACIONAL/Imagenes/rosiris.jpg");
-             //JBCancelarAF.setIcon(new ImageIcon(new java.net.URL("file:///C:/SALUD_OCUPACIONAL/Imagenes/MG19.
-             try{
-                 colocarfoto(cadenaruta);
-                 swimagen=1;
-                 //System.out.println("yaneth:"+cadenaruta);
-             }
-             catch (Exception ex) {
-                   ex.printStackTrace();
-             }
+        fc = new JFileChooser("C:\\SALUD_OCUPACIONAL\\Imagenes\\CAMARA\\Capture");
+        //fc = new JFileChooser("C:\\Documents and Settings\\LILIAN\\Mis documentos\\WebCam Media\\Capture");
+        int returnVal = fc.showDialog(CIngreso.this, "Ok");
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File directorio = fc.getSelectedFile();
+            String cadenaruta = directorio.toString();
+            //Image imagen = Toolkit.getDefaultToolkit().getImage ("file:///C:/SALUD_OCUPACIONAL/Imagenes/rosiris.jpg");
+            //JBCancelarAF.setIcon(new ImageIcon(new java.net.URL("file:///C:/SALUD_OCUPACIONAL/Imagenes/MG19.
+            try {
+                colocarfoto(cadenaruta);
+                swimagen = 1;
+                //System.out.println("yaneth:"+cadenaruta);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
 
-
-         }
+        }
     }
 
     /**
      * colocarfoto
      */
     public void colocarfoto(String cadenaruta) throws Exception {
-        JBFoto.setIcon(new ImageIcon(new java.net.URL("file:///"+cadenaruta)));
+        JBFoto.setIcon(new ImageIcon(new java.net.URL("file:///" + cadenaruta)));
     }
 
     /**
      * leerimagen
      */
     public ImageIcon leerimagen(byte[] i) throws SQLException {
-     // ImageIcon m = new ImageIcon();
-      imagimpr=i;
-      m = new ImageIcon(i);
+        // ImageIcon m = new ImageIcon();
+        imagimpr = i;
+        m = new ImageIcon(i);
 
-     // System.out.println("rosiris:"+m);
-      return m;
+        // System.out.println("rosiris:"+m);
+        return m;
     }
 
     public void JCBEmpresa_keyReleased(KeyEvent e) {
-       procesocrear(e,JFTEmpresa,JCBEmpresa);
+        procesocrear(e, JFTEmpresa, JCBEmpresa);
     }
 
     public void JCBTipoEmpr_keyReleased(KeyEvent e) {
-      procesocrear(e,JFTTipEmpr,JCBTipoEmpr);
+        procesocrear(e, JFTTipEmpr, JCBTipoEmpr);
     }
 }//.FIN DE LA CLASE
 
-
 class CIngreso_JCBTipoEmpr_keyAdapter extends KeyAdapter {
+
     private CIngreso adaptee;
+
     CIngreso_JCBTipoEmpr_keyAdapter(CIngreso adaptee) {
         this.adaptee = adaptee;
     }
@@ -1542,9 +1550,10 @@ class CIngreso_JCBTipoEmpr_keyAdapter extends KeyAdapter {
     }
 }
 
-
 class CIngreso_JCBEmpresa_keyAdapter extends KeyAdapter {
+
     private CIngreso adaptee;
+
     CIngreso_JCBEmpresa_keyAdapter(CIngreso adaptee) {
         this.adaptee = adaptee;
     }
@@ -1554,9 +1563,10 @@ class CIngreso_JCBEmpresa_keyAdapter extends KeyAdapter {
     }
 }
 
-
 class CIngreso_JBAgregar_actionAdapter implements ActionListener {
+
     private CIngreso adaptee;
+
     CIngreso_JBAgregar_actionAdapter(CIngreso adaptee) {
         this.adaptee = adaptee;
     }
@@ -1566,9 +1576,10 @@ class CIngreso_JBAgregar_actionAdapter implements ActionListener {
     }
 }
 
-
 class CIngreso_JFTNHijos_keyAdapter extends KeyAdapter {
+
     private CIngreso adaptee;
+
     CIngreso_JFTNHijos_keyAdapter(CIngreso adaptee) {
         this.adaptee = adaptee;
     }
@@ -1578,9 +1589,10 @@ class CIngreso_JFTNHijos_keyAdapter extends KeyAdapter {
     }
 }
 
-
 class CIngreso_this_keyAdapter extends KeyAdapter {
+
     private CIngreso adaptee;
+
     CIngreso_this_keyAdapter(CIngreso adaptee) {
         this.adaptee = adaptee;
     }
@@ -1590,9 +1602,10 @@ class CIngreso_this_keyAdapter extends KeyAdapter {
     }
 }
 
-
 class CIngreso_JPIngreso_keyAdapter extends KeyAdapter {
+
     private CIngreso adaptee;
+
     CIngreso_JPIngreso_keyAdapter(CIngreso adaptee) {
         this.adaptee = adaptee;
     }
@@ -1602,9 +1615,10 @@ class CIngreso_JPIngreso_keyAdapter extends KeyAdapter {
     }
 }
 
-
 class CIngreso_JTIngreso_keyAdapter extends KeyAdapter {
+
     private CIngreso adaptee;
+
     CIngreso_JTIngreso_keyAdapter(CIngreso adaptee) {
         this.adaptee = adaptee;
     }
@@ -1614,9 +1628,10 @@ class CIngreso_JTIngreso_keyAdapter extends KeyAdapter {
     }
 }
 
-
 class CIngreso_JCBCargo_keyAdapter extends KeyAdapter {
+
     private CIngreso adaptee;
+
     CIngreso_JCBCargo_keyAdapter(CIngreso adaptee) {
         this.adaptee = adaptee;
     }
@@ -1626,9 +1641,10 @@ class CIngreso_JCBCargo_keyAdapter extends KeyAdapter {
     }
 }
 
-
 class CIngreso_JCBIps_keyAdapter extends KeyAdapter {
+
     private CIngreso adaptee;
+
     CIngreso_JCBIps_keyAdapter(CIngreso adaptee) {
         this.adaptee = adaptee;
     }
@@ -1638,9 +1654,10 @@ class CIngreso_JCBIps_keyAdapter extends KeyAdapter {
     }
 }
 
-
 class CIngreso_JCBEps_keyAdapter extends KeyAdapter {
+
     private CIngreso adaptee;
+
     CIngreso_JCBEps_keyAdapter(CIngreso adaptee) {
         this.adaptee = adaptee;
     }
@@ -1650,9 +1667,10 @@ class CIngreso_JCBEps_keyAdapter extends KeyAdapter {
     }
 }
 
-
 class CIngreso_JCBOcupacion_keyAdapter extends KeyAdapter {
+
     private CIngreso adaptee;
+
     CIngreso_JCBOcupacion_keyAdapter(CIngreso adaptee) {
         this.adaptee = adaptee;
     }
@@ -1662,9 +1680,10 @@ class CIngreso_JCBOcupacion_keyAdapter extends KeyAdapter {
     }
 }
 
-
 class CIngreso_JCBOcupacion_actionAdapter implements ActionListener {
+
     private CIngreso adaptee;
+
     CIngreso_JCBOcupacion_actionAdapter(CIngreso adaptee) {
         this.adaptee = adaptee;
     }
@@ -1674,9 +1693,10 @@ class CIngreso_JCBOcupacion_actionAdapter implements ActionListener {
     }
 }
 
-
 class CIngreso_JCBProfesion_keyAdapter extends KeyAdapter {
+
     private CIngreso adaptee;
+
     CIngreso_JCBProfesion_keyAdapter(CIngreso adaptee) {
         this.adaptee = adaptee;
     }
@@ -1686,9 +1706,10 @@ class CIngreso_JCBProfesion_keyAdapter extends KeyAdapter {
     }
 }
 
-
 class CIngreso_JFTNumIngr_focusAdapter extends FocusAdapter {
+
     private CIngreso adaptee;
+
     CIngreso_JFTNumIngr_focusAdapter(CIngreso adaptee) {
         this.adaptee = adaptee;
     }
@@ -1698,9 +1719,10 @@ class CIngreso_JFTNumIngr_focusAdapter extends FocusAdapter {
     }
 }
 
-
 class CIngreso_JCHOtros_actionAdapter implements ActionListener {
+
     private CIngreso adaptee;
+
     CIngreso_JCHOtros_actionAdapter(CIngreso adaptee) {
         this.adaptee = adaptee;
     }
@@ -1710,9 +1732,10 @@ class CIngreso_JCHOtros_actionAdapter implements ActionListener {
     }
 }
 
-
 class CIngreso_JCBBarrio_focusAdapter extends FocusAdapter {
+
     private CIngreso adaptee;
+
     CIngreso_JCBBarrio_focusAdapter(CIngreso adaptee) {
         this.adaptee = adaptee;
     }
@@ -1722,9 +1745,10 @@ class CIngreso_JCBBarrio_focusAdapter extends FocusAdapter {
     }
 }
 
-
 class CIngreso_JCBBarrio_keyAdapter extends KeyAdapter {
+
     private CIngreso adaptee;
+
     CIngreso_JCBBarrio_keyAdapter(CIngreso adaptee) {
         this.adaptee = adaptee;
     }
@@ -1734,9 +1758,10 @@ class CIngreso_JCBBarrio_keyAdapter extends KeyAdapter {
     }
 }
 
-
 class CIngreso_jCalendar1_mouseAdapter extends MouseAdapter {
+
     private CIngreso adaptee;
+
     CIngreso_jCalendar1_mouseAdapter(CIngreso adaptee) {
         this.adaptee = adaptee;
     }
@@ -1754,9 +1779,10 @@ class CIngreso_jCalendar1_mouseAdapter extends MouseAdapter {
     }
 }
 
-
 class CIngreso_jCalendar1_focusAdapter extends FocusAdapter {
+
     private CIngreso adaptee;
+
     CIngreso_jCalendar1_focusAdapter(CIngreso adaptee) {
         this.adaptee = adaptee;
     }
@@ -1766,10 +1792,11 @@ class CIngreso_jCalendar1_focusAdapter extends FocusAdapter {
     }
 }
 
-
 //CIngreso_JFTNDoc_focusAdapter(this)
 class CIngreso_JFTNDoc_focusAdapter extends FocusAdapter {
+
     private CIngreso adaptee;
+
     CIngreso_JFTNDoc_focusAdapter(CIngreso adaptee) {
         this.adaptee = adaptee;
     }
@@ -1779,8 +1806,11 @@ class CIngreso_JFTNDoc_focusAdapter extends FocusAdapter {
     }
 }//fin de la clase CIngreso_JFTNDoc_focusAdapter
 //CIngreso_JFTPrimerApll_actionAdapter(this)
+
 class CIngreso_JFTPrimerApll_actionAdapter implements ActionListener {
+
     private CIngreso adaptee;
+
     CIngreso_JFTPrimerApll_actionAdapter(CIngreso adaptee) {
         this.adaptee = adaptee;
     }
@@ -1790,8 +1820,11 @@ class CIngreso_JFTPrimerApll_actionAdapter implements ActionListener {
     }
 }//fin de la clase CIngreso_JFTPrimerApll_actionAdapter
 //CIngreso_JFTSgdoApll_actionAdapter implements ActionListener
+
 class CIngreso_JFTSgdoApll_actionAdapter implements ActionListener {
+
     private CIngreso adaptee;
+
     CIngreso_JFTSgdoApll_actionAdapter(CIngreso adaptee) {
         this.adaptee = adaptee;
     }
@@ -1801,8 +1834,11 @@ class CIngreso_JFTSgdoApll_actionAdapter implements ActionListener {
     }
 }//fin de de la clase CIngreso_JFTSgdoApll_actionAdapter
 //CIngreso_JFTFechaNac_focusAdapter
+
 class CIngreso_JFTFechaNac_focusAdapter extends FocusAdapter {
+
     private CIngreso adaptee;
+
     CIngreso_JFTFechaNac_focusAdapter(CIngreso adaptee) {
         this.adaptee = adaptee;
     }

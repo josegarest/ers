@@ -12,36 +12,37 @@ import javax.swing.text.*;
 import com.toedter.calendar.*;
 
 public class CHistoriaOcup extends JInternalFrame {
+
     Object objppalho;
     Object obotactualizarHO;
     public Statement TSentenciaconsultaEP;
     public ResultSet RconsultaEP;
-    public ConexionSql Cconsql= new ConexionSql();
+    public ConexionSql Cconsql = new ConexionSql();
     String numingredicEP;
     int swedicingrho;
     String cad1;
     String cad2;
-    Object  objetoenfprofesional= new Object();
+    Object objetoenfprofesional = new Object();
     int swgte;
-    int[][] fact=new int[10][9];
-    int[][] elem=new int[10][59];
-    Object JDPIngresoobj=new Object();
-    Object frameHOOBJ= new Object();
-    Object framehoOBJ=new Object();
+    int[][] fact = new int[10][9];
+    int[][] elem = new int[10][59];
+    Object JDPIngresoobj = new Object();
+    Object frameHOOBJ = new Object();
+    Object framehoOBJ = new Object();
     int swval;
     String sFechaHO;
-    Date fechainiHO=new Date();
-    Date fechafinHO=new Date();
-    ModeloHO modeloho=new ModeloHO();
-    public String nombredetalle="";
+    Date fechainiHO = new Date();
+    Date fechafinHO = new Date();
+    ModeloHO modeloho = new ModeloHO();
+    public String nombredetalle = "";
     //public static int swepilepc=1;
     CHistoriaOcup objCAF;
-    public String Nombrepac=new String();
-    public String varnhc=new String();
+    public String Nombrepac = new String();
+    public String varnhc = new String();
     JCalendar jCalendar1 = new JCalendar();
     JCalendar jCalendar2 = new JCalendar();
-    ValidarComponentes validHO=new ValidarComponentes();
-    int ifila=0;
+    ValidarComponentes validHO = new ValidarComponentes();
+    int ifila = 0;
     //DECLARACION DE PANELES
     JTabbedPane JTBAntFam = new JTabbedPane();
     JPanel JPAntecedentesFamiliar = new JPanel();
@@ -56,8 +57,8 @@ public class CHistoriaOcup extends JInternalFrame {
     JTextField JTFEmprHO = new JTextField();
     JLabel JLBFechaEmprHO = new JLabel();
     JLabel FechaFinEmprHO = new JLabel();
-    JFormattedTextField JFTFechaEmprHO=JFTFechaEmprHO=new JFormattedTextField() ;
-    JFormattedTextField JFTFechaFinEmrHO=new JFormattedTextField();
+    JFormattedTextField JFTFechaEmprHO = JFTFechaEmprHO = new JFormattedTextField();
+    JFormattedTextField JFTFechaFinEmrHO = new JFormattedTextField();
     JLabel JLBCargoHO = new JLabel();
     JTextField JTFCargoHO = new JTextField();
     JLabel JLBFactorRiesgoHO = new JLabel();
@@ -165,39 +166,40 @@ public class CHistoriaOcup extends JInternalFrame {
     JRadioButton JRElectricos = new JRadioButton();
     JRadioButton JRLocativos = new JRadioButton();
     JCheckBox JCHEmprActual = new JCheckBox();
-    public CHistoriaOcup(Object obotactualizar,String numingredic,int swedicioningr,String cadpapell,String cadsapell,String cadpnombr,String cadsnombr,String NDoc,JDesktopPane JDPIngreso,CIngreso frameingreso,Object objppalig) {
-       try {
-           nombrepaciente(cadpapell,cadsapell,cadpnombr,cadsnombr);
-           varnhc="";
-           varnhc=varnhc.concat(NDoc);
-           jbInit();
-           frameHOOBJ=frameingreso;
-           JLBPac.setText(Nombrepac);
-           JLBHistNum.setText(varnhc);
-           anadirentradaHO();
-           cerarfactor();
-           cerarelem();
-           //llenarfactorriesgo();
-          // llenareleriesgo();
-           JBAtrasAF.setEnabled(false);
-           JDPIngresoobj=JDPIngreso;
-           ocultarelemtodos();
-           swgte=0;
-           swedicingrho=swedicioningr;
-           numingredicEP=numingredic;
-           obotactualizarHO=obotactualizar;
-           objppalho=objppalig;
-           //framehoOBJ=frameho;
-       } catch (Exception ex) {
-           ex.printStackTrace();
-       }
-   }
+
+    public CHistoriaOcup(Object obotactualizar, String numingredic, int swedicioningr, String cadpapell, String cadsapell, String cadpnombr, String cadsnombr, String NDoc, JDesktopPane JDPIngreso, CIngreso frameingreso, Object objppalig) {
+        try {
+            nombrepaciente(cadpapell, cadsapell, cadpnombr, cadsnombr);
+            varnhc = "";
+            varnhc = varnhc.concat(NDoc);
+            jbInit();
+            frameHOOBJ = frameingreso;
+            JLBPac.setText(Nombrepac);
+            JLBHistNum.setText(varnhc);
+            anadirentradaHO();
+            cerarfactor();
+            cerarelem();
+            //llenarfactorriesgo();
+            // llenareleriesgo();
+            JBAtrasAF.setEnabled(false);
+            JDPIngresoobj = JDPIngreso;
+            ocultarelemtodos();
+            swgte = 0;
+            swedicingrho = swedicioningr;
+            numingredicEP = numingredic;
+            obotactualizarHO = obotactualizar;
+            objppalho = objppalig;
+            //framehoOBJ=frameho;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 
     /**
      * cerarelem
      */
     private void jbInit() throws Exception {
-       //System.out.println("HISTORIA OCUPACIONAL:");
+        //System.out.println("HISTORIA OCUPACIONAL:");
         //configurarformatofechaHO();
         this.setClosable(true);
         this.setIconifiable(true);
@@ -207,49 +209,49 @@ public class CHistoriaOcup extends JInternalFrame {
         this.setVisible(true);
         this.getContentPane().setLayout(null);
         JTBAntFam.setBackground(new Color(49, 106, 197));
-       JTBAntFam.setFont(new java.awt.Font("Arial", Font.BOLD, 14));
-       JTBAntFam.setForeground(Color.red);
-       JTBAntFam.setBorder(BorderFactory.createRaisedBevelBorder());
-       JTBAntFam.setBounds(new Rectangle(5, 72, 982, 432));
-       JPAntecedentesFamiliar.setBackground(SystemColor.textHighlight);
-       JPAntecedentesFamiliar.setFont(new java.awt.Font("Arial", Font.BOLD,14));
-       JPAntecedentesFamiliar.setBorder(BorderFactory.createRaisedBevelBorder());
-       JPAntecedentesFamiliar.setBounds(new Rectangle(6, 3, 991, 557));
-       JPAntecedentesFamiliar.setLayout(null);
-       JPAntFam.setBackground(new Color(146, 154, 255));
-       JPAntFam.setFont(new java.awt.Font("Arial", Font.BOLD, 12));
-       JPAntFam.setLayout(null);
-       //CARACTERISTICAS DE LOS COMPONENTES VISUALES
-       JBAtrasAF.setBounds(new Rectangle(139, 509, 112, 36));
-       JBAtrasAF.setFont(new java.awt.Font("Arial", Font.BOLD, 12));
-       JBAtrasAF.setMnemonic('R');
-       JBAtrasAF.setText("Atras");
+        JTBAntFam.setFont(new java.awt.Font("Arial", Font.BOLD, 14));
+        JTBAntFam.setForeground(Color.red);
+        JTBAntFam.setBorder(BorderFactory.createRaisedBevelBorder());
+        JTBAntFam.setBounds(new Rectangle(5, 72, 982, 432));
+        JPAntecedentesFamiliar.setBackground(SystemColor.textHighlight);
+        JPAntecedentesFamiliar.setFont(new java.awt.Font("Arial", Font.BOLD, 14));
+        JPAntecedentesFamiliar.setBorder(BorderFactory.createRaisedBevelBorder());
+        JPAntecedentesFamiliar.setBounds(new Rectangle(6, 3, 991, 557));
+        JPAntecedentesFamiliar.setLayout(null);
+        JPAntFam.setBackground(new Color(146, 154, 255));
+        JPAntFam.setFont(new java.awt.Font("Arial", Font.BOLD, 12));
+        JPAntFam.setLayout(null);
+        //CARACTERISTICAS DE LOS COMPONENTES VISUALES
+        JBAtrasAF.setBounds(new Rectangle(139, 509, 112, 36));
+        JBAtrasAF.setFont(new java.awt.Font("Arial", Font.BOLD, 12));
+        JBAtrasAF.setMnemonic('R');
+        JBAtrasAF.setText("Atras");
         JBAtrasAF.addActionListener(new CHistoriaOcup_JBAtrasAF_actionAdapter(this));
         //JBAtrasAC.addActionListener(new CAntecedentesPersonales_JBAtrasAC_actionAdapter(this));
-       JBAtrasAF.setIcon(new ImageIcon(new java.net.URL("file:///C:/SALUD_OCUPACIONAL/Imagenes/AG_BTTN3.GIF")));
-       JBAtrasAF.setSelectedIcon(null);
-       JBCancelarAF.setBounds(new Rectangle(749, 511, 131, 36));
-       JBCancelarAF.setFont(new java.awt.Font("Arial", Font.BOLD, 12));
-       JBCancelarAF.setToolTipText("");
-       JBCancelarAF.setMnemonic('S');
-       JBCancelarAF.setText("CANCELAR");
-       //JBCancelarAP.addActionListener(new CAntecedentesPersonales_JBCancelarAP_actionAdapter(this));
-       JBCancelarAF.setIcon(new ImageIcon(new java.net.URL("file:///C:/SALUD_OCUPACIONAL/Imagenes/MG19.GIF")));
-       JBCancelarAF.setSelectedIcon(null);
-       JBSgteAF.setBounds(new Rectangle(434, 510, 133, 36));
-       JBSgteAF.setFont(new java.awt.Font("Arial", Font.BOLD, 12));
-       JBSgteAF.setToolTipText("");
-       JBSgteAF.setMnemonic('S');
-       JBSgteAF.setText("SIGUIENTE");
+        JBAtrasAF.setIcon(new ImageIcon(new java.net.URL("file:///C:/SALUD_OCUPACIONAL/Imagenes/AG_BTTN3.GIF")));
+        JBAtrasAF.setSelectedIcon(null);
+        JBCancelarAF.setBounds(new Rectangle(749, 511, 131, 36));
+        JBCancelarAF.setFont(new java.awt.Font("Arial", Font.BOLD, 12));
+        JBCancelarAF.setToolTipText("");
+        JBCancelarAF.setMnemonic('S');
+        JBCancelarAF.setText("CANCELAR");
+        //JBCancelarAP.addActionListener(new CAntecedentesPersonales_JBCancelarAP_actionAdapter(this));
+        JBCancelarAF.setIcon(new ImageIcon(new java.net.URL("file:///C:/SALUD_OCUPACIONAL/Imagenes/MG19.GIF")));
+        JBCancelarAF.setSelectedIcon(null);
+        JBSgteAF.setBounds(new Rectangle(434, 510, 133, 36));
+        JBSgteAF.setFont(new java.awt.Font("Arial", Font.BOLD, 12));
+        JBSgteAF.setToolTipText("");
+        JBSgteAF.setMnemonic('S');
+        JBSgteAF.setText("SIGUIENTE");
         JBSgteAF.addActionListener(new CHistoriaOcup_JBSgteAF_actionAdapter(this));
         //JBSgteAF.addActionListener(ne              CAntecedentesPersonales_JBSgteAP_actionAdapter(this));
-       JBSgteAF.setIcon(new ImageIcon(new java.net.URL("file:///C:/SALUD_OCUPACIONAL/Imagenes/AG_BTTN4.GIF")));
-       JBSgteAF.setSelectedIcon(null);
-       JLBNumhcAF.setFont(new java.awt.Font("Arial", Font.BOLD, 14));
-       JLBNumhcAF.setForeground(Color.red);
-       JLBNumhcAF.setToolTipText("");
-       JLBNumhcAF.setText("HISTORIA CLINICA N#");
-       JLBNumhcAF.setBounds(new Rectangle(304, 12, 158, 24));
+        JBSgteAF.setIcon(new ImageIcon(new java.net.URL("file:///C:/SALUD_OCUPACIONAL/Imagenes/AG_BTTN4.GIF")));
+        JBSgteAF.setSelectedIcon(null);
+        JLBNumhcAF.setFont(new java.awt.Font("Arial", Font.BOLD, 14));
+        JLBNumhcAF.setForeground(Color.red);
+        JLBNumhcAF.setToolTipText("");
+        JLBNumhcAF.setText("HISTORIA CLINICA N#");
+        JLBNumhcAF.setBounds(new Rectangle(304, 12, 158, 24));
         jCheckBox1.setText("jCheckBox1");
         jCheckBox1.setBounds(new Rectangle(537, 134, 84, 23));
         JLBEmpresaHO.setFont(new java.awt.Font("Arial Black", Font.PLAIN, 10));
@@ -281,19 +283,15 @@ public class CHistoriaOcup extends JInternalFrame {
         JFTFechaEmprHO.setToolTipText("");
         JFTFechaEmprHO.setText("");
         JFTFechaEmprHO.setBounds(new Rectangle(576, 10, 126, 21));
-        JFTFechaEmprHO.addKeyListener(new
-                                      CHistoriaOcup_JFTFechaEmprHO_keyAdapter(this));
-        JFTFechaEmprHO.addFocusListener(new
-                CHistoriaOcup_JFTFechaEmprHO_focusAdapter(this));
+        JFTFechaEmprHO.addKeyListener(new CHistoriaOcup_JFTFechaEmprHO_keyAdapter(this));
+        JFTFechaEmprHO.addFocusListener(new CHistoriaOcup_JFTFechaEmprHO_focusAdapter(this));
         JFTFechaFinEmrHO.setFont(new java.awt.Font("Arial", Font.BOLD, 12));
         JFTFechaFinEmrHO.setBorder(BorderFactory.createRaisedBevelBorder());
         JFTFechaFinEmrHO.setToolTipText("");
         JFTFechaFinEmrHO.setText("");
         JFTFechaFinEmrHO.setBounds(new Rectangle(833, 10, 126, 21));
-        JFTFechaFinEmrHO.addKeyListener(new
-                CHistoriaOcup_JFTFechaFinEmrHO_keyAdapter(this));
-        JFTFechaFinEmrHO.addFocusListener(new
-                CHistoriaOcup_JFTFechaFinEmrHO_focusAdapter(this));
+        JFTFechaFinEmrHO.addKeyListener(new CHistoriaOcup_JFTFechaFinEmrHO_keyAdapter(this));
+        JFTFechaFinEmrHO.addFocusListener(new CHistoriaOcup_JFTFechaFinEmrHO_focusAdapter(this));
         JLBCargoHO.setFont(new java.awt.Font("Arial Black", Font.PLAIN, 10));
         JLBCargoHO.setForeground(Color.red);
         JLBCargoHO.setToolTipText("");
@@ -381,8 +379,7 @@ public class CHistoriaOcup extends JInternalFrame {
         JCBFactorRiesg.setBorder(BorderFactory.createLoweredBevelBorder());
         JCBFactorRiesg.setBounds(new Rectangle(122, 29, 285, 21));
         JCBFactorRiesg.setVisible(false);
-        JCBFactorRiesg.addKeyListener(new
-                                      CHistoriaOcup_JCBFactorRiesg_keyAdapter(this));
+        JCBFactorRiesg.addKeyListener(new CHistoriaOcup_JCBFactorRiesg_keyAdapter(this));
         JCBElemRiesgo.setFont(new java.awt.Font("Arial", Font.BOLD, 11));
         JCBElemRiesgo.setBorder(BorderFactory.createLoweredBevelBorder());
         JCBElemRiesgo.setBounds(new Rectangle(550, 29, 343, 21));
@@ -406,8 +403,7 @@ public class CHistoriaOcup extends JInternalFrame {
         JCHErgonomicos.setToolTipText("");
         JCHErgonomicos.setText("ERGONOMICOS");
         JCHErgonomicos.setBounds(new Rectangle(4, 6, 96, 23));
-        JCHErgonomicos.addActionListener(new
-                CHistoriaOcup_JCHErgonomicos_actionAdapter(this));
+        JCHErgonomicos.addActionListener(new CHistoriaOcup_JCHErgonomicos_actionAdapter(this));
         JCHFisicos.setBackground(UIManager.getColor(
                 "InternalFrame.activeTitleGradient"));
         JCHFisicos.setFont(new java.awt.Font("Arial", Font.BOLD, 9));
@@ -421,56 +417,49 @@ public class CHistoriaOcup extends JInternalFrame {
         JCHQUIMICOS.setToolTipText("");
         JCHQUIMICOS.setText("QUIMICOS");
         JCHQUIMICOS.setBounds(new Rectangle(193, 7, 72, 23));
-        JCHQUIMICOS.addActionListener(new
-                                      CHistoriaOcup_JCHQUIMICOS_actionAdapter(this));
+        JCHQUIMICOS.addActionListener(new CHistoriaOcup_JCHQUIMICOS_actionAdapter(this));
         JCHBIologicos.setBackground(UIManager.getColor(
                 "InternalFrame.activeTitleGradient"));
         JCHBIologicos.setFont(new java.awt.Font("Arial", Font.BOLD, 9));
         JCHBIologicos.setToolTipText("");
         JCHBIologicos.setText("BIOLOGICOS");
         JCHBIologicos.setBounds(new Rectangle(277, 8, 89, 23));
-        JCHBIologicos.addActionListener(new
-                CHistoriaOcup_JCHBIologicos_actionAdapter(this));
+        JCHBIologicos.addActionListener(new CHistoriaOcup_JCHBIologicos_actionAdapter(this));
         JCHFisicoQuimicos.setBackground(UIManager.getColor(
                 "InternalFrame.activeTitleGradient"));
         JCHFisicoQuimicos.setFont(new java.awt.Font("Arial", Font.BOLD, 9));
         JCHFisicoQuimicos.setToolTipText("");
         JCHFisicoQuimicos.setText("FISICOQUIMICOS");
         JCHFisicoQuimicos.setBounds(new Rectangle(379, 8, 105, 23));
-        JCHFisicoQuimicos.addActionListener(new
-                CHistoriaOcup_JCHFisicoQuimicos_actionAdapter(this));
+        JCHFisicoQuimicos.addActionListener(new CHistoriaOcup_JCHFisicoQuimicos_actionAdapter(this));
         JCHPsicosociales.setBackground(UIManager.getColor(
                 "InternalFrame.activeTitleGradient"));
         JCHPsicosociales.setFont(new java.awt.Font("Arial", Font.BOLD, 9));
         JCHPsicosociales.setToolTipText("");
         JCHPsicosociales.setText("PSICOSOCIALES");
         JCHPsicosociales.setBounds(new Rectangle(501, 6, 105, 23));
-        JCHPsicosociales.addActionListener(new
-                CHistoriaOcup_JCHPsicosociales_actionAdapter(this));
+        JCHPsicosociales.addActionListener(new CHistoriaOcup_JCHPsicosociales_actionAdapter(this));
         JCHMecanicos.setBackground(UIManager.getColor(
                 "InternalFrame.activeTitleGradient"));
         JCHMecanicos.setFont(new java.awt.Font("Arial", Font.BOLD, 9));
         JCHMecanicos.setToolTipText("");
         JCHMecanicos.setText("MECANICOS");
         JCHMecanicos.setBounds(new Rectangle(625, 6, 80, 23));
-        JCHMecanicos.addActionListener(new
-                                       CHistoriaOcup_JCHMecanicos_actionAdapter(this));
+        JCHMecanicos.addActionListener(new CHistoriaOcup_JCHMecanicos_actionAdapter(this));
         JCHElectricos.setBackground(UIManager.getColor(
                 "InternalFrame.activeTitleGradient"));
         JCHElectricos.setFont(new java.awt.Font("Arial", Font.BOLD, 9));
         JCHElectricos.setToolTipText("");
         JCHElectricos.setText("ELECTRICOS");
         JCHElectricos.setBounds(new Rectangle(720, 6, 91, 23));
-        JCHElectricos.addActionListener(new
-                CHistoriaOcup_JCHElectricos_actionAdapter(this));
+        JCHElectricos.addActionListener(new CHistoriaOcup_JCHElectricos_actionAdapter(this));
         JCHLocativos.setBackground(UIManager.getColor(
                 "InternalFrame.activeTitleGradient"));
         JCHLocativos.setFont(new java.awt.Font("Arial", Font.BOLD, 9));
         JCHLocativos.setToolTipText("");
         JCHLocativos.setText("LOCATIVOS");
         JCHLocativos.setBounds(new Rectangle(823, 6, 114, 23));
-        JCHLocativos.addActionListener(new
-                                       CHistoriaOcup_JCHLocativos_actionAdapter(this));
+        JCHLocativos.addActionListener(new CHistoriaOcup_JCHLocativos_actionAdapter(this));
         jPanel1.setBackground(SystemColor.inactiveCaption);
         jPanel1.setBorder(BorderFactory.createRaisedBevelBorder());
         jPanel1.setBounds(new Rectangle(10, 146, 944, 102));
@@ -615,8 +604,8 @@ public class CHistoriaOcup extends JInternalFrame {
         JCHMarcacion.setOpaque(false);
         JCHMarcacion.setToolTipText("");
         JCHMarcacion.setText(
-                "\tSE�ALIZACIO Y DEMARCACION DEFICIENTE,INEXISTENTE INADECUADA     " +
-                "    ");
+                "\tSEÑALIZACION Y DEMARCACION DEFICIENTE,INEXISTENTE INADECUADA     "
+                + "    ");
         JCHMarcacion.setBounds(new Rectangle(486, 28, 360, 21));
         JCHVirus.setBackground(UIManager.getColor(
                 "InternalFrame.activeTitleGradient"));
@@ -646,8 +635,7 @@ public class CHistoriaOcup extends JInternalFrame {
         JCHParasitos.setToolTipText("");
         JCHParasitos.setText("PARASITOS");
         JCHParasitos.setBounds(new Rectangle(7, 27, 81, 21));
-        JCHParasitos.addActionListener(new
-                                       CHistoriaOcup_JCHParasitos_actionAdapter(this));
+        JCHParasitos.addActionListener(new CHistoriaOcup_JCHParasitos_actionAdapter(this));
         JCHEPolvoInorg.setBackground(UIManager.getColor(
                 "InternalFrame.activeTitleGradient"));
         JCHEPolvoInorg.setFont(new java.awt.Font("Arial", Font.BOLD, 9));
@@ -675,8 +663,8 @@ public class CHistoriaOcup extends JInternalFrame {
         JCHInconpatib.setOpaque(false);
         JCHInconpatib.setToolTipText("");
         JCHInconpatib.setText(
-                "�\tINCONPATIBILIDAD FISICO-QUIMICA EN EL ALMACENAMIENTO DE MATERIAS " +
-                "PRIMAS");
+                "n\tINCONPATIBILIDAD FISICO-QUIMICA EN EL ALMACENAMIENTO DE MATERIAS "
+                + "PRIMAS");
         JCHInconpatib.setBounds(new Rectangle(6, 4, 417, 21));
         JCHAnimInv.setBackground(UIManager.getColor(
                 "InternalFrame.activeTitleGradient"));
@@ -776,14 +764,14 @@ public class CHistoriaOcup extends JInternalFrame {
         JCHPresSust.setOpaque(false);
         JCHPresSust.setToolTipText("");
         JCHPresSust.setText(
-                "�\tPRESENCIA DE MATERIAS Y SUSTANCIAS COMBUSTIBLES ");
+                "n\tPRESENCIA DE MATERIAS Y SUSTANCIAS COMBUSTIBLES ");
         JCHPresSust.setBounds(new Rectangle(8, 27, 293, 21));
         JCHReactivas.setBackground(UIManager.getColor(
                 "InternalFrame.activeTitleGradient"));
         JCHReactivas.setFont(new java.awt.Font("Arial", Font.BOLD, 9));
         JCHReactivas.setOpaque(false);
         JCHReactivas.setToolTipText("");
-        JCHReactivas.setText("�\tPRESENCIA DE SUSTANCIAS QUIMICAS REACTIVAS");
+        JCHReactivas.setText("n\tPRESENCIA DE SUSTANCIAS QUIMICAS REACTIVAS");
         JCHReactivas.setBounds(new Rectangle(8, 51, 261, 21));
         JCHStressLab.setBackground(UIManager.getColor(
                 "InternalFrame.activeTitleGradient"));
@@ -890,8 +878,8 @@ public class CHistoriaOcup extends JInternalFrame {
         JCHPisos.setOpaque(false);
         JCHPisos.setToolTipText("");
         JCHPisos.setText(
-                "�\tPISOS, ESCALERAS, BARANDAS, PLATAFORMAS Y ANDAMIOS DEFECTUOSOS " +
-                "O EN MAL ESTADO");
+                "n\tPISOS, ESCALERAS, BARANDAS, PLATAFORMAS Y ANDAMIOS DEFECTUOSOS "
+                + "O EN MAL ESTADO");
         JCHPisos.setBounds(new Rectangle(7, 4, 460, 21));
         JCHMuros.setBackground(UIManager.getColor(
                 "InternalFrame.activeTitleGradient"));
@@ -899,14 +887,14 @@ public class CHistoriaOcup extends JInternalFrame {
         JCHMuros.setOpaque(false);
         JCHMuros.setToolTipText("");
         JCHMuros.setText(
-                "�\tMUROS, PUERTAS Y VENTANAS DEFECTUOSAS O EN MAL ESTADO");
+                "n\tMUROS, PUERTAS Y VENTANAS DEFECTUOSAS O EN MAL ESTADO");
         JCHMuros.setBounds(new Rectangle(8, 27, 331, 21));
         JCHTechos.setBackground(UIManager.getColor(
                 "InternalFrame.activeTitleGradient"));
         JCHTechos.setFont(new java.awt.Font("Arial", Font.BOLD, 9));
         JCHTechos.setOpaque(false);
         JCHTechos.setToolTipText("");
-        JCHTechos.setText("�\tTECHOS DEFECTUOSOS O EN MAL ESTADO");
+        JCHTechos.setText("n\tTECHOS DEFECTUOSOS O EN MAL ESTADO");
         JCHTechos.setBounds(new Rectangle(9, 51, 266, 21));
         JCHSuperficie.setBackground(UIManager.getColor(
                 "InternalFrame.activeTitleGradient"));
@@ -914,14 +902,14 @@ public class CHistoriaOcup extends JInternalFrame {
         JCHSuperficie.setOpaque(false);
         JCHSuperficie.setToolTipText("");
         JCHSuperficie.setText(
-                "�\tSUPERFICIE DEL PISO DESLIZANTE O EN MAL ESTADO");
+                "n\tSUPERFICIE DEL PISO DESLIZANTE O EN MAL ESTADO");
         JCHSuperficie.setBounds(new Rectangle(9, 74, 281, 21));
         JCHOrden.setBackground(UIManager.getColor(
                 "InternalFrame.activeTitleGradient"));
         JCHOrden.setFont(new java.awt.Font("Arial", Font.BOLD, 9));
         JCHOrden.setOpaque(false);
         JCHOrden.setToolTipText("");
-        JCHOrden.setText("�\tFALTA DE ORDEN Y ASEO");
+        JCHOrden.setText("n\tFALTA DE ORDEN Y ASEO");
         JCHOrden.setBounds(new Rectangle(485, 4, 150, 21));
         JCHMovRepetitivos.setBackground(UIManager.getColor(
                 "InternalFrame.activeTitleGradient"));
@@ -942,7 +930,7 @@ public class CHistoriaOcup extends JInternalFrame {
         JCHExtintores.setFont(new java.awt.Font("Arial", Font.BOLD, 9));
         JCHExtintores.setOpaque(false);
         JCHExtintores.setToolTipText("");
-        JCHExtintores.setText("\tUBICACI�N INADECUADA DE EXTINTORES");
+        JCHExtintores.setText("\tUBICACIÓN INADECUADA DE EXTINTORES");
         JCHExtintores.setBounds(new Rectangle(485, 77, 229, 21));
         JLBRiegLocativos.setFont(new java.awt.Font("Arial Black", Font.PLAIN, 10));
         JLBRiegLocativos.setForeground(Color.red);
@@ -972,13 +960,11 @@ public class CHistoriaOcup extends JInternalFrame {
         JRFisicoquim.setOpaque(false);
         JRFisicoquim.setText("FISICOQUIMICOS");
         JRFisicoquim.setBounds(new Rectangle(9, 86, 118, 23));
-        JRFisicoquim.addActionListener(new
-                                       CHistoriaOcup_JRFisicoquim_actionAdapter(this));
+        JRFisicoquim.addActionListener(new CHistoriaOcup_JRFisicoquim_actionAdapter(this));
         JRBiologicos.setOpaque(false);
         JRBiologicos.setText("BIOLOGICOS");
         JRBiologicos.setBounds(new Rectangle(157, 5, 106, 23));
-        JRBiologicos.addActionListener(new
-                                       CHistoriaOcup_JRBiologicos_actionAdapter(this));
+        JRBiologicos.addActionListener(new CHistoriaOcup_JRBiologicos_actionAdapter(this));
         JRPsicolog.setOpaque(false);
         JRPsicolog.setToolTipText("");
         JRPsicolog.setText("PSICOSOCIALES");
@@ -988,19 +974,16 @@ public class CHistoriaOcup extends JInternalFrame {
         JRMecanicos.setToolTipText("");
         JRMecanicos.setText("MECANICOS");
         JRMecanicos.setBounds(new Rectangle(156, 57, 106, 23));
-        JRMecanicos.addActionListener(new
-                                      CHistoriaOcup_JRMecanicos_actionAdapter(this));
+        JRMecanicos.addActionListener(new CHistoriaOcup_JRMecanicos_actionAdapter(this));
         JRElectricos.setOpaque(false);
         JRElectricos.setToolTipText("");
         JRElectricos.setText("ELECTRICOS");
         JRElectricos.setBounds(new Rectangle(157, 88, 106, 23));
-        JRElectricos.addActionListener(new
-                                       CHistoriaOcup_JRElectricos_actionAdapter(this));
+        JRElectricos.addActionListener(new CHistoriaOcup_JRElectricos_actionAdapter(this));
         JRLocativos.setOpaque(false);
         JRLocativos.setText("LOCATIVOS");
         JRLocativos.setBounds(new Rectangle(263, 8, 106, 23));
-        JRLocativos.addActionListener(new
-                                      CHistoriaOcup_JRLocativos_actionAdapter(this));
+        JRLocativos.addActionListener(new CHistoriaOcup_JRLocativos_actionAdapter(this));
         JCHEmprActual.setBackground(UIManager.getColor(
                 "ToolBar.dockingForeground"));
         JCHEmprActual.setFont(new java.awt.Font("Arial", Font.BOLD, 9));
@@ -1008,12 +991,12 @@ public class CHistoriaOcup extends JInternalFrame {
         JCHEmprActual.setText("EMPRESA ACTUAL");
         JCHEmprActual.setBounds(new Rectangle(12, 252, 222, 23));
         this.getContentPane().add(JPAntecedentesFamiliar);
-       //Adicionamos al JPAntecedentesFamiliar
-       JPAntecedentesFamiliar.add(JBAtrasAF);
-       JPAntecedentesFamiliar.add(JBCancelarAF);
-       JPAntecedentesFamiliar.add(JBSgteAF); //JPAntecedentesFamiliar.add(JLBnhcAP);
+        //Adicionamos al JPAntecedentesFamiliar
+        JPAntecedentesFamiliar.add(JBAtrasAF);
+        JPAntecedentesFamiliar.add(JBCancelarAF);
+        JPAntecedentesFamiliar.add(JBSgteAF); //JPAntecedentesFamiliar.add(JLBnhcAP);
         //JPAntecedentesFamiliar.add(JLBNumhcAP);
-       JPAntecedentesFamiliar.add(JTBAntFam);
+        JPAntecedentesFamiliar.add(JTBAntFam);
         JPAntecedentesFamiliar.add(JLBPac);
         JPAntecedentesFamiliar.add(JLBNumhcAF);
         JPAntecedentesFamiliar.add(JLBHistNum);
@@ -1133,19 +1116,19 @@ public class CHistoriaOcup extends JInternalFrame {
         JTFElemRiesgHO.setVisible(false);
     }
 
-
     public void inicioventanaAP(CHistoriaOcup frameAP) {
-        objCAF=frameAP;
+        objCAF = frameAP;
     }
-    public void nombrepaciente(String cadpapell,String cadsapell,String cadpnombr,String cadsnombr) {
-     Nombrepac="";
-     Nombrepac=Nombrepac.concat(cadpapell);
-     Nombrepac=Nombrepac.concat(" ");
-     Nombrepac=Nombrepac.concat(cadsapell);
-     Nombrepac=Nombrepac.concat(" ");
-     Nombrepac=Nombrepac.concat(cadpnombr);
-     Nombrepac=Nombrepac.concat(" ");
-     Nombrepac=Nombrepac.concat(cadsnombr);
+
+    public void nombrepaciente(String cadpapell, String cadsapell, String cadpnombr, String cadsnombr) {
+        Nombrepac = "";
+        Nombrepac = Nombrepac.concat(cadpapell);
+        Nombrepac = Nombrepac.concat(" ");
+        Nombrepac = Nombrepac.concat(cadsapell);
+        Nombrepac = Nombrepac.concat(" ");
+        Nombrepac = Nombrepac.concat(cadpnombr);
+        Nombrepac = Nombrepac.concat(" ");
+        Nombrepac = Nombrepac.concat(cadsnombr);
     }
 
     /**
@@ -1153,38 +1136,37 @@ public class CHistoriaOcup extends JInternalFrame {
      */
     public void configurarformatofechaHO() {
         //CONFIGURAMOS EL EDITOR DE LA FECHA
-          try{
-               MaskFormatter mascara= new MaskFormatter("##/##/####");
-               MaskFormatter mascara1= new MaskFormatter("##/##/####");
-               JFTFechaEmprHO=new JFormattedTextField(mascara);
-               JFTFechaFinEmrHO=new JFormattedTextField(mascara1);
-              //JTFfechalote.setValue("  /  /    ");
-             }
-            catch (ParseException e){
-                System.out.println("problema en la mascara del valor unitario de ls entrada por inventario inicial");
-            }
+        try {
+            MaskFormatter mascara = new MaskFormatter("##/##/####");
+            MaskFormatter mascara1 = new MaskFormatter("##/##/####");
+            JFTFechaEmprHO = new JFormattedTextField(mascara);
+            JFTFechaFinEmrHO = new JFormattedTextField(mascara1);
+            //JTFfechalote.setValue("  /  /    ");
+        } catch (ParseException e) {
+            System.out.println("problema en la mascara del valor unitario de ls entrada por inventario inicial");
+        }
 
     }
 
     public void JFTFechaEmprHO_focusGained(FocusEvent e) {
-           jCalendar1.setVisible(true);
-           JFTFechaFinEmrHO.setVisible(false);
-           FechaFinEmprHO.setVisible(false);
-           JLBFechaEmprHO.setVisible(false);
-           JFTFechaEmprHO.setVisible(false);
-           JLBCargoHO.setVisible(false);
-           JTFCargoHO.setVisible(false);
-           JLBElemRiesgoHO.setVisible(false);
-           JCBElemRiesgo.setVisible(false);
-           JTFFactorRiesgoHO.setVisible(true);
-           JFTFechaEmprHO.requestFocus();
+        jCalendar1.setVisible(true);
+        JFTFechaFinEmrHO.setVisible(false);
+        FechaFinEmprHO.setVisible(false);
+        JLBFechaEmprHO.setVisible(false);
+        JFTFechaEmprHO.setVisible(false);
+        JLBCargoHO.setVisible(false);
+        JTFCargoHO.setVisible(false);
+        JLBElemRiesgoHO.setVisible(false);
+        JCBElemRiesgo.setVisible(false);
+        JTFFactorRiesgoHO.setVisible(true);
+        JFTFechaEmprHO.requestFocus();
     }
 
     public void jCalendar1_mouseReleased(MouseEvent e) {
-        String patron="dd/MM/yyyy";
-        SimpleDateFormat formato2=new SimpleDateFormat(patron);
-        fechainiHO=jCalendar1.getDate();
-        sFechaHO=formato2.format(fechainiHO);
+        String patron = "dd/MM/yyyy";
+        SimpleDateFormat formato2 = new SimpleDateFormat(patron);
+        fechainiHO = jCalendar1.getDate();
+        sFechaHO = formato2.format(fechainiHO);
         JFTFechaEmprHO.setText(sFechaHO);
         jCalendar1.setVisible(false);
         JFTFechaEmprHO.setVisible(true);
@@ -1196,7 +1178,7 @@ public class CHistoriaOcup extends JInternalFrame {
         JLBFechaEmprHO.setVisible(true);
         JLBElemRiesgoHO.setVisible(true);
         //JCBElemRiesgo.setVisible(true);
-     }
+    }
 
     public void JFTFechaFinEmrHO_focusGained(FocusEvent e) {
         jCalendar2.setVisible(true);
@@ -1209,10 +1191,10 @@ public class CHistoriaOcup extends JInternalFrame {
     }
 
     public void jCalendar2_mouseReleased(MouseEvent e) {
-        String patron="dd/MM/yyyy";
-        SimpleDateFormat formato2=new SimpleDateFormat(patron);
-        fechafinHO=jCalendar2.getDate();
-        sFechaHO=formato2.format(fechafinHO);
+        String patron = "dd/MM/yyyy";
+        SimpleDateFormat formato2 = new SimpleDateFormat(patron);
+        fechafinHO = jCalendar2.getDate();
+        sFechaHO = formato2.format(fechafinHO);
         JFTFechaFinEmrHO.setText(sFechaHO);
         jCalendar2.setVisible(false);
         JFTFechaFinEmrHO.setVisible(true);
@@ -1228,23 +1210,23 @@ public class CHistoriaOcup extends JInternalFrame {
      * anadirentradaHO
      */
     public void anadirentradaHO() {
-        CBaseHO dato = new CBaseHO ("","","","","","",false,"");
+        CBaseHO dato = new CBaseHO("", "", "", "", "", "", false, "");
         modeloho.anhadeentrada(dato);
     }
 
     public void JTFTiempoExp_keyReleased(KeyEvent e) {
         int c = e.getKeyCode();
         if (c == KeyEvent.VK_ENTER) {
-            llenarmodeloHO(ifila,JTFEmprHO.getText(), validHO.cambiarformatofecha(JFTFechaEmprHO.getText()),validHO.cambiarformatofecha(JFTFechaFinEmrHO.getText()),JTFFactorRiesgoHO.getText(),JTFCargoHO.getText(), validHO.evaluarcombocadena(JCBFactorRiesg),JCHEmprActual.isSelected(),JTFTiempoExp.getText());
+            llenarmodeloHO(ifila, JTFEmprHO.getText(), validHO.cambiarformatofecha(JFTFechaEmprHO.getText()), validHO.cambiarformatofecha(JFTFechaFinEmrHO.getText()), JTFFactorRiesgoHO.getText(), JTFCargoHO.getText(), validHO.evaluarcombocadena(JCBFactorRiesg), JCHEmprActual.isSelected(), JTFTiempoExp.getText());
             bufferfr(ifila);
             bufferele(ifila);
             limpiarfr();
             limpiarele();
-            ifila=ifila+1;
+            ifila = ifila + 1;
             //bloqueofactor();
         } //if c
-        else{
-             procactualizarmodHO(e);
+        else {
+            procactualizarmodHO(e);
         }//fin del else
         ocultarelemtodos();
     }//fin metodo
@@ -1255,30 +1237,31 @@ public class CHistoriaOcup extends JInternalFrame {
     public void bufferfr(int ifila) {
         //int k;
         //for(k=0;k<9;k++)
-        fact[ifila][0]=procchexkbox(JCHErgonomicos);
-        fact[ifila][1]=procchexkbox(JCHFisicos);
-        fact[ifila][2]=procchexkbox(JCHQUIMICOS);
-        fact[ifila][3]=procchexkbox(JCHBIologicos);
-        fact[ifila][4]=procchexkbox(JCHFisicoQuimicos);
-        fact[ifila][5]=procchexkbox(JCHPsicosociales);
-        fact[ifila][6]=procchexkbox(JCHMecanicos);
-        fact[ifila][7]=procchexkbox(JCHElectricos);
-        fact[ifila][8]=procchexkbox(JCHLocativos);
+        fact[ifila][0] = procchexkbox(JCHErgonomicos);
+        fact[ifila][1] = procchexkbox(JCHFisicos);
+        fact[ifila][2] = procchexkbox(JCHQUIMICOS);
+        fact[ifila][3] = procchexkbox(JCHBIologicos);
+        fact[ifila][4] = procchexkbox(JCHFisicoQuimicos);
+        fact[ifila][5] = procchexkbox(JCHPsicosociales);
+        fact[ifila][6] = procchexkbox(JCHMecanicos);
+        fact[ifila][7] = procchexkbox(JCHElectricos);
+        fact[ifila][8] = procchexkbox(JCHLocativos);
     }
+
     /**
      * llenarmodeloHO
      */
-    public void llenarmodeloHO(int ifila,String nombremprHO,String FechIniHO,String FechFinHO,String TiempoEmprHO,String CargoHO,String RiesgoHO,Boolean EmpresaActualHO,String TiempoHO) {
-         modeloho.setValueAt(nombremprHO,ifila,0);
-         modeloho.setValueAt(FechIniHO,ifila,1);
-         modeloho.setValueAt(FechFinHO,ifila,2);
-         modeloho.setValueAt(TiempoEmprHO,ifila,3);
-         modeloho.setValueAt(CargoHO,ifila,4);
-         modeloho.setValueAt(RiesgoHO,ifila,5);
-         modeloho.setValueAt(EmpresaActualHO,ifila,6);
-         modeloho.setValueAt(TiempoHO,ifila,7);
-         anadirentradaHO();
-         limpiardatos();
+    public void llenarmodeloHO(int ifila, String nombremprHO, String FechIniHO, String FechFinHO, String TiempoEmprHO, String CargoHO, String RiesgoHO, Boolean EmpresaActualHO, String TiempoHO) {
+        modeloho.setValueAt(nombremprHO, ifila, 0);
+        modeloho.setValueAt(FechIniHO, ifila, 1);
+        modeloho.setValueAt(FechFinHO, ifila, 2);
+        modeloho.setValueAt(TiempoEmprHO, ifila, 3);
+        modeloho.setValueAt(CargoHO, ifila, 4);
+        modeloho.setValueAt(RiesgoHO, ifila, 5);
+        modeloho.setValueAt(EmpresaActualHO, ifila, 6);
+        modeloho.setValueAt(TiempoHO, ifila, 7);
+        anadirentradaHO();
+        limpiardatos();
         // indicecombos();
     }
 
@@ -1299,28 +1282,29 @@ public class CHistoriaOcup extends JInternalFrame {
     }
 
     public void JTabHO_mouseReleased(MouseEvent e) {
-        Object vartabHO;String SvartabHO="";
-        vartabHO=modeloho.getValueAt(JTabHO.getSelectedRow(),0);
+        Object vartabHO;
+        String SvartabHO = "";
+        vartabHO = modeloho.getValueAt(JTabHO.getSelectedRow(), 0);
         JTFEmprHO.setText(SvartabHO.valueOf(vartabHO));
-        vartabHO=modeloho.getValueAt(JTabHO.getSelectedRow(),1);
-        SvartabHO=SvartabHO.valueOf(vartabHO);
+        vartabHO = modeloho.getValueAt(JTabHO.getSelectedRow(), 1);
+        SvartabHO = SvartabHO.valueOf(vartabHO);
         //SvartabHO=validHO.cambiarformatofechaotro(SvartabHO);
         JFTFechaEmprHO.setText(SvartabHO);
-        vartabHO=modeloho.getValueAt(JTabHO.getSelectedRow(),2);
+        vartabHO = modeloho.getValueAt(JTabHO.getSelectedRow(), 2);
         //SvartabHO=validHO.cambiarformatofechaotro(SvartabHO);
-        SvartabHO=SvartabHO.valueOf(vartabHO);
+        SvartabHO = SvartabHO.valueOf(vartabHO);
         JFTFechaFinEmrHO.setText(SvartabHO);
-        vartabHO=modeloho.getValueAt(JTabHO.getSelectedRow(),3);
+        vartabHO = modeloho.getValueAt(JTabHO.getSelectedRow(), 3);
         JTFFactorRiesgoHO.setText(SvartabHO.valueOf(vartabHO));
-        vartabHO=modeloho.getValueAt(JTabHO.getSelectedRow(),4);
+        vartabHO = modeloho.getValueAt(JTabHO.getSelectedRow(), 4);
         JTFCargoHO.setText(SvartabHO.valueOf(vartabHO));
-        vartabHO=modeloho.getValueAt(JTabHO.getSelectedRow(),5);
+        vartabHO = modeloho.getValueAt(JTabHO.getSelectedRow(), 5);
         JCBFactorRiesg.setSelectedItem(vartabHO);
         //JTFFactorRiesgoHO.setText(SvartabHO.valueOf(vartabHO));
-        vartabHO=modeloho.getValueAt(JTabHO.getSelectedRow(),6);
+        vartabHO = modeloho.getValueAt(JTabHO.getSelectedRow(), 6);
         JCBElemRiesgo.setSelectedItem(vartabHO);
         //JTFElemRiesgHO.setText(SvartabHO.valueOf(vartabHO));
-        vartabHO=modeloho.getValueAt(JTabHO.getSelectedRow(),7);
+        vartabHO = modeloho.getValueAt(JTabHO.getSelectedRow(), 7);
         JTFTiempoExp.setText(SvartabHO.valueOf(vartabHO));
         llenareleriesgo();
         ocultarelemtodos();
@@ -1328,25 +1312,24 @@ public class CHistoriaOcup extends JInternalFrame {
         JPSeleccFact.setVisible(true);
         //llenarfactorriesgo();
 
-
     }
 
     /**
      * llenarfactorriesgo
      */
-    public void llenarfactorriesgo(JCheckBox JChvar,int numcol) {
+    public void llenarfactorriesgo(JCheckBox JChvar, int numcol) {
         /*String cadenafr;
         cadenafr="select *from factor_riesgo ORDER BY factor_riesgo.Nombre_FR";
         validHO.llenarcombos(cadenafr,JCBFactorRiesg,2);(boolean)fact[JTabHO.getSelectedRow()][0]*/
         JChvar.setSelected(procllenatfr(fact[JTabHO.getSelectedRow()][numcol]));
-       /* JCHFisicos.setSelected(procllenatfr(fact[JTabHO.getSelectedRow()][1]));
+        /* JCHFisicos.setSelected(procllenatfr(fact[JTabHO.getSelectedRow()][1]));
         JCHQUIMICOS.setSelected(procllenatfr(fact[JTabHO.getSelectedRow()][2]));
         JCHBIologicos.setSelected(procllenatfr(fact[JTabHO.getSelectedRow()][3]));
         JCHFisicoQuimicos.setSelected(procllenatfr(fact[JTabHO.getSelectedRow()][4]));
         JCHPsicosociales.setSelected(procllenatfr(fact[JTabHO.getSelectedRow()][5]));
         JCHMecanicos.setSelected(procllenatfr(fact[JTabHO.getSelectedRow()][6]));*/
         //JCHMecanicos.setSelected(procllenatfr(fact[JTabHO.getSelectedRow()][7]));
-      /*  JCHElectricos.setSelected(procllenatfr(fact[JTabHO.getSelectedRow()][7]));
+        /*  JCHElectricos.setSelected(procllenatfr(fact[JTabHO.getSelectedRow()][7]));
         JCHLocativos.setSelected(procllenatfr(fact[JTabHO.getSelectedRow()][8]));*/
     }
 
@@ -1416,11 +1399,11 @@ public class CHistoriaOcup extends JInternalFrame {
         JCHMarcacion.setSelected(procllenatfr(elem[JTabHO.getSelectedRow()][56]));//56//
         JCHdOTACION.setSelected(procllenatfr(elem[JTabHO.getSelectedRow()][57]));//57//
         JCHExtintores.setSelected(procllenatfr(elem[JTabHO.getSelectedRow()][58]));//58//
-   }
+    }
 
     public void JBSgteAF_actionPerformed(ActionEvent e) {
-          validarbajar();
-         // validarnulos();
+        validarbajar();
+        // validarnulos();
     }
 
     /**
@@ -1429,13 +1412,13 @@ public class CHistoriaOcup extends JInternalFrame {
     public void validarnulos() {
         CIngreso frameingreso;
         CHistoriaOcup frameho;
-        frameho=(CHistoriaOcup)framehoOBJ;
+        frameho = (CHistoriaOcup) framehoOBJ;
         frameho.setVisible(false);
-        JDesktopPane JDPIngresoHO=new JDesktopPane();
-        frameingreso=(CIngreso)frameHOOBJ;
-        JDPIngresoHO=(JDesktopPane)JDPIngresoobj;
-        if(swgte==0){
-            CEnfermedadProf frameep=new CEnfermedadProf(obotactualizarHO,numingredicEP,swedicingrho,Nombrepac,frameho,varnhc,JDPIngresoHO,frameingreso,objppalho);
+        JDesktopPane JDPIngresoHO = new JDesktopPane();
+        frameingreso = (CIngreso) frameHOOBJ;
+        JDPIngresoHO = (JDesktopPane) JDPIngresoobj;
+        if (swgte == 0) {
+            CEnfermedadProf frameep = new CEnfermedadProf(obotactualizarHO, numingredicEP, swedicingrho, Nombrepac, frameho, varnhc, JDPIngresoHO, frameingreso, objppalho);
             frameep.setBounds(0, 2, 1010, 600);
             frameep.setTitle("ENFERMEDAD PROFESIONAL");
             JDPIngresoHO.add(frameep, new Integer(1));
@@ -1443,46 +1426,45 @@ public class CHistoriaOcup extends JInternalFrame {
             frameep.show();
             frameep.setVisible(true);
             frameep.inicializarventanaEP(frameep);
-            swgte=1;
-            objetoenfprofesional=frameep;
-            if(swedicingrho==1){
-                String cadsqledicEP;;int ifila=0;
-                Connection con2=Cconsql.getConnection();
-                cadsqledicEP="SELECT ingreso.id_ingreso, enfermedad_profesional.nombrempresa_EP, enfermedad_profesional.fecha_EP, enfermedad_profesional.diagnostico_EP, enfermedad_profesional.medico_EP FROM ingreso INNER JOIN enfermedad_profesional ON ingreso.id_ingreso = enfermedad_profesional.idingreso_EP WHERE ingreso.id_ingreso="+numingredicEP;
-                try{
-                    TSentenciaconsultaEP=con2.createStatement();
-                    RconsultaEP=TSentenciaconsultaEP.executeQuery(cadsqledicEP);
-                    while(RconsultaEP.next()){
-                         if(RconsultaEP.getString(2).compareTo("")!=0){
-                            frameep.llenarmodeloEP(ifila,RconsultaEP.getString(2),RconsultaEP.getString(3),RconsultaEP.getString(4),RconsultaEP.getString(5));
-                            ifila=ifila+1;
+            swgte = 1;
+            objetoenfprofesional = frameep;
+            if (swedicingrho == 1) {
+                String cadsqledicEP;;
+                int ifila = 0;
+                Connection con2 = Cconsql.getConnection();
+                cadsqledicEP = "SELECT ingreso.id_ingreso, enfermedad_profesional.nombrempresa_EP, enfermedad_profesional.fecha_EP, enfermedad_profesional.diagnostico_EP, enfermedad_profesional.medico_EP FROM ingreso INNER JOIN enfermedad_profesional ON ingreso.id_ingreso = enfermedad_profesional.idingreso_EP WHERE ingreso.id_ingreso=" + numingredicEP;
+                try {
+                    TSentenciaconsultaEP = con2.createStatement();
+                    RconsultaEP = TSentenciaconsultaEP.executeQuery(cadsqledicEP);
+                    while (RconsultaEP.next()) {
+                        if (RconsultaEP.getString(2).compareTo("") != 0) {
+                            frameep.llenarmodeloEP(ifila, RconsultaEP.getString(2), RconsultaEP.getString(3), RconsultaEP.getString(4), RconsultaEP.getString(5));
+                            ifila = ifila + 1;
                         }
-                     }
-                }
-                     catch(SQLException e1){
-                           e1.getMessage();
-                           cad1="NO SE PUDO EJECUTAR LA CONSULTA";
-                           cad2="PROBLEMAS CON LOS DATOS DE ENFERMEDAD PROFESIONAL EN EDICION";
-                           validHO.mensajeconfirmacion(cad1,cad2);
-                     }//cierra el catch
+                    }
+                } catch (SQLException e1) {
+                    e1.getMessage();
+                    cad1 = "NO SE PUDO EJECUTAR LA CONSULTA";
+                    cad2 = "PROBLEMAS CON LOS DATOS DE ENFERMEDAD PROFESIONAL EN EDICION";
+                    validHO.mensajeconfirmacion(cad1, cad2);
+                }//cierra el catch
 
             }
             //frameep.edp
-        }
-        else{
-           CEnfermedadProf frameep ;
-           frameep=(CEnfermedadProf)objetoenfprofesional;
-          // ObjectCingreso.setVisible(false);
-           frameep.setVisible(true);
+        } else {
+            CEnfermedadProf frameep;
+            frameep = (CEnfermedadProf) objetoenfprofesional;
+            // ObjectCingreso.setVisible(false);
+            frameep.setVisible(true);
         }
         Cconsql.CerrarConexion();
-}
+    }
 
     /**
      * cerrarventanaHO
      */
     public void inilizarventanaHO(CHistoriaOcup frameho) {
-        framehoOBJ=frameho;
+        framehoOBJ = frameho;
     }
 
     /**
@@ -1505,21 +1487,21 @@ public class CHistoriaOcup extends JInternalFrame {
     /**
      * actualizarmodeloHO
      */
-    public void actualizarmodeloHO(String nombremprHO,String FechIniHO,String FechFinHO,String TiempoEmprHO,String CargoHO,String RiesgoHO,String ElemRiesgoHO,String TiempoHO) {
-          modeloho.setValueAt(nombremprHO,JTabHO.getSelectedRow(),0);
-          modeloho.setValueAt(FechIniHO,JTabHO.getSelectedRow(),1);
-          modeloho.setValueAt(FechFinHO,JTabHO.getSelectedRow(),2);
-          modeloho.setValueAt(TiempoEmprHO,JTabHO.getSelectedRow(),3);
-          modeloho.setValueAt(CargoHO,JTabHO.getSelectedRow(),4);
-          modeloho.setValueAt(RiesgoHO,JTabHO.getSelectedRow(),5);
-          modeloho.setValueAt(ElemRiesgoHO,JTabHO.getSelectedRow(),6);
-          modeloho.setValueAt(TiempoHO,JTabHO.getSelectedRow(),7);
-          limpiardatos();
-          //indicecombos();
+    public void actualizarmodeloHO(String nombremprHO, String FechIniHO, String FechFinHO, String TiempoEmprHO, String CargoHO, String RiesgoHO, String ElemRiesgoHO, String TiempoHO) {
+        modeloho.setValueAt(nombremprHO, JTabHO.getSelectedRow(), 0);
+        modeloho.setValueAt(FechIniHO, JTabHO.getSelectedRow(), 1);
+        modeloho.setValueAt(FechFinHO, JTabHO.getSelectedRow(), 2);
+        modeloho.setValueAt(TiempoEmprHO, JTabHO.getSelectedRow(), 3);
+        modeloho.setValueAt(CargoHO, JTabHO.getSelectedRow(), 4);
+        modeloho.setValueAt(RiesgoHO, JTabHO.getSelectedRow(), 5);
+        modeloho.setValueAt(ElemRiesgoHO, JTabHO.getSelectedRow(), 6);
+        modeloho.setValueAt(TiempoHO, JTabHO.getSelectedRow(), 7);
+        limpiardatos();
+        //indicecombos();
     }
 
     public void JTFEmprHO_keyReleased(KeyEvent e) {
-           procactualizarmodHO(e);
+        procactualizarmodHO(e);
     }
 
     /**
@@ -1527,46 +1509,46 @@ public class CHistoriaOcup extends JInternalFrame {
      */
     public void procactualizarmodHO(KeyEvent e) {
         int c = e.getKeyCode();
-       if (c == KeyEvent.VK_F3) {
-           actualizarmodeloHO(JTFEmprHO.getText(),JFTFechaEmprHO.getText(),JFTFechaFinEmrHO.getText(),JTFFactorRiesgoHO.getText(),JTFCargoHO.getText(), validHO.evaluarcombocadena(JCBFactorRiesg),validHO.evaluarcombocadena(JCBElemRiesgo),JTFTiempoExp.getText());
-           bufferfr(JTabHO.getSelectedRow());
-           bufferele(JTabHO.getSelectedRow());
-           limpiarfr();
-           limpiarele();
+        if (c == KeyEvent.VK_F3) {
+            actualizarmodeloHO(JTFEmprHO.getText(), JFTFechaEmprHO.getText(), JFTFechaFinEmrHO.getText(), JTFFactorRiesgoHO.getText(), JTFCargoHO.getText(), validHO.evaluarcombocadena(JCBFactorRiesg), validHO.evaluarcombocadena(JCBElemRiesgo), JTFTiempoExp.getText());
+            bufferfr(JTabHO.getSelectedRow());
+            bufferele(JTabHO.getSelectedRow());
+            limpiarfr();
+            limpiarele();
 
-           //ifila=ifila+1;
-       } //if c
+            //ifila=ifila+1;
+        } //if c
 
     }
 
     public void JFTFechaEmprHO_keyReleased(KeyEvent e) {
-          procactualizarmodHO(e);
+        procactualizarmodHO(e);
     }
 
     public void JFTFechaFinEmrHO_keyReleased(KeyEvent e) {
-         procactualizarmodHO(e);
+        procactualizarmodHO(e);
     }
 
     public void JTFFactorRiesgoHO_keyReleased(KeyEvent e) {
-          procactualizarmodHO(e);
+        procactualizarmodHO(e);
     }
 
     public void JCBFactorRiesg_keyReleased(KeyEvent e) {
-         procactualizarmodHO(e);
+        procactualizarmodHO(e);
     }
 
     public void JCBElemRiesgo_keyReleased(KeyEvent e) {
-         procactualizarmodHO(e);
+        procactualizarmodHO(e);
     }
 
     /**
      * cerarfactor
      */
     public void cerarfactor() {
-        int fil,col;
-        for(fil=0;fil<10;fil++){
-           for(col=0;col<9;col++) {
-            fact[fil][col]=0;
+        int fil, col;
+        for (fil = 0; fil < 10; fil++) {
+            for (col = 0; col < 9; col++) {
+                fact[fil][col] = 0;
             }
         }
     }
@@ -1575,10 +1557,10 @@ public class CHistoriaOcup extends JInternalFrame {
      * cerarelem
      */
     public void cerarelem() {
-        int fil,col;
-        for(fil=0;fil<10;fil++){
-           for(col=0;col<59;col++) {
-            elem[fil][col]=0;
+        int fil, col;
+        for (fil = 0; fil < 10; fil++) {
+            for (col = 0; col < 59; col++) {
+                elem[fil][col] = 0;
             }
         }
 
@@ -1588,9 +1570,10 @@ public class CHistoriaOcup extends JInternalFrame {
      * procchexkbox
      */
     public int procchexkbox(JCheckBox varJCheckBox) {
-        int var=0;
-        if(varJCheckBox.isSelected()==true)
-            var=1;
+        int var = 0;
+        if (varJCheckBox.isSelected() == true) {
+            var = 1;
+        }
         return var;
     }
 
@@ -1600,65 +1583,65 @@ public class CHistoriaOcup extends JInternalFrame {
     public void bufferele(int ifila) {
 
         //
-        elem[ifila][0]=procchexkbox(JCHDisenoPuest);//0
-        elem[ifila][1]=procchexkbox(JCHSobreEsf);//1
-        elem[ifila][2]=procchexkbox(JCHPostForz);//2
-        elem[ifila][3]=procchexkbox(JCHOtros1);//3
-        elem[ifila][4]=procchexkbox(JCHLevPeso);//4
-        elem[ifila][5]=procchexkbox(JCHMovRepetitivos);//5
-        elem[ifila][6]=procchexkbox(JCHRuido);//6
-        elem[ifila][7]=procchexkbox(JCHIlumDef);//7
-        elem[ifila][8]=procchexkbox(JCHIlumExcesiva);//8
-        elem[ifila][9]=procchexkbox(JCHRadiacIoniz);//9
-        elem[ifila][10]=procchexkbox(JCHRadNoIon);//10
-        elem[ifila][11]=procchexkbox(JCHTempBaja);//11
-        elem[ifila][12]=procchexkbox(JCHTempAlta);//12
-        elem[ifila][13]=procchexkbox(JCHVibrac);//13
-        elem[ifila][14]=procchexkbox(JCHPolvoOrganico);//14
-        elem[ifila][15]=procchexkbox(JCHEPolvoInorg);//15
-        elem[ifila][16]=procchexkbox(JCHHumoMet);//16
-        elem[ifila][17]=procchexkbox(JCHHumoNoMet);//17
-        elem[ifila][18]=procchexkbox(JCHBacterias);//18
-        elem[ifila][19]=procchexkbox(JCHParasitos);//19
-        elem[ifila][20]=procchexkbox(JCHVirus);//20
-        elem[ifila][21]=procchexkbox(JCHHongos);//21
-        elem[ifila][22]=procchexkbox(JCHPelos);//22
-        elem[ifila][23]=procchexkbox(JCHPlumas);//23
-        elem[ifila][24]=procchexkbox(JCHPolen);//24
-        elem[ifila][25]=procchexkbox(JCHAnimVerteb);//25
-        elem[ifila][26]=procchexkbox(JCHAnimInv);//26
-        elem[ifila][27]=procchexkbox(JCHManResAnim);//27
-        elem[ifila][28]=procchexkbox(JCHManResVeget);//28
-        elem[ifila][29]=procchexkbox(JCHCuchillos);//29
-        elem[ifila][30]=procchexkbox(JCHJeringas);//30
-        elem[ifila][31]=procchexkbox(JCHBisturis);//31
-        elem[ifila][32]=procchexkbox(JCHDesIndustr);//32
-        elem[ifila][33]=procchexkbox(JCHBasuras);//33
-        elem[ifila][34]=procchexkbox(JCHInconpatib);//34
-        elem[ifila][35]=procchexkbox(JCHPresSust);//35
-        elem[ifila][36]=procchexkbox(JCHReactivas);//36
-        elem[ifila][37]=procchexkbox(JCHStressLab);//37
-        elem[ifila][38]=procchexkbox(JCHAtencionUsu);//38
-        elem[ifila][39]=procchexkbox(JCHPeligrosCargaLabor);//39
-        elem[ifila][40]=procchexkbox(JCHJorndRot);//40
-        elem[ifila][41]=procchexkbox(JCHJornadExtens);//41
-        elem[ifila][42]=procchexkbox(JCHInestLab);//42
-        elem[ifila][43]=procchexkbox(JCHMantCorr1);//43
-        elem[ifila][44]=procchexkbox(JCHGuardasSeg);//44
-        elem[ifila][45]=procchexkbox(JCHMantCorr2);//45
-        elem[ifila][46]=procchexkbox(JCHPartes);//46
-        elem[ifila][47]=procchexkbox(JCHFaltaHerr);//47
-        elem[ifila][48]=procchexkbox(JCHCargaEst);//48
-        elem[ifila][49]=procchexkbox(JCHAltaTension);//49
-        elem[ifila][50]=procchexkbox(JCHBajaTension);//50
-        elem[ifila][51]=procchexkbox(JCHPisos);//51
-        elem[ifila][52]=procchexkbox(JCHMuros);//52
-        elem[ifila][53]=procchexkbox(JCHTechos);//53
-        elem[ifila][54]=procchexkbox(JCHSuperficie);//54
-        elem[ifila][55]=procchexkbox(JCHOrden);//55
-        elem[ifila][56]=procchexkbox(JCHMarcacion);//56
-        elem[ifila][57]=procchexkbox(JCHdOTACION);//57
-        elem[ifila][58]=procchexkbox(JCHExtintores);//58
+        elem[ifila][0] = procchexkbox(JCHDisenoPuest);//0
+        elem[ifila][1] = procchexkbox(JCHSobreEsf);//1
+        elem[ifila][2] = procchexkbox(JCHPostForz);//2
+        elem[ifila][3] = procchexkbox(JCHOtros1);//3
+        elem[ifila][4] = procchexkbox(JCHLevPeso);//4
+        elem[ifila][5] = procchexkbox(JCHMovRepetitivos);//5
+        elem[ifila][6] = procchexkbox(JCHRuido);//6
+        elem[ifila][7] = procchexkbox(JCHIlumDef);//7
+        elem[ifila][8] = procchexkbox(JCHIlumExcesiva);//8
+        elem[ifila][9] = procchexkbox(JCHRadiacIoniz);//9
+        elem[ifila][10] = procchexkbox(JCHRadNoIon);//10
+        elem[ifila][11] = procchexkbox(JCHTempBaja);//11
+        elem[ifila][12] = procchexkbox(JCHTempAlta);//12
+        elem[ifila][13] = procchexkbox(JCHVibrac);//13
+        elem[ifila][14] = procchexkbox(JCHPolvoOrganico);//14
+        elem[ifila][15] = procchexkbox(JCHEPolvoInorg);//15
+        elem[ifila][16] = procchexkbox(JCHHumoMet);//16
+        elem[ifila][17] = procchexkbox(JCHHumoNoMet);//17
+        elem[ifila][18] = procchexkbox(JCHBacterias);//18
+        elem[ifila][19] = procchexkbox(JCHParasitos);//19
+        elem[ifila][20] = procchexkbox(JCHVirus);//20
+        elem[ifila][21] = procchexkbox(JCHHongos);//21
+        elem[ifila][22] = procchexkbox(JCHPelos);//22
+        elem[ifila][23] = procchexkbox(JCHPlumas);//23
+        elem[ifila][24] = procchexkbox(JCHPolen);//24
+        elem[ifila][25] = procchexkbox(JCHAnimVerteb);//25
+        elem[ifila][26] = procchexkbox(JCHAnimInv);//26
+        elem[ifila][27] = procchexkbox(JCHManResAnim);//27
+        elem[ifila][28] = procchexkbox(JCHManResVeget);//28
+        elem[ifila][29] = procchexkbox(JCHCuchillos);//29
+        elem[ifila][30] = procchexkbox(JCHJeringas);//30
+        elem[ifila][31] = procchexkbox(JCHBisturis);//31
+        elem[ifila][32] = procchexkbox(JCHDesIndustr);//32
+        elem[ifila][33] = procchexkbox(JCHBasuras);//33
+        elem[ifila][34] = procchexkbox(JCHInconpatib);//34
+        elem[ifila][35] = procchexkbox(JCHPresSust);//35
+        elem[ifila][36] = procchexkbox(JCHReactivas);//36
+        elem[ifila][37] = procchexkbox(JCHStressLab);//37
+        elem[ifila][38] = procchexkbox(JCHAtencionUsu);//38
+        elem[ifila][39] = procchexkbox(JCHPeligrosCargaLabor);//39
+        elem[ifila][40] = procchexkbox(JCHJorndRot);//40
+        elem[ifila][41] = procchexkbox(JCHJornadExtens);//41
+        elem[ifila][42] = procchexkbox(JCHInestLab);//42
+        elem[ifila][43] = procchexkbox(JCHMantCorr1);//43
+        elem[ifila][44] = procchexkbox(JCHGuardasSeg);//44
+        elem[ifila][45] = procchexkbox(JCHMantCorr2);//45
+        elem[ifila][46] = procchexkbox(JCHPartes);//46
+        elem[ifila][47] = procchexkbox(JCHFaltaHerr);//47
+        elem[ifila][48] = procchexkbox(JCHCargaEst);//48
+        elem[ifila][49] = procchexkbox(JCHAltaTension);//49
+        elem[ifila][50] = procchexkbox(JCHBajaTension);//50
+        elem[ifila][51] = procchexkbox(JCHPisos);//51
+        elem[ifila][52] = procchexkbox(JCHMuros);//52
+        elem[ifila][53] = procchexkbox(JCHTechos);//53
+        elem[ifila][54] = procchexkbox(JCHSuperficie);//54
+        elem[ifila][55] = procchexkbox(JCHOrden);//55
+        elem[ifila][56] = procchexkbox(JCHMarcacion);//56
+        elem[ifila][57] = procchexkbox(JCHdOTACION);//57
+        elem[ifila][58] = procchexkbox(JCHExtintores);//58
 
     }
 
@@ -1742,15 +1725,16 @@ public class CHistoriaOcup extends JInternalFrame {
         JCHExtintores.setSelected(false);//57
         JCHBasuras.setSelected(false);//57
 
-   }
+    }
 
     /**
      * procllenatfr
      */
     public boolean procllenatfr(int numfr) {
-        boolean varfr=false;
-        if(numfr==1)
-           varfr=true;
+        boolean varfr = false;
+        if (numfr == 1) {
+            varfr = true;
+        }
         return varfr;
     }
 
@@ -1841,35 +1825,35 @@ public class CHistoriaOcup extends JInternalFrame {
     }
 
     public void JCHErgonomicos_actionPerformed(ActionEvent e) {
-      procergonomic();
+        procergonomic();
     }
 
     public void JCHFisicos_actionPerformed(ActionEvent e) {
-      procesofisico();
+        procesofisico();
     }
 
     public void JCHQUIMICOS_actionPerformed(ActionEvent e) {
-      procesoquimico();
+        procesoquimico();
     }
 
     public void JCHBIologicos_actionPerformed(ActionEvent e) {
-       procesobiologico();
+        procesobiologico();
     }
 
     public void JCHFisicoQuimicos_actionPerformed(ActionEvent e) {
-      procesofisicoquimico();
+        procesofisicoquimico();
     }
 
     public void JCHPsicosociales_actionPerformed(ActionEvent e) {
-      procesopsico();
+        procesopsico();
     }
 
     public void JCHMecanicos_actionPerformed(ActionEvent e) {
-       procesomecanico();
+        procesomecanico();
     }
 
     public void JCHElectricos_actionPerformed(ActionEvent e) {
-         procesoelectrico();
+        procesoelectrico();
     }
 
     public void JCHLocativos_actionPerformed(ActionEvent e) {
@@ -1877,17 +1861,17 @@ public class CHistoriaOcup extends JInternalFrame {
     }
 
     public void JRErgonomic_actionPerformed(ActionEvent e) {
-         procradio(JRErgonomic,JRFisicos,JRQuimic,JRFisicoquim,JRBiologicos,JRPsicolog,JRMecanicos,JRElectricos,JRLocativos);
-         llenarfactorriesgo(JCHErgonomicos,0);
-         //llenareleriesgo();
-         JPSeleccFact.setVisible(false);
-         procergonomic();
+        procradio(JRErgonomic, JRFisicos, JRQuimic, JRFisicoquim, JRBiologicos, JRPsicolog, JRMecanicos, JRElectricos, JRLocativos);
+        llenarfactorriesgo(JCHErgonomicos, 0);
+        //llenareleriesgo();
+        JPSeleccFact.setVisible(false);
+        procergonomic();
     }
 
     /**
      * procradio
      */
-    public void procradio(JRadioButton jr1,JRadioButton jr2,JRadioButton jr3,JRadioButton jr4,JRadioButton jr5,JRadioButton jr6,JRadioButton jr7,JRadioButton jr8,JRadioButton jr9) {
+    public void procradio(JRadioButton jr1, JRadioButton jr2, JRadioButton jr3, JRadioButton jr4, JRadioButton jr5, JRadioButton jr6, JRadioButton jr7, JRadioButton jr8, JRadioButton jr9) {
         jr1.setSelected(true);
         jr2.setSelected(false);
         jr3.setSelected(false);
@@ -1931,8 +1915,8 @@ public class CHistoriaOcup extends JInternalFrame {
     }
 
     public void JRFisicos_actionPerformed(ActionEvent e) {
-        procradio(JRFisicos,JRErgonomic,JRQuimic,JRFisicoquim,JRBiologicos,JRPsicolog,JRMecanicos,JRElectricos,JRLocativos);
-        llenarfactorriesgo(JCHFisicos,1);
+        procradio(JRFisicos, JRErgonomic, JRQuimic, JRFisicoquim, JRBiologicos, JRPsicolog, JRMecanicos, JRElectricos, JRLocativos);
+        llenarfactorriesgo(JCHFisicos, 1);
         //llenareleriesgo();
         JPSeleccFact.setVisible(false);
         procesofisico();
@@ -1957,8 +1941,8 @@ public class CHistoriaOcup extends JInternalFrame {
     }
 
     public void JRQuimic_actionPerformed(ActionEvent e) {
-        procradio(JRQuimic,JRFisicos,JRErgonomic,JRFisicoquim,JRBiologicos,JRPsicolog,JRMecanicos,JRElectricos,JRLocativos);
-        llenarfactorriesgo(JCHQUIMICOS,2);
+        procradio(JRQuimic, JRFisicos, JRErgonomic, JRFisicoquim, JRBiologicos, JRPsicolog, JRMecanicos, JRElectricos, JRLocativos);
+        llenarfactorriesgo(JCHQUIMICOS, 2);
         //llenareleriesgo();
         JPSeleccFact.setVisible(false);
         procesoquimico();
@@ -1978,11 +1962,11 @@ public class CHistoriaOcup extends JInternalFrame {
     }
 
     public void JRFisicoquim_actionPerformed(ActionEvent e) {
-         procradio(JRFisicoquim,JRQuimic,JRFisicos,JRErgonomic,JRBiologicos,JRPsicolog,JRMecanicos,JRElectricos,JRLocativos);
-         llenarfactorriesgo(JCHFisicoQuimicos,3);
-         //llenareleriesgo();
-         JPSeleccFact.setVisible(false);
-         procesofisicoquimico();
+        procradio(JRFisicoquim, JRQuimic, JRFisicos, JRErgonomic, JRBiologicos, JRPsicolog, JRMecanicos, JRElectricos, JRLocativos);
+        llenarfactorriesgo(JCHFisicoQuimicos, 3);
+        //llenareleriesgo();
+        JPSeleccFact.setVisible(false);
+        procesofisicoquimico();
     }
 
     /**
@@ -1998,11 +1982,11 @@ public class CHistoriaOcup extends JInternalFrame {
     }
 
     public void JRBiologicos_actionPerformed(ActionEvent e) {
-        procradio(JRBiologicos,JRFisicoquim,JRQuimic,JRFisicos,JRErgonomic,JRPsicolog,JRMecanicos,JRElectricos,JRLocativos);
-         llenarfactorriesgo(JCHBIologicos,4);
-         //llenareleriesgo();
-         JPSeleccFact.setVisible(false);
-         procesobiologico();
+        procradio(JRBiologicos, JRFisicoquim, JRQuimic, JRFisicos, JRErgonomic, JRPsicolog, JRMecanicos, JRElectricos, JRLocativos);
+        llenarfactorriesgo(JCHBIologicos, 4);
+        //llenareleriesgo();
+        JPSeleccFact.setVisible(false);
+        procesobiologico();
     }
 
     /**
@@ -2010,33 +1994,33 @@ public class CHistoriaOcup extends JInternalFrame {
      */
     public void procesobiologico() {
         ocultarelemtodos();
-       JLBElemRiesgBiologicos.setVisible(true);
-       JCHHongos.setVisible(true);
-       JCHVirus.setVisible(true);
-       JCHBacterias.setVisible(true);
-       JCHAnimVerteb.setVisible(true);
-       JCHAnimInv.setVisible(true);
-       JCHPelos.setVisible(true);
-       JCHPolen.setVisible(true);
-       JCHPlumas.setVisible(true);
-       JCHParasitos.setVisible(true);
-       JCHManResAnim.setVisible(true);
-       JCHManResVeget.setVisible(true);
-       JCHCuchillos.setVisible(true);
-       JCHJeringas.setVisible(true);
-       JCHBisturis.setVisible(true);
-       JCHDesIndustr.setVisible(true);
-       JCHBasuras.setVisible(true);
-       JCHBIologicos.setEnabled(true);
+        JLBElemRiesgBiologicos.setVisible(true);
+        JCHHongos.setVisible(true);
+        JCHVirus.setVisible(true);
+        JCHBacterias.setVisible(true);
+        JCHAnimVerteb.setVisible(true);
+        JCHAnimInv.setVisible(true);
+        JCHPelos.setVisible(true);
+        JCHPolen.setVisible(true);
+        JCHPlumas.setVisible(true);
+        JCHParasitos.setVisible(true);
+        JCHManResAnim.setVisible(true);
+        JCHManResVeget.setVisible(true);
+        JCHCuchillos.setVisible(true);
+        JCHJeringas.setVisible(true);
+        JCHBisturis.setVisible(true);
+        JCHDesIndustr.setVisible(true);
+        JCHBasuras.setVisible(true);
+        JCHBIologicos.setEnabled(true);
 
     }
 
     public void JRPsicolog_actionPerformed(ActionEvent e) {
-         procradio(JRPsicolog,JRBiologicos,JRFisicoquim,JRQuimic,JRFisicos,JRErgonomic,JRMecanicos,JRElectricos,JRLocativos);
-         llenarfactorriesgo(JCHPsicosociales,5);
-         //llenareleriesgo();
-         JPSeleccFact.setVisible(false);
-         procesopsico();
+        procradio(JRPsicolog, JRBiologicos, JRFisicoquim, JRQuimic, JRFisicos, JRErgonomic, JRMecanicos, JRElectricos, JRLocativos);
+        llenarfactorriesgo(JCHPsicosociales, 5);
+        //llenareleriesgo();
+        JPSeleccFact.setVisible(false);
+        procesopsico();
     }
 
     /**
@@ -2055,9 +2039,9 @@ public class CHistoriaOcup extends JInternalFrame {
     }
 
     public void JRMecanicos_actionPerformed(ActionEvent e) {
-        procradio(JRMecanicos,JRPsicolog,JRBiologicos,JRFisicoquim,JRQuimic,JRFisicos,JRErgonomic,JRElectricos,JRLocativos);
-        llenarfactorriesgo(JCHMecanicos,6);
-      //llenareleriesgo();
+        procradio(JRMecanicos, JRPsicolog, JRBiologicos, JRFisicoquim, JRQuimic, JRFisicos, JRErgonomic, JRElectricos, JRLocativos);
+        llenarfactorriesgo(JCHMecanicos, 6);
+        //llenareleriesgo();
         JPSeleccFact.setVisible(false);
         procesomecanico();
     }
@@ -2078,29 +2062,29 @@ public class CHistoriaOcup extends JInternalFrame {
     }
 
     public void JRElectricos_actionPerformed(ActionEvent e) {
-         procradio(JRElectricos,JRMecanicos,JRPsicolog,JRBiologicos,JRFisicoquim,JRQuimic,JRFisicos,JRErgonomic,JRLocativos);
-         llenarfactorriesgo(JCHElectricos,7);
-       //llenareleriesgo();
-         JPSeleccFact.setVisible(false);
-         procesoelectrico();
+        procradio(JRElectricos, JRMecanicos, JRPsicolog, JRBiologicos, JRFisicoquim, JRQuimic, JRFisicos, JRErgonomic, JRLocativos);
+        llenarfactorriesgo(JCHElectricos, 7);
+        //llenareleriesgo();
+        JPSeleccFact.setVisible(false);
+        procesoelectrico();
     }
 
     /**
      * procesoelectrico
      */
     public void procesoelectrico() {
-         ocultarelemtodos();
-         JLBRiesgElectricos.setVisible(true);
-         JCHBajaTension.setVisible(true);
-         JCHAltaTension.setVisible(true);
-         JCHCargaEst.setVisible(true);
-         JCHElectricos.setEnabled(true);
+        ocultarelemtodos();
+        JLBRiesgElectricos.setVisible(true);
+        JCHBajaTension.setVisible(true);
+        JCHAltaTension.setVisible(true);
+        JCHCargaEst.setVisible(true);
+        JCHElectricos.setEnabled(true);
     }
 
     public void JRLocativos_actionPerformed(ActionEvent e) {
-        procradio(JRLocativos,JRElectricos,JRMecanicos,JRPsicolog,JRBiologicos,JRFisicoquim,JRQuimic,JRFisicos,JRErgonomic);
-        llenarfactorriesgo(JCHLocativos,8);
-       //llenareleriesgo();
+        procradio(JRLocativos, JRElectricos, JRMecanicos, JRPsicolog, JRBiologicos, JRFisicoquim, JRQuimic, JRFisicos, JRErgonomic);
+        llenarfactorriesgo(JCHLocativos, 8);
+        //llenareleriesgo();
         JPSeleccFact.setVisible(false);
         procesolocativo();
     }
@@ -2126,16 +2110,16 @@ public class CHistoriaOcup extends JInternalFrame {
      * llenarseleccfact
      */
     public void llenarseleccfact() {
-       procradio(JRErgonomic,0);
-       procradio(JRFisicos,1);
-       procradio(JRQuimic,2);
-       procradio(JRFisicoquim,3);
-       procradio(JRBiologicos,4);
-       procradio(JRPsicolog,5);
-       procradio(JRMecanicos,6);
-       procradio(JRElectricos,7);
-       procradio(JRLocativos,8);
-       /*
+        procradio(JRErgonomic, 0);
+        procradio(JRFisicos, 1);
+        procradio(JRQuimic, 2);
+        procradio(JRFisicoquim, 3);
+        procradio(JRBiologicos, 4);
+        procradio(JRPsicolog, 5);
+        procradio(JRMecanicos, 6);
+        procradio(JRElectricos, 7);
+        procradio(JRLocativos, 8);
+        /*
         JRErgonomic.setSelected(llenarfactorriesgo(JCHErgonomicos,0));
         JRFisicos.setSelected(procbooleano(JCHFisicos));
         JRQuimic.setSelected(procbooleano(JCHQUIMICOS));
@@ -2150,31 +2134,31 @@ public class CHistoriaOcup extends JInternalFrame {
     /**
      * procbooleano
      */
-    public void procradio(JRadioButton JRvar,int numcol) {
-       JRvar.setSelected(procllenatfr(fact[JTabHO.getSelectedRow()][numcol]));
+    public void procradio(JRadioButton JRvar, int numcol) {
+        JRvar.setSelected(procllenatfr(fact[JTabHO.getSelectedRow()][numcol]));
     }
 
     /**
      * validarbajar
      */
     public void validarbajar() {
-        if(JTFEmprHO.getText().compareTo("")!=0 && JFTFechaEmprHO.getText().compareTo("")!=0 && JFTFechaFinEmrHO.getText().compareTo("")!=0 && JTFFactorRiesgoHO.getText().compareTo("")!=0 && JTFCargoHO.getText().compareTo("")!=0 && JTFTiempoExp.getText().compareTo("")!=0){
-              cad1="FAVOR PULSAR ENTER DESPUES DEL CARGO";
-              cad2="EL ITEM NO HA BAJADO";
-              validHO.mensajeconfirmacion(cad1,cad2);
-        }
-        else
+        if (JTFEmprHO.getText().compareTo("") != 0 && JFTFechaEmprHO.getText().compareTo("") != 0 && JFTFechaFinEmrHO.getText().compareTo("") != 0 && JTFFactorRiesgoHO.getText().compareTo("") != 0 && JTFCargoHO.getText().compareTo("") != 0 && JTFTiempoExp.getText().compareTo("") != 0) {
+            cad1 = "FAVOR PULSAR ENTER DESPUES DEL CARGO";
+            cad2 = "EL ITEM NO HA BAJADO";
+            validHO.mensajeconfirmacion(cad1, cad2);
+        } else {
             validarnulos();
+        }
     }
 
     public void JBAtrasAF_actionPerformed(ActionEvent e) {
-        CIngreso frameIngresoUsuario ;
-        frameIngresoUsuario=(CIngreso)frameHOOBJ;
+        CIngreso frameIngresoUsuario;
+        frameIngresoUsuario = (CIngreso) frameHOOBJ;
         frameIngresoUsuario.setVisible(true);
         CHistoriaOcup frameho;
-        frameho=(CHistoriaOcup)framehoOBJ;
+        frameho = (CHistoriaOcup) framehoOBJ;
         frameho.setVisible(false);
-   }
+    }
 
     /**
      * CHistoriaOcup
@@ -2185,13 +2169,12 @@ public class CHistoriaOcup extends JInternalFrame {
     /**
      * llenarelemriesgo
      */
-
-
 }//FIN CLASE
 
-
 class CHistoriaOcup_JBAtrasAF_actionAdapter implements ActionListener {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JBAtrasAF_actionAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2201,9 +2184,10 @@ class CHistoriaOcup_JBAtrasAF_actionAdapter implements ActionListener {
     }
 }
 
-
 class CHistoriaOcup_JRLocativos_actionAdapter implements ActionListener {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JRLocativos_actionAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2213,9 +2197,10 @@ class CHistoriaOcup_JRLocativos_actionAdapter implements ActionListener {
     }
 }
 
-
 class CHistoriaOcup_JRElectricos_actionAdapter implements ActionListener {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JRElectricos_actionAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2225,9 +2210,10 @@ class CHistoriaOcup_JRElectricos_actionAdapter implements ActionListener {
     }
 }
 
-
 class CHistoriaOcup_JRMecanicos_actionAdapter implements ActionListener {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JRMecanicos_actionAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2237,9 +2223,10 @@ class CHistoriaOcup_JRMecanicos_actionAdapter implements ActionListener {
     }
 }
 
-
 class CHistoriaOcup_JRPsicolog_actionAdapter implements ActionListener {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JRPsicolog_actionAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2249,9 +2236,10 @@ class CHistoriaOcup_JRPsicolog_actionAdapter implements ActionListener {
     }
 }
 
-
 class CHistoriaOcup_JRBiologicos_actionAdapter implements ActionListener {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JRBiologicos_actionAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2261,9 +2249,10 @@ class CHistoriaOcup_JRBiologicos_actionAdapter implements ActionListener {
     }
 }
 
-
 class CHistoriaOcup_JRFisicoquim_actionAdapter implements ActionListener {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JRFisicoquim_actionAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2273,9 +2262,10 @@ class CHistoriaOcup_JRFisicoquim_actionAdapter implements ActionListener {
     }
 }
 
-
 class CHistoriaOcup_JRQuimic_actionAdapter implements ActionListener {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JRQuimic_actionAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2285,9 +2275,10 @@ class CHistoriaOcup_JRQuimic_actionAdapter implements ActionListener {
     }
 }
 
-
 class CHistoriaOcup_JRFisicos_actionAdapter implements ActionListener {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JRFisicos_actionAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2297,9 +2288,10 @@ class CHistoriaOcup_JRFisicos_actionAdapter implements ActionListener {
     }
 }
 
-
 class CHistoriaOcup_JRErgonomic_actionAdapter implements ActionListener {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JRErgonomic_actionAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2309,9 +2301,10 @@ class CHistoriaOcup_JRErgonomic_actionAdapter implements ActionListener {
     }
 }
 
-
 class CHistoriaOcup_JCHLocativos_actionAdapter implements ActionListener {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JCHLocativos_actionAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2321,9 +2314,10 @@ class CHistoriaOcup_JCHLocativos_actionAdapter implements ActionListener {
     }
 }
 
-
 class CHistoriaOcup_JCHElectricos_actionAdapter implements ActionListener {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JCHElectricos_actionAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2333,9 +2327,10 @@ class CHistoriaOcup_JCHElectricos_actionAdapter implements ActionListener {
     }
 }
 
-
 class CHistoriaOcup_JCHMecanicos_actionAdapter implements ActionListener {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JCHMecanicos_actionAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2345,9 +2340,10 @@ class CHistoriaOcup_JCHMecanicos_actionAdapter implements ActionListener {
     }
 }
 
-
 class CHistoriaOcup_JCHPsicosociales_actionAdapter implements ActionListener {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JCHPsicosociales_actionAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2357,9 +2353,10 @@ class CHistoriaOcup_JCHPsicosociales_actionAdapter implements ActionListener {
     }
 }
 
-
 class CHistoriaOcup_JCHFisicoQuimicos_actionAdapter implements ActionListener {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JCHFisicoQuimicos_actionAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2369,9 +2366,10 @@ class CHistoriaOcup_JCHFisicoQuimicos_actionAdapter implements ActionListener {
     }
 }
 
-
 class CHistoriaOcup_JCHBIologicos_actionAdapter implements ActionListener {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JCHBIologicos_actionAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2381,9 +2379,10 @@ class CHistoriaOcup_JCHBIologicos_actionAdapter implements ActionListener {
     }
 }
 
-
 class CHistoriaOcup_JCHQUIMICOS_actionAdapter implements ActionListener {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JCHQUIMICOS_actionAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2393,9 +2392,10 @@ class CHistoriaOcup_JCHQUIMICOS_actionAdapter implements ActionListener {
     }
 }
 
-
 class CHistoriaOcup_JCHFisicos_actionAdapter implements ActionListener {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JCHFisicos_actionAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2405,9 +2405,10 @@ class CHistoriaOcup_JCHFisicos_actionAdapter implements ActionListener {
     }
 }
 
-
 class CHistoriaOcup_JCHErgonomicos_actionAdapter implements ActionListener {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JCHErgonomicos_actionAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2417,9 +2418,10 @@ class CHistoriaOcup_JCHErgonomicos_actionAdapter implements ActionListener {
     }
 }
 
-
 class CHistoriaOcup_JCHParasitos_actionAdapter implements ActionListener {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JCHParasitos_actionAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2429,9 +2431,10 @@ class CHistoriaOcup_JCHParasitos_actionAdapter implements ActionListener {
     }
 }
 
-
 class CHistoriaOcup_JCBElemRiesgo_keyAdapter extends KeyAdapter {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JCBElemRiesgo_keyAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2441,9 +2444,10 @@ class CHistoriaOcup_JCBElemRiesgo_keyAdapter extends KeyAdapter {
     }
 }
 
-
 class CHistoriaOcup_JCBFactorRiesg_keyAdapter extends KeyAdapter {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JCBFactorRiesg_keyAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2453,9 +2457,10 @@ class CHistoriaOcup_JCBFactorRiesg_keyAdapter extends KeyAdapter {
     }
 }
 
-
 class CHistoriaOcup_JTFCargoHO_keyAdapter extends KeyAdapter {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JTFCargoHO_keyAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2465,9 +2470,10 @@ class CHistoriaOcup_JTFCargoHO_keyAdapter extends KeyAdapter {
     }
 }
 
-
 class CHistoriaOcup_JTFCargoHO_actionAdapter implements ActionListener {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JTFCargoHO_actionAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2477,9 +2483,10 @@ class CHistoriaOcup_JTFCargoHO_actionAdapter implements ActionListener {
     }
 }
 
-
 class CHistoriaOcup_JTFEmprHO_keyAdapter extends KeyAdapter {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JTFEmprHO_keyAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2489,9 +2496,10 @@ class CHistoriaOcup_JTFEmprHO_keyAdapter extends KeyAdapter {
     }
 }
 
-
 class CHistoriaOcup_JBSgteAF_actionAdapter implements ActionListener {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JBSgteAF_actionAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2501,9 +2509,10 @@ class CHistoriaOcup_JBSgteAF_actionAdapter implements ActionListener {
     }
 }
 
-
 class CHistoriaOcup_JTabHO_mouseAdapter extends MouseAdapter {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JTabHO_mouseAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2513,9 +2522,10 @@ class CHistoriaOcup_JTabHO_mouseAdapter extends MouseAdapter {
     }
 }
 
-
 class CHistoriaOcup_JTFTiempoExp_keyAdapter extends KeyAdapter {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JTFTiempoExp_keyAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2525,9 +2535,10 @@ class CHistoriaOcup_JTFTiempoExp_keyAdapter extends KeyAdapter {
     }
 }
 
-
 class CHistoriaOcup_jCalendar2_mouseAdapter extends MouseAdapter {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_jCalendar2_mouseAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2537,9 +2548,10 @@ class CHistoriaOcup_jCalendar2_mouseAdapter extends MouseAdapter {
     }
 }
 
-
 class CHistoriaOcup_JFTFechaFinEmrHO_focusAdapter extends FocusAdapter {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JFTFechaFinEmrHO_focusAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2549,9 +2561,10 @@ class CHistoriaOcup_JFTFechaFinEmrHO_focusAdapter extends FocusAdapter {
     }
 }
 
-
 class CHistoriaOcup_JTFFactorRiesgoHO_keyAdapter extends KeyAdapter {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JTFFactorRiesgoHO_keyAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2561,9 +2574,10 @@ class CHistoriaOcup_JTFFactorRiesgoHO_keyAdapter extends KeyAdapter {
     }
 }
 
-
 class CHistoriaOcup_JFTFechaFinEmrHO_keyAdapter extends KeyAdapter {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JFTFechaFinEmrHO_keyAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2573,9 +2587,10 @@ class CHistoriaOcup_JFTFechaFinEmrHO_keyAdapter extends KeyAdapter {
     }
 }
 
-
 class CHistoriaOcup_jCalendar1_mouseAdapter extends MouseAdapter {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_jCalendar1_mouseAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2585,9 +2600,10 @@ class CHistoriaOcup_jCalendar1_mouseAdapter extends MouseAdapter {
     }
 }
 
-
 class CHistoriaOcup_JFTFechaEmprHO_focusAdapter extends FocusAdapter {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JFTFechaEmprHO_focusAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
@@ -2597,9 +2613,10 @@ class CHistoriaOcup_JFTFechaEmprHO_focusAdapter extends FocusAdapter {
     }
 }
 
-
 class CHistoriaOcup_JFTFechaEmprHO_keyAdapter extends KeyAdapter {
+
     private CHistoriaOcup adaptee;
+
     CHistoriaOcup_JFTFechaEmprHO_keyAdapter(CHistoriaOcup adaptee) {
         this.adaptee = adaptee;
     }
